@@ -1,25 +1,21 @@
 <?php
-// Start session
 session_start();
 
-// Include database connection
-require_once '../Database/db.php';
-
-if ($_SESSION['role'] !== 'conveyancer') {
+// Check if user is logged in and is an admin
+if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
     header("Location: ../index.php");
-
     exit();
 }
-?>
 
+require_once '../Database/db.php';
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Conveyancer Dashboard</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
+    <title>Admin Dashboard</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -144,46 +140,41 @@ if ($_SESSION['role'] !== 'conveyancer') {
 <body>
 <header>
     <img src="../assets/images/mslogo.png" alt="Logo"> <!-- Add your logo -->
-    <h1>Welcome, <?php echo isset($_SESSION['username']) ? htmlspecialchars($_SESSION['username']) : 'Guest'; ?> to rate clearance dashboard</h1>
-
+    <h1>WELCOME TO ADMIN DASHBOARD</h1>
 </header>
 <nav>
-    <a href="../index.php?page=home"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
-
+    <a href="index.php?page=home">Dashboard</a>
     <div class="dropdown">
-        <a href="../index.php?page=register"><i class="fas fa-home"></i> Property Management</a>
-
+        <a href="index.php?page=register">User Management</a>
         <div class="dropdown-content">
-            <a href="add_property.php">Add Property</a>
-            <a href="update_property.php">Update Property</a>
-            <a href="view_properties.php">View Property</a>
-            <a href="delete_property.php">Delete property</a>
+            <a href="add_user.php">Add User</a>
+            <a href="view_users.php">View Users</a>
+            <a href="delete_user.php">Delete User</a>
         </div>
     </div>
     <div class="dropdown">
-        <a href="../index.php?page=login"><i class="fas fa-file-alt"></i> Application Management</a>
-
+        <a href="index.php?page=login">Application Management</a>
         <div class="dropdown-content">
             <a href="view_applications.php">View Applications</a>
-            <a href="approve_applications.php">Application Status</a>
-            <a href="reject_applications.php">Application History</a>
+            <a href="approve_applications.php">Approve Applications</a>
+            <a href="reject_applications.php">Reject Applications</a>
         </div>
     </div>
-    <a href="./logout.php">Log Out</a>
-
-    <a href="../index.php?page=services">Services</a>
-    
+    <a href="index.php?page=services">Log_out</a>
+    <a href="index.php?page=services">Services</a>
+    <a href="index.php?page=contacts">Contacts</a>
+    <a href="index.php?page=about">About</a>
 </nav>
-<div class="dashboard-container">
-    
+
+<main>
     <div class="dashboard-grid">
         <div class="dashboard-card">
-            <h3><i class="fas fa-clock"></i> Recent Applications</h3>
-
+            <h3>Recent Applications</h3>
             <?php
             if (isset($_SESSION['user_id'])) {
-                $userId = $_SESSION['user_id'];
-                $query = "SELECT * FROM rate_clearance_applications WHERE user_id = ? ORDER BY created_at DESC LIMIT 5";
+                $userId = $_SESSION['user_id']; // Ensure $userId is defined
+
+                $query = "SELECT * FROM applications WHERE user_id = ? ORDER BY created_at DESC LIMIT 5";
                 $stmt = $pdo->prepare($query);
                 $stmt->bindValue(1, $userId, PDO::PARAM_INT);
                 $stmt->execute();
@@ -192,8 +183,7 @@ if ($_SESSION['role'] !== 'conveyancer') {
                 if (count($result) > 0) {
                     echo '<ul>';
                     foreach ($result as $row) {
-                        echo '<li><a href="view_application.php?id=' . $row['id'] . '">' . htmlspecialchars($row['applicant_name']) . ' - ' . $row['status'] . '</a> | <a href="update_property.php?id=' . $row['id'] . '">Update</a></li>';
-
+                        echo '<li><a href="view_application.php?id=' . $row['id'] . '">' . htmlspecialchars($row['application_ref']) . ' - ' . $row['status'] . '</a></li>';
                     }
                     echo '</ul>';
                 } else {
@@ -206,22 +196,41 @@ if ($_SESSION['role'] !== 'conveyancer') {
         </div>
         
         <div class="dashboard-card">
-            <h3><i class="fas fa-bell"></i> Notifications</h3>
+            <h3>Notifications</h3>
+            <ul>
+                <?php
+                // Fetch notifications from the application database 
+                $notificationQuery = "SELECT id, status, created_at FROM rate_clearance_applications WHERE user_id = ? ORDER BY created_at DESC"; // Updated to match schema
 
-            <p>No new notifications</p>
+
+                $notificationStmt = $pdo->prepare($notificationQuery);
+                $notificationStmt->bindValue(1, $userId, PDO::PARAM_INT);
+                $notificationStmt->execute();
+                $notifications = $notificationStmt->fetchAll();
+
+                if (count($notifications) > 0) {
+                    foreach ($notifications as $notification) {
+                        echo '<li>' . htmlspecialchars($notification['application_ref']) . ' - ' . htmlspecialchars($notification['status']) . ' - ' . htmlspecialchars($notification['created_at']) . ' - ' . htmlspecialchars($notification['property_address']) . '</li>';
+
+                    }
+                } else {
+                    echo '<li>No new notifications</li>';
+                }
+                ?>
+            </ul>
         </div>
         
         <div class="dashboard-card">
-            <h3><i class="fas fa-cogs"></i> Quick Actions</h3>
-
+            <h3>Quick Actions</h3>
             <ul>
-                <li><a href="add_property.php">Add New Property</a></li>
-                <li><a href="view_properties.php">View Property</a></li>
-                <li><a href="apply_rates.php">Apply for Rates</a></li>
-                <li><a href="view_applications.php">View All Applications</a></li>
+                <li><a href="calculate_rate.php">Calculate Rates</a></li>
+                <li><a href="reports.php">Reports</a></li>
+                <li><a href="application.php">Apply for Rates</a></li>
+                <li><a href="view_history.php">View All Applications</a></li>
+                <li><a href="download_documents.php">Download Documents</a></li>
             </ul>
         </div>
     </div>
-</div>
+</main>
 </body>
 </html>

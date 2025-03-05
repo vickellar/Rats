@@ -3,7 +3,7 @@
 session_start();
 
 // Include database connection file
-require 'db.php'; // Ensure you have a db.php file for database connection
+require '../Database/db.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Retrieve form data
@@ -14,30 +14,64 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = $_POST['email'];
     $password = $_POST['password'];
     $confirm_password = $_POST['confirm_password'];
+    $role = $_POST['role'];
 
     // Validate input data
+    $errors = [];
     if ($password !== $confirm_password) {
-        die("Passwords do not match.");
+        $errors[] = "Passwords do not match.";
+    }
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $errors[] = "Invalid email format.";
     }
 
-    // Hash the password
-    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+    if (empty($errors)) {
+        try {
+            // Hash the password
+            $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-    // Prepare SQL statement to insert user data
-    $stmt = $conn->prepare("INSERT INTO users (first_name, surname, username, phone, email, password) VALUES (?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param("ssssss", $first_name, $surname, $username, $phone, $email, $hashed_password);
+            // Check if user exists
+            $sql = "SELECT * FROM users WHERE email = :email OR username = :username";
+            $stmt = $pdo->prepare($sql);
+            $stmt->execute([':email' => $email, ':username' => $username]);
+            
+            if ($stmt->rowCount() > 0) {
+                $errors[] = "Username or email already exists.";
+            } else {
+                // Insert new user
+                $sql = "INSERT INTO users (first_name, surname, username, phone, email, password, role) 
+                        VALUES (:first_name, :surname, :username, :phone, :email, :password, :role)";
+                $stmt = $pdo->prepare($sql);
+                $stmt->execute([
+                    ':first_name' => $first_name,
+                    ':surname' => $surname,
+                    ':username' => $username,
+                    ':phone' => $phone,
+                    ':email' => $email,
+                    ':password' => $hashed_password,
+                    ':role' => $role
+                ]);
 
-    // Execute the statement
-    if ($stmt->execute()) {
-        echo "Registration successful!";
-        // Optionally redirect to a login page or dashboard
-        // header("Location: login.php");
-    } else {
-        echo "Error: " . $stmt->error;
+                // If role is admin or finance_director, add to employees table
+                if ($role === 'admin' || $role === 'finance_director') {
+                    $sql = "INSERT INTO employees (first_name, surname, email, phone_number) 
+                            VALUES (:first_name, :surname, :email, :phone)";
+                    $stmt = $pdo->prepare($sql);
+                    $stmt->execute([
+                        ':first_name' => $first_name,
+                        ':surname' => $surname,
+                        ':email' => $email,
+                        ':phone' => $phone
+                    ]);
+                }
+
+                header("Location: adminDashboard.php");
+                exit();
+            }
+        } catch (PDOException $e) {
+            $errors[] = "Database error: " . $e->getMessage();
+        }
     }
 
-    // Close the statement and connection
-    $stmt->close();
-    $conn->close();
 }
 ?>

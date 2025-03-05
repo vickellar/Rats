@@ -26,7 +26,7 @@
         }
         h1 {
             text-align: center;
-            color: #333;
+            color: #0f0f0f;
             margin-top: 20px;
         }
         .header {
@@ -45,7 +45,7 @@
             margin-right: 10px;
         }
         .date-container {
-            display: flex;
+            display:flex;
             margin-right: 20px;
             flex-direction: column;
             align-items: flex-start;
@@ -56,10 +56,10 @@
         label {
             display: block;
             margin-bottom: 5px;
-            color: #555;
+            color: #000000;
         }
         input[type="text"], input[type="date"], select, textarea {
-            width: 100%;
+            width: 200px;
             padding: 10px;
             border: 1px solid #ccc;
             border-radius: 4px;
@@ -70,7 +70,7 @@
             outline: none;
         }
         textarea {
-            width: 100%;
+            width: 250px;
             padding: 10px;
             border: 1px solid #ccc;
             border-radius: 4px;
@@ -119,7 +119,7 @@
 
     <div class="form-container">
         <div class="header">
-            <img src="/Rates/log/takura.png" alt="Company Logo" class="logo">
+            <img src="../assets/images/mslogo.png" alt="Logo" class="logo">
             <div class="address">
                 <p>CITY OF MASVINGO</p>
                 <p>P.O BOX 17</p>
@@ -128,7 +128,7 @@
         </div>
         <div class="date-container">
             <label for="certificateDate">Date:</label>
-            <input type="date" id="certificateDate" name="certificateDate" required>
+            <input type="date" id="certificateDate" name="certificateDate" size="30" required>
         </div>
 
         <h1>CERTIFICATE</h1>
@@ -229,10 +229,10 @@
                     canvas.height = img.height;
                     const ctx = canvas.getContext('2d');
                     ctx.drawImage(img, 50, 50);
-                    resolve(canvas.toDataURL('./'));
+                    resolve(canvas.toDataURL('../assets/images/QRcode.png'));
                 };
                 img.onerror = reject;
-                img.src = url;
+                img.src = "../assets/images/QRcode.png";
             });
         }
     </script>
