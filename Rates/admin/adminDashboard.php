@@ -225,10 +225,10 @@ require_once '../Database/db.php';
                 if (count($notifications) > 0) {
                     foreach ($notifications as $notification) {
                         echo '<li>';
-                        echo htmlspecialchars($notification['first_name']) . ' ' . htmlspecialchars($notification['surname']) . ' - ';
-                        echo htmlspecialchars($notification['property_address']) . ' (' . htmlspecialchars($notification['property_owner']) . ') - ';
-                        echo htmlspecialchars($notification['status']) . ' - ';
-                        echo htmlspecialchars($notification['created_at']);
+                        echo '<a href = " ">' . htmlspecialchars($notification['first_name']) . ' ' . htmlspecialchars($notification['surname']) . '- </a>';
+                        echo '<a>'. htmlspecialchars($notification['property_address']). ''. htmlspecialchars($notification['property_owner']). '- </a>'  . htmlspecialchars($notification['status']). '' .htmlspecialchars($notification['created_at']);
+                        //echo htmlspecialchars($notification['status']) . ' - ';
+                        //echo htmlspecialchars($notification['created_at']);
                         echo '</li>';
                     }
                 } else {
