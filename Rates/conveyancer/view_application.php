@@ -11,7 +11,7 @@ if (empty($_SESSION['role']) || $_SESSION['role'] !== 'conveyancer' ||
 require_once '../Database/db.php';
 
 // Get application ID from URL
-$application_id = $_GET['id'] ?? null;
+$application_id = $_GET['application_id'] ?? null;
 
 if (!$application_id) {
     header("Location: cdashboard.php");
@@ -19,7 +19,7 @@ if (!$application_id) {
 }
 
 // Fetch application details
-$query = "SELECT * FROM rate_clearance_applications WHERE id = :id AND user_id = :user_id";
+$query = "SELECT * FROM rate_clearance_applications WHERE application_id = :application_id AND user_id = :user_id";
 $stmt = $pdo->prepare($query);
 $stmt->bindValue(':id', $application_id, PDO::PARAM_INT);
 $stmt->bindValue(':user_id', $_SESSION['user_id'], PDO::PARAM_INT);
@@ -50,7 +50,7 @@ if (!$application) {
         <h1>Application Details</h1>
         
         <div class="application-details">
-            <h2><?php echo htmlspecialchars($application['application_ref']); ?></h2>
+            <h2><?php echo htmlspecialchars($application['application_id']); ?></h2>
             
             <div class="detail-row">
                 <span class="label">Status:</span>

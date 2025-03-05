@@ -192,7 +192,7 @@ if ($_SESSION['role'] !== 'conveyancer') {
                 if (count($result) > 0) {
                     echo '<ul>';
                     foreach ($result as $row) {
-                        echo '<li><a href="view_application.php?id=' . $row['id'] . '">' . htmlspecialchars($row['applicant_name']) . ' - ' . $row['status'] . '</a> | <a href="update_property.php?id=' . $row['id'] . '">Update</a></li>';
+                        echo '<li><a href="view_application.php?id=' . $row['application_id'] . '">' . htmlspecialchars($row['applicant_name']) . ' - ' . $row['status'] . '</a> | <a href="update_property.php?id=' . $row['application_id'] . '">Update</a></li>';
 
                     }
                     echo '</ul>';
