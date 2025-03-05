@@ -1,5 +1,5 @@
 CREATE TABLE rate_clearance_applications (
-    id INT AUTO_INCREMENT PRIMARY KEY,
+    application_id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT NOT NULL,
     property_id INT NOT NULL,
     applicant_name VARCHAR(255) NOT NULL,
