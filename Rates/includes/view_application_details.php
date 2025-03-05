@@ -1,5 +1,5 @@
 <?php
-/*
+
 session_start();
 
 // Check if user is logged in and is an admin
@@ -11,12 +11,13 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
 require_once '../Database/db.php';
 
 // Check if application ID is provided
-if (!isset($_GET['id'])) {
-    echo "Application ID not provided.";
-    exit();
-}
+// if (!isset($_GET['id'])) {
+//     header("Location: ../error.php?error=Application ID not provided");
 
-$application_id = $_GET['id'];
+//     exit();
+// }
+
+//$application_id = $_GET['application_id'];
 
 // Fetch application details
 $applicationQuery = "
@@ -49,10 +50,11 @@ $applicationStmt->execute([$application_id]);
 $application = $applicationStmt->fetch();
 
 if (!$application) {
-    echo "Application not found.";
+    header("Location: ../error.php?error=Application not found");
+
     exit();
 }
-*/
+
 ?>
 
 <!DOCTYPE html>
@@ -150,9 +152,16 @@ if (!$application) {
     </div>
     <div class="documents">
         <h3>Documents</h3>
-        <a href="<?php echo htmlspecialchars($application['title_deed']); ?>" target="_blank">Title Deed</a>
-        <a href="<?php echo htmlspecialchars($application['identity_proof']); ?>" target="_blank">Proof of Identity</a>
-        <a href="<?php echo htmlspecialchars($application['additional_documents']); ?>" target="_blank">Additional Documents</a>
+        <?php if (file_exists($application['title_deed'])): ?>
+            <a href="<?php echo htmlspecialchars($application['title_deed']); ?>" target="_blank">Title Deed</a>
+        <?php endif; ?>
+        <?php if (file_exists($application['identity_proof'])): ?>
+            <a href="<?php echo htmlspecialchars($application['identity_proof']); ?>" target="_blank">Proof of Identity</a>
+        <?php endif; ?>
+        <?php if (file_exists($application['additional_documents'])): ?>
+            <a href="<?php echo htmlspecialchars($application['additional_documents']); ?>" target="_blank">Additional Documents</a>
+        <?php endif; ?>
+
     </div>
 </main>
 </body>
