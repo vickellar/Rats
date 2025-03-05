@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificate Application Form</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-qrcode/1.0/jquery.qrcode.min.js"></script>
+    <style>
+        body {
+            font-family:'Times New Roman', Times, serif;
+            background-color: #f4f4f4;
+            margin: 20px;
+            padding: 20px;
+        }
+        .form-container {
+            background-color: #ffffff;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: auto;
+            position: relative;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-top: 20px;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+        .logo {
+            width: 120px;
+            height: auto;
+        }
+        .address {
+            text-align: left;
+            color: #1c1b1b;
+            margin-right: 10px;
+        }
+        .date-container {
+            display: flex;
+            margin-right: 20px;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+        }
+        input[type="text"], input[type="date"], select, textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            transition: border-color 0.3s;
+        }
+        input[type="text"]:focus, input[type="date"]:focus, textarea:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            transition: border-color 0.3s;
+            box-sizing: 50px;
+        }
+        .inline-group {
+            display: flex;
+            justify-content: space-between;
+        }
+        .inline-group .form-group {
+            flex: 1;
+            margin-right: 10px;
+        }
+        .inline-group .form-group:last-child {
+            margin-right: 0;
+        }
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            flex: 1;
+            margin-right: 10px;
+        }
+        button:last-child {
+            margin-right: 0;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .qr-code {
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        <div class="header">
+            <img src="/Rates/log/takura.png" alt="Company Logo" class="logo">
+            <div class="address">
+                <p>CITY OF MASVINGO</p>
+                <p>P.O BOX 17</p>
+                <p>MASVINGO</p>
+            </div>
+        </div>
+        <div class="date-container">
+            <label for="certificateDate">Date:</label>
+            <input type="date" id="certificateDate" name="certificateDate" required>
+        </div>
+
+        <h1>CERTIFICATE</h1>
+
+        <p>In terms of Section 282 of the Urban Council Act, Chapter 29:15 THIS IS TO CLARIFY that there are no arrears of rates, fees, 
+             charges or advance owing to the City of Masvingo in respect to the following property at this date:</p>
+        
+        <form id="certificateForm">
+            <div class="inline-group">
+                <div class="form-group">
+                    <label for="registeredOwner">Registered Owner:</label>
+                    <textarea id="registeredOwner" name="registeredOwner" placeholder="Enter registered owner name" required rows="3" style="resize: none;"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="propertyAddress">Property Address:</label>
+                    <textarea id="propertyAddress" name="propertyAddress" placeholder="Enter property address" required rows="3" style="resize: none;"></textarea>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="certificateExpiry">THIS CERTIFICATE IS ONLY VALID UP TO AND INCLUDING:</label>
+                <input type="date" id="certificateExpiry" name="certificateExpiry" required>
+            </div>
+
+            <div class="form-group">
+                <label for="applicantAddress">Applicant Address:</label>
+                <input type="text" id="applicantAddress" name="applicantAddress" placeholder="Enter applicant address" required>
+            </div>
+
+            <div class="inline-group">
+                <div class="form-group">
+                    <label for="agentAddress">Agent's Address:</label>
+                    <textarea id="agentAddress" name="agentAddress" placeholder="Enter agent's address" required rows="3" style="resize: none;"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="financeDirector">Finance Director Signature:</label>
+                    <input type="text" id="financeDirector" name="financeDirector" placeholder="Enter finance director name" required>
+                </div>
+            </div>
+
+            <div class="button-container">
+                <button type="submit">Submit Application</button>
+                <button type="button" onclick="generatePDF()">Generate PDF</button>
+            </div>
+        </form>
+
+        <div class="qr-code">
+            <img id="qrCodeImage" src="/Rates/log/QRcode.png" alt="QR Code" style="display:none;">
+        </div>
+    </div>
+
+    <script>
+        async function generatePDF() {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+
+            // Fetch form data
+            const date = document.getElementById('certificateDate').value;
+            const registeredOwner = document.getElementById('registeredOwner').value;
+            const propertyAddress = document.getElementById('propertyAddress').value;
+            const certificateExpiry = document.getElementById('certificateExpiry').value;
+            const applicantAddress = document.getElementById('applicantAddress').value;
+            const agentAddress = document.getElementById('agentAddress').value;
+            const financeDirector = document.getElementById('financeDirector').value;
+
+            // Add form data to PDF
+            doc.setFontSize(12);
+            doc.text(`Date: ${date}`, 20, 80);
+            doc.text(`Registered Owner: ${registeredOwner}`, 20, 90);
+            doc.text(`Property Address: ${propertyAddress}`, 20, 100);
+            doc.text(`Certificate Expiry Date: ${certificateExpiry}`, 20, 110);
+            doc.text(`Applicant Address: ${applicantAddress}`, 20, 120);
+            doc.text(`Agent's Address: ${agentAddress}`, 20, 130);
+            doc.text(`Finance Director Signature: ${financeDirector}`, 20, 140);
+
+            // Generate QR Code
+            const qrCodeData = `Owner: ${registeredOwner}\nAddress: ${propertyAddress}\nExpiry: ${certificateExpiry}`;
+            const qrCodeCanvas = document.createElement('canvas');
+            
+            $(qrCodeCanvas).qrcode({ width: 100, height: 100, text: qrCodeData });
+            
+            // Convert QR Code to image data
+            const qrCodeImageData = qrCodeCanvas.toDataURL('image/png');
+
+            // Add QR Code to PDF
+            doc.addImage(qrCodeImageData, 'PNG', 150, 60, 40, 40); // Adjust position and size as needed
+
+            // Save the PDF
+            doc.save('certificate_application.pdf');
+        }
+
+        function loadImage(url) {
+            return new Promise((resolve, reject) => {
+                const img = new Image();
+                img.onload = function() {
+                    const canvas = document.createElement('canvas');
+                    canvas.width = img.width;
+                    canvas.height = img.height;
+                    const ctx = canvas.getContext('2d');
+                    ctx.drawImage(img, 50, 50);
+                    resolve(canvas.toDataURL('./'));
+                };
+                img.onerror = reject;
+                img.src = url;
+            });
+        }
+    </script>
+
+</body>
+</html>
