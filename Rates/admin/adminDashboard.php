@@ -160,7 +160,7 @@ require_once '../Database/db.php';
             <a href="reject_applications.php">Reject Applications</a>
         </div>
     </div>
-    <a href="index.php?page=services">Log_out</a>
+    <a href="index.php?page=logout">Log Out</a>
     <a href="index.php?page=services">Services</a>
     <a href="index.php?page=contacts">Contacts</a>
     <a href="index.php?page=about">About</a>
@@ -200,18 +200,36 @@ require_once '../Database/db.php';
             <ul>
                 <?php
                 // Fetch notifications from the application database 
-                $notificationQuery = "SELECT id, status, created_at FROM rate_clearance_applications WHERE user_id = ? ORDER BY created_at DESC"; // Updated to match schema
-
-
+                $notificationQuery = "
+                    SELECT 
+                        a.application_id, 
+                        a.status, 
+                        a.created_at, 
+                        u.first_name, 
+                        u.surname, 
+                        p.address AS property_address, 
+                        p.owner AS property_owner
+                    FROM 
+                        rate_clearance_applications a
+                    JOIN 
+                        users u ON a.user_id = u.user_id
+                    JOIN 
+                        properties p ON a.property_id = p.property_id
+                    ORDER BY 
+                        a.created_at DESC
+                ";
                 $notificationStmt = $pdo->prepare($notificationQuery);
-                $notificationStmt->bindValue(1, $userId, PDO::PARAM_INT);
                 $notificationStmt->execute();
                 $notifications = $notificationStmt->fetchAll();
 
                 if (count($notifications) > 0) {
                     foreach ($notifications as $notification) {
-                        echo '<li>' . htmlspecialchars($notification['application_ref']) . ' - ' . htmlspecialchars($notification['status']) . ' - ' . htmlspecialchars($notification['created_at']) . ' - ' . htmlspecialchars($notification['property_address']) . '</li>';
-
+                        echo '<li>';
+                        echo htmlspecialchars($notification['first_name']) . ' ' . htmlspecialchars($notification['surname']) . ' - ';
+                        echo htmlspecialchars($notification['property_address']) . ' (' . htmlspecialchars($notification['property_owner']) . ') - ';
+                        echo htmlspecialchars($notification['status']) . ' - ';
+                        echo htmlspecialchars($notification['created_at']);
+                        echo '</li>';
                     }
                 } else {
                     echo '<li>No new notifications</li>';
