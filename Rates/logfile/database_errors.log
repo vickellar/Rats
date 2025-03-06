@@ -1,6 +1,68 @@
-[2025-02-27 10:49:57] Database Error: Database connection failed: SQLSTATE[HY000] [2019] Unknown character set
-[2025-02-27 10:56:25] Database Error: Database connection failed: SQLSTATE[HY000] [2019] Unknown character set
-Database error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'rate_clearance_system.employee' doesn't exist in C:\xampp\htdocs\Rats\Rates\signin.php on line 442025-03-06 08:42:56
-Database connection failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'properties.id' in 'on clause'
-2025-03-06 08:43:18 - Database connection failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'properties.id' in 'on clause'
-2025-03-06 09:00:55 - Database connection failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'properties.id' in 'on clause'
+2025-03-06 10:19:25 - Database connection failed: SQLSTATE[HY000] [1045] Access denied for user ''@'localhost' (using password: NO)
+Database error: SQLSTATE[HY000] [1045] Access denied for user ''@'localhost' (using password: NO) in C:\xampp\htdocs\Rats\Rates\includes\catch_error.php on line 42025-03-06 10:20:05 - Database connection failed: SQLSTATE[HY000] [1045] Access denied for user ''@'localhost' (using password: NO)
+Database error: SQLSTATE[HY000] [1045] Access denied for user ''@'localhost' (using password: NO) in C:\xampp\htdocs\Rats\Rates\includes\catch_error.php on line 4Database error: SQLSTATE[HY000] [1045] Access denied for user ''@'localhost' (using password: NO) in C:\xampp\htdocs\Rats\Rates\includes\catch_error.php on line 42025-03-06 10:28:07 - Database connection failed: SQLSTATE[HY000] [1045] Access denied for user ''@'localhost' (using password: NO)
+Database error: SQLSTATE[HY000] [1045] Access denied for user ''@'localhost' (using password: NO) in C:\xampp\htdocs\Rats\Rates\includes\catch_error.php on line 42025-03-06 10:28:27 - Database connection failed: SQLSTATE[HY000] [1045] Access denied for user ''@'localhost' (using password: NO)
+2025-03-06 10:29:32 - Database connection failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'properties.id' in 'on clause'
+Database error: SQLSTATE[HY000] [1045] Access denied for user ''@'localhost' (using password: NO) in C:\xampp\htdocs\Rats\Rates\includes\catch_error.php on line 42025-03-06 10:29:32 - Database connection failed: SQLSTATE[HY000] [1045] Access denied for user ''@'localhost' (using password: NO)
+2025-03-06 10:33:26 - Database connection failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'properties.id' in 'on clause'
+2025-03-06 10:33:26 - Database connection failed: SQLSTATE[HY000] [1045] Access denied for user ''@'localhost' (using password: NO)
+Database error: SQLSTATE[HY000] [1045] Access denied for user ''@'localhost' (using password: NO) in C:\xampp\htdocs\Rats\Rates\includes\catch_error.php on line 4
+
+2025-03-06 10:35:09 - Database connection failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'properties.id' in 'on clause'
+Database error: SQLSTATE[HY000] [1045] Access denied for user ''@'localhost' (using password: NO) in C:\xampp\htdocs\Rats\Rates\includes\catch_error.php on line 4
+
+2025-03-06 10:37:51 - Database connection failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'properties.id' in 'on clause'
+
+
+2025-03-06 10:42:52 - Database connection failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'properties.id' in 'on clause'
+
+
+2025-03-06 10:44:00 - Database connection failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'properties.id' in 'on clause'
+
+
+2025-03-06 11:03:57 - Database connection failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'properties.id' in 'on clause'
+
+
+2025-03-06 11:41:34 - Database connection failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'properties.id' in 'on clause'
+
+
+2025-03-06 11:43:43 - Database connection failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'properties.id' in 'on clause'
+
+
+2025-03-06 11:45:28 - Database connection failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'properties.id' in 'on clause'
+
+
+2025-03-06 11:45:30 - Database connection failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'properties.id' in 'on clause'
+
+
+2025-03-06 11:47:20 - Database connection failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'properties.id' in 'on clause'
+
+
+2025-03-06 11:47:28 - Database connection failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'properties.id' in 'on clause'
+
+
+2025-03-06 12:23:29 - Database connection failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'properties.id' in 'on clause'
+
+
+2025-03-06 12:24:01 - Database connection failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'properties.id' in 'on clause'
+
+
+2025-03-06 12:24:05 - Database connection failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'properties.id' in 'on clause'
+
+
+2025-03-06 12:25:00 - Database connection failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'properties.id' in 'on clause'
+
+
+2025-03-06 12:26:36 - Database connection failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'properties.id' in 'on clause'
+
+
+2025-03-06 12:26:43 - Database connection failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'properties.id' in 'on clause'
+
+
+2025-03-06 12:37:36 - Database connection failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'properties.id' in 'on clause'
+
+
+2025-03-06 12:59:38 - Database connection failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'properties.id' in 'on clause'
+
+
+2025-03-06 13:15:19 - Database connection failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'properties.id' in 'on clause'
