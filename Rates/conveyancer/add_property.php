@@ -4,6 +4,16 @@ session_start(); // Start the session
 echo "user_is" . $_SESSION['user_id'];
 
 // Check if the user is logged in;
+
+// Check if user is logged in and has required session data
+if (empty($_SESSION['role']) || $_SESSION['role'] !== 'conveyancer' || 
+    empty($_SESSION['user_id']) || empty($_SESSION['username'])) {
+    header("Location: index.php");
+    exit();
+}
+
+
+
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['add_property'])) {
     $address = $_POST["address"];
     $size = $_POST["size"];
