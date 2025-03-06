@@ -11,6 +11,7 @@ if (empty($_SESSION['role']) || $_SESSION['role'] !== 'conveyancer' ||
     exit();
 }
 */
+
 ob_start();
 
 ini_set('display_errors', 1);
@@ -29,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['register'])) {
     $confirmPassword = $_POST["confirmPassword"];
     $role = $_POST["role"];
     $employee_id = isset($_POST["employee_id"]) ? filter_input(INPUT_POST, 'employee_id', FILTER_SANITIZE_NUMBER_INT) : null;
-    $contact_number = filter_input(INPUT_POST, 'contact_number', FILTER_SANITIZE_STRING); // New field for contact number
+    $contact_number = filter_input(INPUT_POST, 'contact_number', FILTER_SANITIZE_SPECIAL_CHARS); // New field for contact number
 
     // Validation
     if (!preg_match("/^[a-zA-Z-' ]*$/", $first_name)) {

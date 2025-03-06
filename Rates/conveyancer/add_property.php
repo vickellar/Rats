@@ -1,6 +1,9 @@
 <?php
 session_start(); // Start the session
 
+echo "user_is" . $_SESSION['user_id'];
+
+// Check if the user is logged in;
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['add_property'])) {
     $address = $_POST["address"];
     $size = $_POST["size"];

@@ -2,9 +2,8 @@
 // Database Configuration
 define('DB_HOST', 'localhost');
 define('DB_USER', 'root');
-define('DB_PASS', '');
+define('DB_PASS', ''); // No password for root user
 define('DB_NAME', 'rate_clearance_system');
-
 
 try {
     // Create PDO connection
@@ -18,11 +17,8 @@ try {
             PDO::ATTR_EMULATE_PREPARES => false,
         ]
     );
-
-
 } catch (PDOException $e) {
     file_put_contents('../logfile/database_errors.log', date('Y-m-d H:i:s') . " - Database connection failed: " . $e->getMessage() . PHP_EOL, FILE_APPEND);
     die("Database connection failed.");
-
 }
 ?>

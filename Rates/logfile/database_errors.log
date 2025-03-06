@@ -1,3 +1,6 @@
 [2025-02-27 10:49:57] Database Error: Database connection failed: SQLSTATE[HY000] [2019] Unknown character set
 [2025-02-27 10:56:25] Database Error: Database connection failed: SQLSTATE[HY000] [2019] Unknown character set
-Database error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'rate_clearance_system.employee' doesn't exist in C:\xampp\htdocs\Rats\Rates\signin.php on line 44
+Database error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'rate_clearance_system.employee' doesn't exist in C:\xampp\htdocs\Rats\Rates\signin.php on line 442025-03-06 08:42:56
+Database connection failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'properties.id' in 'on clause'
+2025-03-06 08:43:18 - Database connection failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'properties.id' in 'on clause'
+2025-03-06 09:00:55 - Database connection failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'properties.id' in 'on clause'

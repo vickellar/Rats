@@ -41,7 +41,7 @@ try {
     $stmt->execute([':user_id' => $userId]);
 } catch (PDOException $e) {
     // Handle database error
-    echo "Database error: " . $e->getMessage();
+   file_put_contents('../logfile/database_errors.log', date('Y-m-d H:i:s') . " - Database connection failed: " . $e->getMessage() . PHP_EOL, FILE_APPEND);
     exit();
 }
 
