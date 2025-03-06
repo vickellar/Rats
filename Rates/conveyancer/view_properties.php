@@ -15,10 +15,10 @@ if (!isset($_SESSION['username'])) {
 $username = $_SESSION['username'];
 $sql = "SELECT properties.*, GROUP_CONCAT(accounts.account_number) AS account_numbers 
         FROM properties 
-        LEFT JOIN accounts ON properties.id = accounts.property_id 
+        LEFT JOIN accounts ON properties.property_id = accounts.property_id 
 WHERE properties.user_id = :user_id 
 
-        GROUP BY properties.id";
+        GROUP BY properties.property_id";
 
 
 $stmt = $pdo->prepare($sql);

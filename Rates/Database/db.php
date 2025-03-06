@@ -21,6 +21,8 @@ try {
 
 
 } catch (PDOException $e) {
-    die("Database connection failed: " . $e->getMessage());
+    file_put_contents('../logfile/database_errors.log', date('Y-m-d H:i:s') . " - Database connection failed: " . $e->getMessage() . PHP_EOL, FILE_APPEND);
+    die("Database connection failed.");
+
 }
 ?>

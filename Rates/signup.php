@@ -3,14 +3,14 @@
 if(session_status() === PHP_SESSION_NONE){
     session_start();
 }
-
+/*
 // Check if user is logged in and has required session data
 if (empty($_SESSION['role']) || $_SESSION['role'] !== 'conveyancer' || 
     empty($_SESSION['user_id']) || empty($_SESSION['username'])) {
-    header("Location: ../index.php");
+    header("Location: ./index.php");
     exit();
 }
-
+*/
 ob_start();
 
 ini_set('display_errors', 1);

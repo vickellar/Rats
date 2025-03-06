@@ -23,32 +23,36 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['add_property'])) {
     $sql = "INSERT INTO properties (address, size, type, owner, user_id) VALUES (:address, :size, :type, :owner, :user_id)";
 
     $stmt = $pdo->prepare($sql);
-    $stmt->execute([
-        ':address' => $address,
-        ':size' => $size,
-        ':type' => $type,
-        ':owner' => $owner,
-        ':user_id' => $user_id // Include user_id in the insert
+    try {
+        $stmt->execute([
+            ':address' => $address,
+            ':size' => $size,
+            ':type' => $type,
+            ':owner' => $owner,
+            ':user_id' => $user_id // Include user_id in the insert
+        ]);
 
-    ]);
+        // Check if the property was added successfully
+        if ($stmt->rowCount() > 0) {
+            // Get the last inserted property ID
+            $propertyId = $pdo->lastInsertId();
 
-    // Check if the property was added successfully
-    if ($stmt->rowCount() > 0) {
-        // Get the last inserted property ID
-        $propertyId = $pdo->lastInsertId();
+            // Insert account numbers into the accounts table
+            foreach ($accountNumbers as $accountNumber) {
+                $sqlAccount = "INSERT INTO accounts (property_id, account_number) VALUES (:property_id, :account_number)";
+                $stmtAccount = $pdo->prepare($sqlAccount);
+                $stmtAccount->execute([
+                    ':property_id' => $propertyId,
+                    ':account_number' => $accountNumber
+                ]);
+            }
 
-        // Insert account numbers into the accounts table
-        foreach ($accountNumbers as $accountNumber) {
-            $sqlAccount = "INSERT INTO accounts (property_id, account_number) VALUES (:property_id, :account_number)";
-            $stmtAccount = $pdo->prepare($sqlAccount);
-            $stmtAccount->execute([
-                ':property_id' => $propertyId,
-                ':account_number' => $accountNumber
-            ]);
+            echo "<h3>Property and accounts added successfully!</h3>";
+        } else {
+            echo "<h3>Error adding property. Please try again.</h3>";
         }
-
-        echo "<h3>Property and accounts added successfully!</h3>";
-    } else {
+    } catch (PDOException $e) {
+        file_put_contents('../logfile/database_errors.log', date('Y-m-d H:i:s') . " - Error adding property: " . $e->getMessage() . PHP_EOL, FILE_APPEND);
         echo "<h3>Error adding property. Please try again.</h3>";
     }
 
@@ -165,11 +169,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['add_property'])) {
             color: #333;
         }
     </style>
-
-
-    <style>
-        /* Your existing styles */
-    </style>
     <script>
         function addAccountInputs() {
             const accountContainer = document.getElementById("account-container");
@@ -218,21 +217,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['add_property'])) {
                     <label for="address">Address:</label>
                     <div class="input-icon">
                         <i class="fas fa-map-marker-alt" style="color: blue;"></i>
-
                         <input type="text" id="address" name="address" required>
                     </div>
 
                     <label for="size">Size (sq meters):</label>
                     <div class="input-icon">
                         <i class="fas fa-ruler-combined" style="color: blue;"></i>
-
                         <input type="number" id="size" name="size" required>
                     </div>
 
                     <label for="type">Type:</label>
                     <div class="input-icon">
                         <i class="fas fa-building" style="color: blue;"></i>
-
                         <select id="type" name="type" required>
                             <option value="residential">Residential</option>
                             <option value="commercial">Commercial</option>
@@ -243,7 +239,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['add_property'])) {
                     
                     <label for="numAccounts">Number of Accounts:</label>
                     <select id="numAccounts" name="numAccounts" oninput="addAccountInputs()" required>
-                    <option value="">Select</option>
+                        <option value="">Select</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>

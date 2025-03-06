@@ -35,7 +35,7 @@ try {
             FROM properties 
             LEFT JOIN accounts ON properties.id = accounts.property_id 
             WHERE properties.user_id = :user_id 
-            GROUP BY properties.id";
+            GROUP BY properties.property_id";
 
     $stmt = $pdo->prepare($sql);
     $stmt->execute([':user_id' => $userId]);
