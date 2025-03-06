@@ -46,6 +46,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['signin'])) {
             $user = $stmt->fetch();
 
             if ($user && password_verify($password, $user['password'])) {
+                // Clear existing session data for a new user
+                session_unset(); // Clear all session variables
+                session_destroy(); // Destroy the current session
+
+                session_start(); // Start a new session
                 $_SESSION['user_id'] = $user['id']; // Assuming 'id' is the primary key
                 $_SESSION['username'] = $username;
                 $_SESSION['role'] = $role;
@@ -74,6 +79,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['signin'])) {
             
             if ($user) {
                 if (password_verify($password, $user['password'])) {
+                    // Clear existing session data for a new user
+                    session_unset(); // Clear all session variables
+                    session_destroy(); // Destroy the current session
+
+                    session_start(); // Start a new session
                     $_SESSION['user_id'] = $user['id'] ?? $user['user_id'];
                     $_SESSION['username'] = $username;
                     $_SESSION['role'] = $role;
@@ -98,8 +108,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['signin'])) {
             }
         }
     } catch (PDOException $e) {
-error_log("Database error: " . $e->getMessage() . " in " . $e->getFile() . " on line " . $e->getLine(), 3, "logfile/database_errors.log");
-
+        error_log("Database error: " . $e->getMessage() . " in " . $e->getFile() . " on line " . $e->getLine(), 3, "logfile/database_errors.log");
         die("An error occurred. Please try again later.");
     }
 }
