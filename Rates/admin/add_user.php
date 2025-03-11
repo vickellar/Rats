@@ -1,9 +1,86 @@
+
+    <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+session_start(); // Ensure session is started to use $_SESSION
+
+include("../Database/db.php");
+// Check connection
+if (!$pdo) {
+    die("Database connection failed.");
+}
+
+// Check if the form is submitted
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['register'])) {
+    // Prevent double submission
+    // if (isset($_SESSION['submitted']) && $_SESSION['submitted'] === true) {
+    //     die("Error: Form already submitted.");
+    // }
+    $_SESSION['submitted'] = true;
+
+    $employee_id = $_POST["employee_id"];
+    $first_name = $_POST["first_name"];
+    $surname = $_POST["surname"];
+    $username = $_POST["username"];
+    $role = $_POST["role"];
+    $password = $_POST["password"];
+
+    // Validate form data
+    if (empty($employee_id) || empty($first_name) || empty($surname) || empty($username) || empty($role) || empty($password)) {
+        die("All fields are required.");
+    }
+
+    // Hash the password
+    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+
+    // Check if employee_id already exists
+    $checkQuery = "SELECT COUNT(*) FROM employees WHERE employee_id = ?";
+    $checkStmt = $pdo->prepare($checkQuery);
+    $checkStmt->execute([$employee_id]);
+    $exists = $checkStmt->fetchColumn();
+
+    if ($exists) {
+        die("Error: Employee ID already exists.");
+    }
+
+    // Check if username already exists
+    $checkUserQuery = "SELECT COUNT(*) FROM employees WHERE username = ?";
+    $checkUserStmt = $pdo->prepare($checkUserQuery);
+    $checkUserStmt->execute([$username]);
+    $userExists = $checkUserStmt->fetchColumn();
+
+    if ($userExists) {
+        die("Error: Username already exists.");
+    }
+
+    // Prepare and execute SQL query
+    $sql = "INSERT INTO employees (employee_id, first_name, surname, username, role, password) VALUES (?, ?, ?, ?, ?, ?)";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([$employee_id, $first_name, $surname, $username, $role, $hashed_password]);
+
+    if ($stmt) {
+        echo "User registered successfully!";
+        // Redirect to login page or another page as needed
+        
+        header("Location: adminDashboard.php");
+        exit();
+    } else {
+        echo "Error: " . implode(", ", $pdo->errorInfo());
+        // Log the error to a file if needed
+        // include("../logfile/database_errors.log");
+    }
+}
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>adduser</title>
+    <title>addemployee</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     <style>
@@ -54,7 +131,7 @@
             color: #007bff;
         }
         input[type="text"],
-        input[type="email"],
+        input[type="role"],
         input[type="password"] {
             width: 100%;
             padding: 10px;
@@ -76,9 +153,9 @@
 </head>
 <body>
     
-    <div class="form-container">
-        <h2>Add User Employee</h2>
+    <div class="form-container" alig nt="center">
         <form action="" method="POST">
+            <h2>Add User Employee</h2>
             <div class="form-group">
                 <label for="employee_id">Emplo_ID:</label>
                 <div class="input-group">
@@ -111,12 +188,14 @@
                 </div>
             </div>
 
-            <div class="form-group">
-                <label for="email">Email:</label>
-                <div class="input-group">
-                    <i class="fas fa-envelope"></i>
-                    <input type="email" id="email" name="email" placeholder="email @example.com" required>
-                </div>
+            <div class="input-group">
+                <label for="role">Role:</label>
+                <i class="fas fa-user-tag"></i>
+                <select id="role" name="role" required>
+                    <option value="" disabled selected>Select Role</option>
+                    <option value="admin">Admin</option>
+                    <option value="finance_director">Finance Director</option>
+                </select>
             </div>
 
             <div class="form-group">
@@ -130,92 +209,5 @@
             <button type="submit" name="register">Submit</button>
         </form>
     </div>
-
-    <?php
-    
-    error_reporting(E_ALL);
-    ini_set('display_errors', 1);
-
-    // Database configuration
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $database = "rate_clearance_system";
-
-
-    // Create connection
-$config = include __DIR__ . '/../Database/config.php';
-$config = include __DIR__ . '/../Database/config.php';
-$pdo = new PDO(
-    "mysql:host=" . $config['host'] . ";dbname=" . $config['db'],
-    $config['user'],
-    $config['pass'],
-    [
-        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-        PDO::ATTR_EMULATE_PREPARES => false,
-    ]
-);
-
-
-
-    // Check connection
-if (!$pdo) {
-    die("Database connection failed.");
-}
-
-
-
-    // Check if the form is submitted
-    if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['register'])) {
-        $employee_id = $_POST["employee_id"];
-        $first_name = $_POST["first_name"];
-        $surname = $_POST["surname"];
-        $username = $_POST["username"];
-        $email = $_POST["email"];
-        $password = $_POST["password"];
-
-        // Validate form data
-        if (empty($employee_id) || empty($first_name) || empty($surname) || empty($username) || empty($email) || empty($password)) {
-            die("All fields are required.");
-        }
-
-        // Hash the password
-        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-
-        // Check if employee_id already exists
-        $checkQuery = "SELECT COUNT(*) FROM employees WHERE employee_id = ?";
-        $checkStmt = $pdo->prepare($checkQuery);
-        $checkStmt->execute([$employee_id]);
-        $exists = $checkStmt->fetchColumn();
-
-        if ($exists) {
-            die("Error: Employee ID already exists.");
-        }
-
-        // Prepare and execute SQL query
-        $sql = "INSERT INTO employees (employee_id, first_name, surname, username, email, password) VALUES (?, ?, ?, ?, ?, ?)";
-        $stmt = $pdo->prepare($sql);
-        $stmt->execute([$employee_id, $first_name, $surname, $username, $email, $hashed_password]);
-
-
-
-        if ($stmt->execute()) {
-            echo "User registered successfully!";
-            // Redirect to login page or another page as needed
-            header("Location:  ./login.php");
-            exit();
-        } else {
-            echo "Error: " . implode(", ", $stmt->errorInfo());
-
-        }
-
-        // No need to close the statement with PDO
-
-    }
-
-    // No need to close the connection with PDO
-
-    ?>
 </body>
 </html>
