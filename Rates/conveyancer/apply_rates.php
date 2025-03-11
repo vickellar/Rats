@@ -65,6 +65,8 @@ $description = '';
 
 // Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+
     if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
         // CSRF token validation failed
         echo "Invalid CSRF token.";
@@ -91,31 +93,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Function to handle file uploads
     function handleFileUpload($file, $uploadDir) {
-        $targetFile = $uploadDir . basename($file['name']);
+        $targetFile = $uploadDir . basename($file["pdfile"]['name']);
         $fileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
-        // Check file size (limit to 2MB)
-        if ($file['size'] > 2000000) {
-            return "Error: File is too large.";
-        }
+
         // Allow only specific file formats
-        if (!in_array($fileType, ['pdf', 'jpg', 'jpeg', 'png'])) {
+        if (!in_array($fileType, ['pdf', 'jpg', 'jpeg', 'png', 'doc', 'docx']) || $_FILES["pdffile"]["size"] > 5000000 ) {
             return "Error: Only PDF, JPG, JPEG, and PNG files are allowed.";
         }
         // Move the file to the upload directory
-        if (!move_uploaded_file($file['tmp_name'], $targetFile)) {
+        if (!move_uploaded_file($file["pdffile"]['tmp_name'], $targetFile)) {
             return "Error: There was an error uploading your file.";
         }
         return $file['name'];
     }
+    
+    $folder_path = $targetDir;
 
     // Handle each file upload
-    $title_deed = handleFileUpload($_FILES['title_deed'], $uploadDir);
+    $title_deed = handleFileUpload($_FILES['title_deed'], $folder_path);
     if (is_string($title_deed)) $errors[] = $title_deed; // Store error if any
 
-    $identity_proof = handleFileUpload($_FILES['identity_proof'], $uploadDir);
+    $identity_proof = handleFileUpload($_FILES['identity_proof'], $folder_path);
     if (is_string($identity_proof)) $errors[] = $identity_proof;
 
-    $additional_documents = handleFileUpload($_FILES['additional_documents'], $uploadDir);
+    $additional_documents = handleFileUpload($_FILES['additional_documents'], $folder_path);
     if (is_string($additional_documents)) $errors[] = $additional_documents;
 
     // If there are errors, display them
@@ -127,8 +128,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Insert application into the database
-    $insertSql = "INSERT INTO rate_clearance_applications (user_id, property_id, applicant_address, email_address, relationship_to_owner, description, title_deed, identity_proof, additional_documents) 
-                  VALUES (:user_id, :property_id, :applicant_address, :email_address, :relationship_to_owner, :description, :title_deed, :identity_proof, :additional_documents)";
+    $insertSql = "INSERT INTO rate_clearance_applications (user_id, property_id, applicant_address, email_address, relationship_to_owner, description, title_deed, identity_proof, additional_documents, folder_path) 
+                  VALUES (:user_id, :property_id, :applicant_address, :email_address, :relationship_to_owner, :description, :title_deed, :identity_proof, :additional_documents, :folder_path)";
 
     $insertStmt = $pdo->prepare($insertSql);
     $insertStmt->execute([
@@ -139,14 +140,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         ':relationship_to_owner' => $relationship_to_owner,
         ':description' => $description,
         ':title_deed' => $title_deed,
-        ':previous_certificate' => $previous_certificate,
         ':identity_proof' => $identity_proof,
         ':additional_documents' => $additional_documents
     ]);
 
-    // Redirect or display success message
-    // header("Location: success.php");
-    // exit();
+    if($stm ->query($sql) === TRUE){
+        echo "File uploaded successfull";
+
+    }else{
+        echo "Error" . $pdo . "<br>" . $stm->error;
+    }
 
 }
     
