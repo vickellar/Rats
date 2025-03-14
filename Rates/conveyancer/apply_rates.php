@@ -7,6 +7,13 @@ ini_set('error_log', '../logfile/php_error.log');
 
 session_start(); // Start the session
 
+// Check if user is logged in and has required session data
+if (empty($_SESSION['role']) || $_SESSION['role'] !== 'conveyancer' || 
+    empty($_SESSION['user_id']) || empty($_SESSION['username'])) {
+    header("Location: index.php");
+    exit();
+}
+
 // Generate CSRF token if not set
 if (!isset($_SESSION['csrf_token'])) {
     $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
@@ -17,9 +24,9 @@ if (!isset($_SESSION['last_activity'])) {
     $_SESSION['last_activity'] = time(); // Store last activity time
 } else {
     if (time() - $_SESSION['last_activity'] > 1800) { // 30 minutes
-        session_unset(); // Unset session variables
-        session_destroy(); // Destroy the session
-        header("Location: ../signin.php"); // Redirect to login page
+        session_unset();
+        session_destroy();
+        header("Location: ./signin.php");
         exit();
     }
 }
@@ -32,6 +39,7 @@ if (!$pdo) {
 }
 
 if (!isset($_SESSION['user_id'])) {
+    header("Location: ../signin.php");
     echo "User ID not set.";
     exit();
 }
@@ -42,14 +50,13 @@ try {
     $sql = "SELECT properties.*, GROUP_CONCAT(accounts.account_number) AS account_numbers 
             FROM properties 
             LEFT JOIN accounts ON properties.id = accounts.property_id 
-            WHERE properties.property_id = :user_id 
+            WHERE properties.user_id = :user_id 
             GROUP BY properties.property_id";
 
     $stmt = $pdo->prepare($sql);
     $stmt->execute([':user_id' => $userId]);
 } catch (PDOException $e) {
-    // Handle database error
-    file_put_contents('../logfile/database_errors.log',"\n\n" .date('Y-m-d H:i:s') . " - Database connection failed: " . $e->getMessage()  . PHP_EOL, FILE_APPEND);
+    file_put_contents('../logfile/database_errors.log', "\n\n" . date('Y-m-d H:i:s') . " - Database connection failed: " . $e->getMessage()  . PHP_EOL, FILE_APPEND);
     include('../includes/catch_error.php');
     exit();
 }
@@ -65,10 +72,7 @@ $description = '';
 
 // Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-
     if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
-        // CSRF token validation failed
         echo "Invalid CSRF token.";
         exit();
     }
@@ -83,17 +87,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Handle file uploads
     $title_deed = $_FILES['title_deed']['name'] ?? '';
-    $previous_certificate = $_FILES['previous_certificate']['name'] ?? '';
     $identity_proof = $_FILES['identity_proof']['name'] ?? '';
     $additional_documents = $_FILES['additional_documents']['name'] ?? '';
 
     // Define the upload directory
     $uploadDir = '../uploads/';
     $errors = [];
+    $folder_path = $folder_path;
 
     // Function to handle file uploads
-    function handleFileUpload($file, $uploadDir) {
-        $targetFile = $uploadDir . basename($file["pdfile"]['name']);
+    function handleFileUpload($file, $folder_path) {
+        $targetFile = $folder_path . basename($file["pdfile"]['name']);
         $fileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
 
         // Allow only specific file formats
@@ -107,7 +111,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         return $file['name'];
     }
     
-    $folder_path = $targetDir;
+    
 
     // Handle each file upload
     $title_deed = handleFileUpload($_FILES['title_deed'], $folder_path);
@@ -141,153 +145,102 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         ':description' => $description,
         ':title_deed' => $title_deed,
         ':identity_proof' => $identity_proof,
-        ':additional_documents' => $additional_documents
+        ':additional_documents' => $additional_documents,
+        ':folder_path' => $folder_path
     ]);
 
-    if($stm ->query($sql) === TRUE){
-        echo "File uploaded successfull";
-
-    }else{
-        echo "Error" . $pdo . "<br>" . $stm->error;
-    }
-
+    echo "Application submitted successfully!";
 }
-    
+
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rate Clearance Application Form</title>
     <style>
-    @page {
-        size: A4;
-    }
-
-    body {
-        font-family: Arial, sans-serif;
-        background-color: #f4f4f4;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 100vh;
-    }
-
-    .container {
-        background-color: #fff;
-        padding: 20px;
-        border-radius: 8px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        width: 90%;
-        max-width: 600px;
-    }
-
-    h2,
-    h3 {
-        color: #333;
-    }
-
-    label {
-        display: block;
-        margin-top: 10px;
-        color: #555;
-    }
-
-    input,
-    select,
-    textarea {
-        width: 100%;
-        padding: 8px;
-        margin-top: 5px;
-        margin-bottom: 15px;
-        border: 1px solid #ddd;
-        border-radius: 4px;
-    }
-
-    button {
-        background-color: #4CAF50;
-        color: white;
-        padding: 10px 15px;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-    }
-
-    button:hover {
-        background-color: #45a049;
-    }
-
-    .file-input {
-        padding: 8px 0;
-    }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 600px;
+        }
+        h2, h3 {
+            color: #333;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+            color: #555;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
     </style>
 </head>
-
 <body>
     <div class="container">
         <h2>Rate Clearance Application Form</h2>
-        <form action="rate_clearance_form.php" method="post" enctype="multipart/form-data">
+        <form action="" method="post" enctype="multipart/form-data">
             <label for="select-property">Select Property:</label>
             <select id="select-property" name="select_property" required>
                 <option value="">Select a property</option>
                 <?php foreach ($properties as $property): ?>
-                <option value="<?= htmlspecialchars($property['property_id']); ?>"
-                    <?php if (isset($_POST['select_property']) && $_POST['select_property'] == $property['property_id']) echo 'selected'; ?>>
-                    <?= htmlspecialchars($property['address']); ?> (Accounts:
-                    <?= htmlspecialchars($property['account_numbers']); ?>)
+                <option value="<?= htmlspecialchars($property['property_id']); ?>">
+                    <?= htmlspecialchars($property['address']); ?> (Accounts: <?= htmlspecialchars($property['account_numbers']); ?>)
                 </option>
                 <?php endforeach; ?>
             </select>
 
-            <h3>Property Details</h3>
-            <div id="property-details">
-                <?php
-                if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['select_property'])) {
-                    $selectedPropertyId = $_POST['select_property'];
-                    $propertySql = "SELECT * FROM properties WHERE property_id = :property_id AND user_id = :user_id";
-
-                    $propertyStmt = $pdo->prepare($propertySql);
-                    $propertyStmt->execute([':property_id' => $selectedPropertyId, ':user_id' => $userId]);
-                    $propertyDetails = $propertyStmt->fetch(PDO::FETCH_ASSOC);
-                    if ($propertyDetails) {
-                        include_once("../includes/fetch_property_details.php");
-                    } else {
-                        echo "Error: The selected property does not belong to you.";
-                    }
-                }
-                ?>
-            </div>
-
             <h3>Upload Required Documents</h3>
-
             <label for="title-deed">Title Deed/Ownership Proof:</label>
-            <input type="file" id="title-deed" name="title_deed" class="file-input" accept=".pdf,.jpg,.jpeg,.png">
-
-            <label for="previous_certificate">Previous Rate Clearance Certificate (if any):</label>
-            <input type="file" id="previous_certificate" name="previous_certificate" class="file-input">
+            <input type="file" id="title-deed" name="title_deed" accept=".pdf,.jpg,.jpeg,.png,.doc,.docx" required>
 
             <label for="identity_proof">Proof of Identity:</label>
-            <input type="file" id="identity_proof" name="identity_proof" accept=".pdf,.jpg,.jpeg,.png">
+            <input type="file" id="identity_proof" name="identity_proof" accept=".pdf,.jpg,.jpeg,.png,.doc,.docx" required>
 
             <label for="additional_documents">Additional Supporting Documents (optional):</label>
-            <input type="file" id="additional_documents" name="additional_documents" accept=".pdf,.jpg,.jpeg,.png">
+            <input type="file" id="additional_documents" name="additional_documents" accept=".pdf,.jpg,.jpeg,.png,.doc,.docx">
 
             <h3>Applicant Details</h3>
             <label for="applicant-address">Applicant Address:</label>
-            <input type="text" id="applicant-name" name="applicant_address"
-                value="<?= htmlspecialchars($applicant_address); ?>" required>
+            <input type="text" id="applicant-address" name="applicant_address" value="<?= htmlspecialchars($applicant_address); ?>" required>
 
             <label for="email-address">Email Address:</label>
-            <input type="email" id="email-address" name="email_address" value="<?= htmlspecialchars($email_address); ?>"
-                required>
+            <input type="email" id="email-address" name="email_address" value="<?= htmlspecialchars($email_address); ?>" required>
 
             <label for="relationship">Relationship to Owner:</label>
-            <input type="text" id="relationship" name="relationship_to_owner">
+            <input type="text" id="relationship" name="relationship_to_owner" value="<?= htmlspecialchars($relationship_to_owner); ?>">
 
             <h3>Additional Information</h3>
             <label for="description">Description:</label>
@@ -297,30 +250,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($_SESSION['csrf_token']); ?>">
 
             <button type="submit">Submit Application</button>
-            <a href="cdashboard.php"
-                style="display: inline-block; margin-top: 10px; padding: 10px; background-color: blue; color: white; text-decoration: none; border-radius: 10px;">Back
-                to Dashboard</a>
+            <a href="cdashboard.php" style="display: inline-block; margin-top: 10px; padding: 10px; background-color: blue; color: white; text-decoration: none; border-radius: 10px;">Back to Dashboard</a>
         </form>
     </div>
-
-    <script>
-    document.getElementById('select-property').addEventListener('change', function() {
-        var propertyId = this.value;
-        var xhr = new XMLHttpRequest();
-        xhr.open("POST", "fetch_property_details.php", true);
-        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-        xhr.onreadystatechange = function() {
-            if (xhr.readyState === 4 && xhr.status === 200) {
-                document.getElementById("property-details").innerHTML = xhr.responseText;
-            } else if (xhr.readyState === 4) {
-                // Handle AJAX error
-                document.getElementById("property-details").innerHTML =
-                    'Error fetching property details. Please try again.';
-            }
-        };
-        xhr.send("property_id=" + propertyId);
-    });
-    </script>
 </body>
-
 </html>

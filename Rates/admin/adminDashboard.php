@@ -18,6 +18,8 @@ require_once '../Database/db.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
+    <!-- Include Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -28,9 +30,10 @@ require_once '../Database/db.php';
         header {
             display: flex; 
             align-items: center; 
-            background: linear-gradient(170deg, blueviolet, blue);
+            background: rgba(36, 75, 184, 0.7);
             color: #fff;
-            padding: 10px 20px; 
+            padding: 20px; 
+            justify-content: space-between; /* Spread the margin to cover the whole top layer */
         }
         header img {
             width: 100%;         
@@ -42,11 +45,16 @@ require_once '../Database/db.php';
             flex: 1;             
             text-align: center;  
         }
+        header .notification-icon {
+            cursor: pointer;
+            margin-left: auto;
+            padding: 10px; /* Push the notification icon to the right */
+        }
         nav {
             background-color: rgba(31, 181, 192, 0.7);
             color: #fff;
             padding: 10px 0;
-            text-align: center;
+            text-align: right;
             position: relative;
         }
         nav a {
@@ -84,10 +92,10 @@ require_once '../Database/db.php';
             display: block;
         }
         main {
-            padding: 20px;
+            padding: -1px;
             max-width: 1000px;
             margin: auto;
-            background-color: rgba(255, 255, 255, 0.9);
+            background-color:lightgrey;
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
@@ -95,6 +103,7 @@ require_once '../Database/db.php';
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 20px;
+            padding: 20px;
         }
         .dashboard-card {
             background: #f9f9f9;
@@ -143,6 +152,9 @@ require_once '../Database/db.php';
 <header>
     <img src="../assets/images/mslogo.png" alt="Logo"> <!-- Add your logo -->
     <h1>WELCOME TO ADMIN DASHBOARD</h1>
+    <div class="notification-icon" onclick="window.location.href='#notifications'">
+        <i class="fas fa-bell"></i> <!-- Font Awesome notification icon -->
+    </div>
 </header>
 <nav>
     <a href="index.php?page=home">Dashboard</a>
@@ -163,9 +175,6 @@ require_once '../Database/db.php';
         </div>
     </div>
     <a href="index.php?page=logout">Log Out</a>
-    <a href="index.php?page=services">Services</a>
-    <a href="index.php?page=contacts">Contacts</a>
-    <a href="index.php?page=about">About</a>
 </nav>
 
 <main>
@@ -198,7 +207,7 @@ require_once '../Database/db.php';
         </div>
         
         <div class="dashboard-card">
-            <h3>Notifications</h3>
+            <h3 id="notifications">Notifications</h3>
             <ul>
                 <?php
                 // Fetch notifications from the application database 
