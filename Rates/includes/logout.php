@@ -11,7 +11,7 @@ if (isset($_POST['confirm_logout']) && isset($_SESSION['user_id'])) {
     // Destroy the session
     session_destroy(); // Ensure session is destroyed
     // Redirect to the login page or home page
-    header("Location:../includes/logout.php ");
+    header("Location:../index.php");
 
     exit();
 }
@@ -30,6 +30,7 @@ if (isset($_POST['confirm_logout']) && isset($_SESSION['user_id'])) {
     <form method="POST" action="">
         <button type="submit" name="confirm_logout">Yes, log me out</button>
         <button type="button" onclick="window.location.href='../index.php'">Cancel</button>
+
     </form>
 </body>
 </html>

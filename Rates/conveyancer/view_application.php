@@ -19,7 +19,8 @@ if (!$application_id) {
 }
 
 // Fetch application details
-$query = "SELECT * FROM rate_clearance_applications WHERE application_id = :application_id AND user_id = :user_id";
+$query = "SELECT application_id, user_id, property_id, applicant_address, email_address, relationship_to_owner, description, title_deed, identity_proof, additional_documents, status, created_at FROM rate_clearance_applications WHERE application_id = :application_id AND user_id = :user_id";
+
 $stmt = $pdo->prepare($query);
 $stmt->bindValue(':id', $application_id, PDO::PARAM_INT);
 $stmt->bindValue(':user_id', $_SESSION['user_id'], PDO::PARAM_INT);

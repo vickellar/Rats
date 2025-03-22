@@ -161,6 +161,27 @@ if ($_SESSION['role'] !== 'conveyancer') {
     .btn:hover {
         background-color: #0056b3;
     }
+
+    .notification-item, .application-item {
+        margin-bottom: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        padding: 10px;
+        background-color: #fff;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .notification-summary, .application-summary {
+        cursor: pointer;
+        padding: 10px;
+        background-color: #f9f9f9;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .notification-details, .application-details {
+        padding: 10px;
+        display: none;
+    }
     </style>
 </head>
 
@@ -204,31 +225,35 @@ if ($_SESSION['role'] !== 'conveyancer') {
                 if (isset($_SESSION['user_id'])) {
                     $userId = $_SESSION['user_id'];
                     try {
-                        // Prepare the SQL query
                         $query = "SELECT a.*, p.address AS property_address, p.owner AS property_owner FROM rate_clearance_applications a JOIN properties p ON a.property_id = p.property_id WHERE a.user_id = ? ORDER BY a.created_at DESC LIMIT 5";
                         $stmt = $pdo->prepare($query);
-                        // Bind the user ID to the query
                         $stmt->bindValue(1, $userId, PDO::PARAM_INT);
-                        // Execute the query
                         $stmt->execute();
-                        // Fetch the results
-                        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-                        if (count($result) > 0) {
-                            echo '<ul>';
-                            foreach ($result as $row) {
-                                // Escape output to prevent XSS attacks
-                                $propertyAddress = htmlspecialchars($row['property_address']);
-                                $propertyOwner = htmlspecialchars($row['property_owner']);
-                                $status = htmlspecialchars($row['status']);
-                                $applicationId = htmlspecialchars($row['application_id']);
-                                echo '<li><a href="view_application.php?id=' . $applicationId . '">' . $propertyAddress . ' (Owner: ' . $propertyOwner . ') - ' . $status . '</a> | <a href="update_property.php?id=' . $applicationId . '">Update</a></li>';
+                        $recentApplications = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+                        if (count($recentApplications) > 0) {
+                            foreach ($recentApplications as $application) {
+                                $applicationId = htmlspecialchars($application['application_id']);
+                                $propertyAddress = htmlspecialchars($application['property_address']);
+                                $propertyOwner = htmlspecialchars($application['property_owner']);
+                                $status = htmlspecialchars($application['status']);
+                                ?>
+                                <div class="application-item">
+                                    <div class="application-summary" onclick="toggleDetails(this)">
+                                        <p>Application <strong><?php echo $applicationId; ?></strong> - <?php echo $status; ?></p>
+                                    </div>
+                                    <div class="application-details" style="display: none;">
+                                        <p><strong>Property Address:</strong> <?php echo $propertyAddress; ?></p>
+                                        <p><strong>Owner:</strong> <?php echo $propertyOwner; ?></p>
+                                        <p><strong>Status:</strong> <?php echo $status; ?></p>
+                                    </div>
+                                </div>
+                                <?php
                             }
-                            echo '</ul>';
                         } else {
                             echo '<p>No recent applications found.</p>';
                         }
                     } catch (PDOException $e) {
-                        // Handle any database errors
                         echo '<p>An error occurred while retrieving your applications. Please try again later.</p>';
                         error_log($e->getMessage());
                     }
@@ -240,7 +265,46 @@ if ($_SESSION['role'] !== 'conveyancer') {
 
             <div class="dashboard-card">
                 <h3><i class="fas fa-bell"></i> Notifications</h3>
-                <p>No new notifications</p>
+                <?php
+                if (isset($_SESSION['user_id'])) {
+                    $userId = $_SESSION['user_id'];
+                    try {
+                        $query = "SELECT a.application_id, a.status, p.address AS property_address, p.owner AS property_owner FROM rate_clearance_applications a JOIN properties p ON a.property_id = p.property_id WHERE a.user_id = ? ORDER BY a.created_at DESC LIMIT 5";
+                        $stmt = $pdo->prepare($query);
+                        $stmt->bindValue(1, $userId, PDO::PARAM_INT);
+                        $stmt->execute();
+                        $notifications = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+                        if (count($notifications) > 0) {
+                            foreach ($notifications as $notification) {
+                                $applicationId = htmlspecialchars($notification['application_id']);
+                                $propertyAddress = htmlspecialchars($notification['property_address']);
+                                $propertyOwner = htmlspecialchars($notification['property_owner']);
+                                $status = htmlspecialchars($notification['status']);
+                                ?>
+                                <div class="notification-item">
+                                    <div class="notification-summary" onclick="toggleDetails(this)">
+                                        <p>Application <strong><?php echo $applicationId; ?></strong> - <?php echo $status; ?></p>
+                                    </div>
+                                    <div class="notification-details" style="display: none;">
+                                        <p><strong>Property Address:</strong> <?php echo $propertyAddress; ?></p>
+                                        <p><strong>Owner:</strong> <?php echo $propertyOwner; ?></p>
+                                        <p><strong>Status:</strong> <?php echo $status; ?></p>
+                                    </div>
+                                </div>
+                                <?php
+                            }
+                        } else {
+                            echo '<p>No new notifications</p>';
+                        }
+                    } catch (PDOException $e) {
+                        echo '<p>An error occurred while retrieving notifications. Please try again later.</p>';
+                        error_log($e->getMessage());
+                    }
+                } else {
+                    echo '<p>User session error. Please login again.</p>';
+                }
+                ?>
             </div>
 
             <div class="dashboard-card">
@@ -254,6 +318,17 @@ if ($_SESSION['role'] !== 'conveyancer') {
             </div>
         </div>
     </div>
+
+    <script>
+    function toggleDetails(summaryElement) {
+        var detailsElement = summaryElement.nextElementSibling;
+        if (detailsElement.style.display === 'none') {
+            detailsElement.style.display = 'block';
+        } else {
+            detailsElement.style.display = 'none';
+        }
+    }
+    </script>
 </body>
 
 </html>

@@ -1,3 +1,23 @@
+<?php
+session_start(); // Start the session
+
+require_once("../Database/db.php"); // Include database connection file
+
+// Retrieve the property_id from the URL parameter
+$propertyId = isset($_GET['property_id']) ? $_GET['property_id'] : null;
+
+if ($propertyId) {
+    // Prepare and execute the SQL query to get the account count
+    $sql = "SELECT COUNT(*) as account_count FROM accounts WHERE property_id = :property_id";
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindParam(':property_id', $propertyId, PDO::PARAM_INT);
+    $stmt->execute();
+    $accountCount = $stmt->fetchColumn(); // Fetch account count from the database
+} else {
+    $accountCount = 0; // Default to 0 if property_id is not provided
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -173,15 +193,6 @@
 
         <input type="text" id="customPeriod" name="customPeriod" placeholder="Enter period in months" style="display:none;" oninput="updateCustomPeriod()">
     </div>
-
-    <div class="accounts-section">
-        <label for="accounts">Number of Accounts</label>
-        <select id="accounts" name="accounts" onchange="updateAccountDetails()">
-            <option value="1">1 Account</option>
-            <option value="2">2 Accounts</option>
-            <option value="3">3 Accounts</option>
-        </select>
-    </div>
 </div>
 
 <div class="balance-section">
@@ -191,7 +202,24 @@
     </div>
     
     <h3>Account Summary</h3>
-    <div id="accountDetails"></div>
+    <div id="accountDetails">
+        <?php
+        // Generate account details based on the account count
+        for ($i = 1; $i <= $accountCount; $i++) {
+            echo '
+                <h4>Account ' . $i . '</h4>
+                <div class="input-group">
+                    <label>Account Holder:</label>
+                    <input type="text" id="accountHolder' . $i . '" placeholder="Enter account holder name">
+                </div>
+                <div class="input-group">
+                    <label>Balance (USD):</label>
+                    <input type="text" id="accountBalance' . $i . '" placeholder="Enter balance" class="account-balance" onblur="formatCurrency(this)">
+                </div>
+            ';
+        }
+        ?>
+    </div>
 
     <div class="input-group">
         <label>Processing Fee (USD):</label>
@@ -205,7 +233,8 @@
 
     <button onclick="calculateTotal()">Calculate</button>
     <button onclick="saveRecords()">Save</button>
-    <button onclick="viewSavedRecords()">View Saved</button>
+    <button onclick="viewSavedRecords()">Submit</button>
+  
 </div>
 
 <div class="footer">
@@ -223,68 +252,20 @@
 </div>
 
 <script>
-    const records = [];
-
     function updatePeriodDetails() {
         const period = document.getElementById('period').value;
         const customInput = document.getElementById('customPeriod');
-        const accountCount = document.getElementById('accounts').value;
-        const accountDetails = document.getElementById('accountDetails');
 
         if (period === 'custom') {
             customInput.style.display = 'block';
-            return; // Exit if custom is selected
         } else {
             customInput.style.display = 'none';
-            if (period) {
-                generateAccountDetails(period, accountCount);
-            }
         }
     }
 
     function updateCustomPeriod() {
         const customPeriod = document.getElementById('customPeriod').value;
-        const accountCount = document.getElementById('accounts').value;
-        generateAccountDetails(customPeriod, accountCount);
-    }
-
-    function updateAccountDetails() {
-        const accountCount = document.getElementById('accounts').value;
-        const period = document.getElementById('period').value;
-        const customInput = document.getElementById('customPeriod');
-
-        if (period === 'custom') {
-            if (customInput.value) {
-                generateAccountDetails(customInput.value, accountCount);
-            }
-        } else {
-            generateAccountDetails(period, accountCount);
-        }
-    }
-
-    function generateAccountDetails(months, accountCount) {
-        const accountDetails = document.getElementById('accountDetails');
-        accountDetails.innerHTML = ''; // Clear previous details
-
-        // Loop through each account
-        for (let i = 1; i <= accountCount; i++) {
-            accountDetails.innerHTML += `
-                <div class="input-group">
-                    <label>Balance for Account ${i} (USD):</label>
-                    <input type="text" placeholder="Enter balance" class="account-balance" onblur="formatCurrency(this)">
-                </div>
-            `;
-        }
-
-        // Loop through the months after the account balances
-        for (let j = 1; j <= months; j++) {
-            accountDetails.innerHTML += `
-                <div class="input-group">
-                    <label>Month ${j} (USD):</label>
-                    <input type="text" placeholder="Enter monthly balance" class="monthly-balance" onblur="formatCurrency(this)">
-                </div>
-            `;
-        }
+        // You can add custom period handling logic here if needed
     }
 
     function formatCurrency(input) {
@@ -297,27 +278,18 @@
     }
 
     function calculateTotal() {
-        const accountBalances = document.querySelectorAll('.account-balance');
-        const monthlyBalances = document.querySelectorAll('.monthly-balance');
         let total = 0;
+        const accountCount = <?php echo $accountCount; ?>;
 
-        // Sum account balances
-        accountBalances.forEach(input => {
-            const value = parseFloat(input.value.replace(/[^0-9.-]+/g, "")) || 0;
-            total += value;
-        });
+        for (let i = 1; i <= accountCount; i++) {
+            const balanceInput = document.getElementById('accountBalance' + i);
+            const balanceValue = parseFloat(balanceInput.value.replace(/[^0-9.-]+/g, "")) || 0;
+            total += balanceValue;
+        }
 
-        // Sum monthly balances
-        monthlyBalances.forEach(input => {
-            const value = parseFloat(input.value.replace(/[^0-9.-]+/g, "")) || 0;
-            total += value;
-        });
-
-        // Add processing fee
         const processingFee = document.querySelector('.processing-fee').value;
         total += parseFloat(processingFee.replace(/[^0-9.-]+/g, "")) || 0;
 
-        // Display total balance
         document.getElementById('totalBalance').value = total.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
     }
 
@@ -345,13 +317,13 @@
         doc.setFontSize(16);
         doc.text("Rates Clearance Calculator", 20, 20);
         doc.setFontSize(12);
-        doc.text(`Account Holder: ${holder}`, 20, 40);
-        doc.text(`Total Balance: ${totalBalance}`, 20, 50);
-        doc.text(`Processing Fee: ${processingFee}`, 20, 60);
+        doc.text("Account Holder: " + holder, 20, 40);
+        doc.text("Total Balance: " + totalBalance, 20, 50);
+        doc.text("Processing Fee: " + processingFee, 20, 60);
         doc.text("Account Details:", 20, 70);
         doc.fromHTML(accountDetails, 20, 80);
 
-        const pdfName = `${holder}_rates_clearance.pdf`;
+        const pdfName = holder + "_rates_clearance.pdf";
         doc.save(pdfName);
     }
 
@@ -366,7 +338,7 @@
             noRecordsMessage.style.display = 'none'; // Hide no records message
             records.forEach(record => {
                 const li = document.createElement('li');
-                li.textContent = `Holder: ${record.holder}, Total Balance: ${record.totalBalance}, Processing Fee: ${record.processingFee}`;
+                li.textContent = "Holder: " + record.holder + ", Total Balance: " + record.totalBalance + ", Processing Fee: " + record.processingFee;
                 li.className = 'record-item';
                 recordList.appendChild(li);
             });
@@ -403,7 +375,6 @@
         document.getElementById('accountDetails').innerHTML = '';
         document.getElementById('customPeriod').value = '';
         document.getElementById('period').selectedIndex = 0;
-        document.getElementById('accounts').selectedIndex = 0;
     }
 </script>
 

@@ -5,7 +5,7 @@ session_start(); // Start the session
 
 // Check if user is logged in
 if (empty($_SESSION['user_id'])) {
-header("Location: index.php");
+header("Location: ../index.php");
 exit();
 }
 
@@ -175,10 +175,10 @@ try {
 
             <h3>Upload Required Documents</h3>
             <label for="title-deed">Title Deed/Ownership Proof:</label>
-            <input type="file" id="title-deed" name="title_deed" accept=".pdf,.jpg,.jpeg,.png,.doc,.docx" required>
+            <input type="file" id="title-deed" name="title_deed" accept=".pdf,.jpg,.jpeg,.png,.doc,.docx">
 
             <label for="identity_proof">Proof of Identity:</label>
-            <input type="file" id="identity_proof" name="identity_proof" accept=".pdf,.jpg,.jpeg,.png,.doc,.docx" required>
+            <input type="file" id="identity_proof" name="identity_proof" accept=".pdf,.jpg,.jpeg,.png,.doc,.docx">
 
             <label for="additional_documents">Additional Supporting Documents (optional):</label>
             <input type="file" id="additional_documents" name="additional_documents" accept=".pdf,.jpg,.jpeg,.png,.doc,.docx">

@@ -1,5 +1,4 @@
 <?php
-
 session_start();
 
 // Check if user is logged in and is an admin
@@ -9,8 +8,8 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
 }
 
 require_once '../Database/db.php';
-
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -94,7 +93,7 @@ require_once '../Database/db.php';
             padding: -1px;
             max-width: 1000px;
             margin: auto;
-            background-color:lightgrey;
+            background-color: lightgrey;
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
@@ -145,6 +144,28 @@ require_once '../Database/db.php';
         .btn:hover {
             background-color: #0056b3;
         }
+        .notification-details {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .notification-scroll {
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+        }
+        .notification-item {
+            white-space: nowrap; /* Prevent wrapping */
+            overflow: hidden; /* Hide overflow */
+            text-overflow: ellipsis; /* Show ellipsis on overflow */
+            animation: scroll 10s linear infinite; /* Continuous scrolling animation */
+        }
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100%); }
+        }
     </style>
 </head>
 <body>
@@ -193,7 +214,7 @@ require_once '../Database/db.php';
                 if (count($result) > 0) {
                     echo '<ul>';
                     foreach ($result as $row) {
-                        echo '<li><a href="view_application.php?id=' . $row['id'] . '">' . htmlspecialchars($row['application_ref']) . ' - ' . $row['status'] . '</a></li>';
+                        echo '<li><a href="view_application.php?id=' . $row['id'] . '">' . htmlspecialchars($row['application_ref']) . ' - ' . htmlspecialchars($row['status']) . '</a></li>';
                     }
                     echo '</ul>';
                 } else {
@@ -207,44 +228,46 @@ require_once '../Database/db.php';
         
         <div class="dashboard-card">
             <h3 id="notifications">Notifications</h3>
-            <ul>
-                <?php
-                // Fetch notifications from the application database 
-                $notificationQuery = "
-                    SELECT 
-                        a.application_id, 
-                        a.status, 
-                        a.created_at, 
-                        u.first_name, 
-                        u.surname, 
-                        p.address AS property_address, 
-                        p.owner AS property_owner,
-                        p.property_id
-                    FROM 
-                        rate_clearance_applications a
-                    JOIN 
-                        users u ON a.user_id = u.user_id
-                    JOIN 
-                        properties p ON a.property_id = p.property_id
-                    ORDER BY 
-                        a.created_at DESC
-                ";
-                $notificationStmt = $pdo->prepare($notificationQuery);
-                $notificationStmt->execute();
-                $notifications = $notificationStmt->fetchAll();
+            <div class="notification-scroll">
+                <ul>
+                    <?php
+                    // Fetch notifications from the application database 
+                    $notificationQuery = "
+                        SELECT 
+                            a.application_id, 
+                            a.status, 
+                            a.created_at, 
+                            u.first_name, 
+                            u.surname, 
+                            p.address AS property_address, 
+                            p.owner AS property_owner,
+                            p.property_id
+                        FROM 
+                            rate_clearance_applications a
+                        JOIN 
+                            users u ON a.user_id = u.user_id
+                        JOIN 
+                            properties p ON a.property_id = p.property_id
+                        ORDER BY 
+                            a.created_at DESC
+                    ";
+                    $notificationStmt = $pdo->prepare($notificationQuery);
+                    $notificationStmt->execute();
+                    $notifications = $notificationStmt->fetchAll();
 
-                if (count($notifications) > 0) {
-                    foreach ($notifications as $notification) {
-                        echo '<li>';
-                        echo '<a href="../includes/fetch_property_details.php?id=' . $notification['property_id'] . '">' . htmlspecialchars($notification['first_name']) . ' ' . htmlspecialchars($notification['surname']) . ' - </a>';
-                        echo '<a href="../includes/fetch_property_details.php?id=' . $notification['property_id'] . '">' . htmlspecialchars($notification['property_address']) . ' ' . htmlspecialchars($notification['property_owner']) . ' - </a>' . htmlspecialchars($notification['status']) . ' ' . htmlspecialchars($notification['created_at']);
-                        echo '</li>';
+                    if (count($notifications) > 0) {
+                        foreach ($notifications as $notification) {
+                            echo '<li class="notification-item">';
+                            echo '<a href="../includes/fetch_property_details.php?property_id=' . $notification['property_id'] . '">' . htmlspecialchars($notification['first_name']) . ' ' . htmlspecialchars($notification['surname']) . ' - </a>';
+                            echo '<a href="../includes/fetch_property_details.php?property_id=' . $notification['property_id'] . '">' . htmlspecialchars($notification['property_address']) . ' ' . htmlspecialchars($notification['property_owner']) . ' - </a>' . htmlspecialchars($notification['status']) . ' ' . htmlspecialchars($notification['created_at']);
+                            echo '</li>';
+                        }
+                    } else {
+                        echo '<li>No new notifications</li>';
                     }
-                } else {
-                    echo '<li>No new notifications</li>';
-                }
-                ?>
-            </ul>
+                    ?>
+                </ul>
+            </div>
         </div>
         
         <div class="dashboard-card">

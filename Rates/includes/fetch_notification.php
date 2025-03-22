@@ -1,5 +1,21 @@
+<style>
+.notification-panel {
+    width: 300px; /* Set the width of the notification panel */
+    overflow: hidden; /* Hide overflow text */
+    white-space: nowrap; /* Prevent text wrapping */
+    display: inline-block; /* Allow rotation */
+    transform: rotate(0deg); /* Initial rotation */
+    transition: transform 0.5s; /* Smooth transition for rotation */
+}
+
+.notification-panel:hover {
+    transform: rotate(-10deg); /* Rotate on hover */
+}
+</style>
 <?php
 require_once '../Database/db.php'; // Include database connection
+
+
 
 // Fetch notifications for all users with applicant and property details
 
@@ -28,6 +44,8 @@ $notifications = $notificationStmt->fetchAll();
 if (count($notifications) > 0) {
     foreach ($notifications as $notification) {
         echo '<li>';
+
+
         echo htmlspecialchars($notification['first_name']) . ' ' . htmlspecialchars($notification['surname']) . ' - ';
         echo htmlspecialchars($notification['property_address']) . ' (' . htmlspecialchars($notification['property_owner']) . ') - ';
         echo htmlspecialchars($notification['status']) . ' - ';

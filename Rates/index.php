@@ -22,8 +22,16 @@ switch ($requestedPage) {
     case 'login':
         include './signin.php';
         break;
+    case 'logout':
+        echo "Logout page accessed."; // Debugging output
+
+
+        include './includes/logout.php';
+        exit(); // Ensure no further processing occurs after logout
+
     default:
         include './404.php'; // Page not found
+
         break;
 }
 
