@@ -8,7 +8,6 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
     exit();
 }
 
-
 require_once '../Database/db.php';
 
 ?>
@@ -219,7 +218,8 @@ require_once '../Database/db.php';
                         u.first_name, 
                         u.surname, 
                         p.address AS property_address, 
-                        p.owner AS property_owner
+                        p.owner AS property_owner,
+                        p.property_id
                     FROM 
                         rate_clearance_applications a
                     JOIN 
@@ -236,10 +236,8 @@ require_once '../Database/db.php';
                 if (count($notifications) > 0) {
                     foreach ($notifications as $notification) {
                         echo '<li>';
-                        echo '<a href = " ">' . htmlspecialchars($notification['first_name']) . ' ' . htmlspecialchars($notification['surname']) . '- </a>';
-                        echo '<a>'. htmlspecialchars($notification['property_address']). ''. htmlspecialchars($notification['property_owner']). '- </a>'  . htmlspecialchars($notification['status']). '' .htmlspecialchars($notification['created_at']);
-                        //echo htmlspecialchars($notification['status']) . ' - ';
-                        //echo htmlspecialchars($notification['created_at']);
+                        echo '<a href="../includes/fetch_property_details.php?id=' . $notification['property_id'] . '">' . htmlspecialchars($notification['first_name']) . ' ' . htmlspecialchars($notification['surname']) . ' - </a>';
+                        echo '<a href="../includes/fetch_property_details.php?id=' . $notification['property_id'] . '">' . htmlspecialchars($notification['property_address']) . ' ' . htmlspecialchars($notification['property_owner']) . ' - </a>' . htmlspecialchars($notification['status']) . ' ' . htmlspecialchars($notification['created_at']);
                         echo '</li>';
                     }
                 } else {

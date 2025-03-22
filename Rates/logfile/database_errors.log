@@ -1,3 +1,79 @@
 
 
 2025-03-06 18:17:13 - Database connection failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'properties.id' in 'on clause'
+2025-03-07 07:27:44 - Database connection failed: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it
+2025-03-10 07:49:17 - Database connection failed: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it
+2025-03-10 07:49:53 - Database connection failed: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it
+
+
+2025-03-11 17:35:28 - Database connection failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'properties.id' in 'on clause'
+
+
+2025-03-11 17:35:52 - Database connection failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'properties.id' in 'on clause'
+
+
+2025-03-11 17:58:01 - Database connection failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'properties.id' in 'on clause'
+
+
+2025-03-11 17:58:34 - Database connection failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'properties.id' in 'on clause'
+
+
+2025-03-11 18:00:03 - Database connection failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'properties.id' in 'on clause'
+
+
+2025-03-11 18:03:54 - Database connection failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'properties.id' in 'on clause'
+
+
+2025-03-12 11:19:12 - Database connection failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'properties.id' in 'on clause'
+
+
+2025-03-12 11:25:22 - Database connection failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'properties.id' in 'on clause'
+
+
+2025-03-12 11:29:51 - Database connection failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'properties.id' in 'on clause'
+
+
+2025-03-12 11:57:29 - Database connection failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'properties.id' in 'on clause'
+
+
+2025-03-12 14:24:44 - Database connection failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'properties.id' in 'on clause'
+
+
+2025-03-12 14:25:35 - Database connection failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'properties.id' in 'on clause'
+
+
+2025-03-12 14:25:36 - Database connection failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'properties.id' in 'on clause'
+
+
+2025-03-12 14:25:39 - Database connection failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'properties.id' in 'on clause'
+
+
+2025-03-12 14:25:44 - Database connection failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'properties.id' in 'on clause'
+
+
+2025-03-12 14:26:48 - Database connection failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'properties.id' in 'on clause'
+
+
+2025-03-12 14:26:52 - Database connection failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'properties.id' in 'on clause'
+
+
+2025-03-12 14:39:36 - Database connection failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'properties.id' in 'on clause'
+
+
+2025-03-12 14:40:18 - Database connection failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'properties.id' in 'on clause'
+
+
+2025-03-12 14:54:20 - Database connection failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'properties.id' in 'on clause'
+
+
+2025-03-12 14:56:20 - Database connection failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'properties.id' in 'on clause'
+
+
+2025-03-12 15:10:05 - Database connection failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'properties.id' in 'on clause'
+
+
+2025-03-12 15:32:35 - Database connection failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'properties.id' in 'on clause'
+2025-03-14 08:23:32 - Database connection failed: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it
+2025-03-14 08:23:44 - Database connection failed: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it
+2025-03-14 08:24:09 - Database connection failed: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it
+2025-03-14 08:24:32 - Database connection failed: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it

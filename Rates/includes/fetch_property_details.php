@@ -4,41 +4,43 @@ session_start(); // Start the session
 // Include database connection file
 require_once("../Database/db.php");
 
-// Check if user is logged in
-if (!isset($_SESSION['user_id'])) {
-    // Redirect to login page if not logged in
-    header("Location: ../signin.php");
+// Ensure user_id is available from the session
+if (isset($_SESSION['user_id'])) {
+    $user_id = $_SESSION['user_id'];
+} else {
+    echo "User not logged in.";
     exit();
 }
 
-// Check if the property_id is provided in the POST request
-if (isset($_POST['property_id'])) {
-    $propertyId = $_POST['property_id'];
-    $userId = $_SESSION['user_id'];
-    
-    // Fetch property details from the database
-    $sql = "SELECT properties.*, GROUP_CONCAT(accounts.account_number) AS account_numbers 
-            FROM properties 
-            LEFT JOIN accounts ON properties.id = accounts.property_id 
-            WHERE properties.id = :property_id AND properties.user_id = :user_id 
-            GROUP BY properties.id";
-    
-    $stmt = $pdo->prepare($sql);
-    $stmt->execute([':property_id' => $propertyId, ':user_id' => $userId]);
+if (isset($_GET['property_id'])) {
+    $propertyId = $_GET['property_id'];
+    // SQL query to fetch property details by ID
+    $sql = "SELECT property_id, address, size, type, owner, created_at, updated_at FROM properties WHERE property_id = ?";
 
-    $property = $stmt->fetch(PDO::FETCH_ASSOC);
+    try {
+        // Prepare and execute the query
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindValue(1, $propertyId, PDO::PARAM_INT);
+        $stmt->execute();
 
-    // Display property details
-    if ($property) {
-        echo "<p>Address: " . htmlspecialchars($property['address']) . "</p>";
-        echo "<p>Size: " . htmlspecialchars($property['size']) . " sq meters</p>";
-        echo "<p>Type: " . htmlspecialchars($property['type']) . "</p>";
-        echo "<p>Owner: " . htmlspecialchars($property['owner']) . "</p>";
-        echo "<p>Account Numbers: " . htmlspecialchars($property['account_numbers']) . "</p>";
-    } else {
-        echo "<p>No property details found.</p>";
+        // Fetch the property details
+        if ($property = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            // Display property details
+            echo "<h2>Property Details</h2>";
+            echo "<p>ID: " . htmlspecialchars($property['property_id']) . "</p>";
+            echo "<p>Address: " . htmlspecialchars($property['address']) . "</p>";
+            echo "<p>Size: " . htmlspecialchars($property['size']) . "</p>";
+            echo "<p>Type: " . htmlspecialchars($property['type']) . "</p>";
+            echo "<p>Owner: " . htmlspecialchars($property['owner']) . "</p>";
+            echo "<p>Created At: " . htmlspecialchars($property['created_at']) . "</p>";
+            echo "<p>Updated At: " . htmlspecialchars($property['updated_at']) . "</p>";
+        } else {
+            echo "No property found with the given ID.";
+        }
+    } catch (PDOException $e) {
+        echo "Error fetching properties: " . $e->getMessage();
     }
 } else {
-    echo "<p>Invalid request.</p>";
+    echo "No property ID provided.";
 }
 ?>

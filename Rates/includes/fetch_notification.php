@@ -1,5 +1,8 @@
 <?php
+require_once '../Database/db.php'; // Include database connection
+
 // Fetch notifications for all users with applicant and property details
+
 $notificationQuery = "SELECT 
 a.application_id, 
 a.status, 
@@ -17,6 +20,7 @@ properties p ON a.property_id = p.property_id
 ORDER BY 
 a.created_at DESC
 ";
+
 $notificationStmt = $pdo->prepare($notificationQuery);
 $notificationStmt->execute();
 $notifications = $notificationStmt->fetchAll();

@@ -1,67 +1,35 @@
-<?php
 
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-ini_set('log_errors', 1);
-ini_set('error_log', '../logfile/php_error.log');
+<?php
 
 session_start(); // Start the session
 
-// Check if user is logged in and has required session data
-if (empty($_SESSION['role']) || $_SESSION['role'] !== 'conveyancer' || 
-    empty($_SESSION['user_id']) || empty($_SESSION['username'])) {
-    header("Location: index.php");
-    exit();
+// Check if user is logged in
+if (empty($_SESSION['user_id'])) {
+header("Location: index.php");
+exit();
 }
-
-// Generate CSRF token if not set
-if (!isset($_SESSION['csrf_token'])) {
-    $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
-}
-
-// Check if the session has expired
-if (!isset($_SESSION['last_activity'])) {
-    $_SESSION['last_activity'] = time(); // Store last activity time
-} else {
-    if (time() - $_SESSION['last_activity'] > 1800) { // 30 minutes
-        session_unset();
-        session_destroy();
-        header("Location: ./signin.php");
-        exit();
-    }
-}
-$_SESSION['last_activity'] = time(); // Update last activity time
 
 // Include database connection file
 require_once("../Database/db.php");
 if (!$pdo) {
-    die("Database connection failed.");
-}
-
-if (!isset($_SESSION['user_id'])) {
-    header("Location: ../signin.php");
-    echo "User ID not set.";
-    exit();
+die("Database connection failed.");
 }
 
 // Fetch properties added by the logged-in user
 $userId = $_SESSION['user_id'];
 try {
-    $sql = "SELECT properties.*, GROUP_CONCAT(accounts.account_number) AS account_numbers 
-            FROM properties 
-            LEFT JOIN accounts ON properties.id = accounts.property_id 
-            WHERE properties.user_id = :user_id 
-            GROUP BY properties.property_id";
-
-    $stmt = $pdo->prepare($sql);
-    $stmt->execute([':user_id' => $userId]);
-} catch (PDOException $e) {
-    file_put_contents('../logfile/database_errors.log', "\n\n" . date('Y-m-d H:i:s') . " - Database connection failed: " . $e->getMessage()  . PHP_EOL, FILE_APPEND);
-    include('../includes/catch_error.php');
-    exit();
-}
-
+$sql = "SELECT properties.*, GROUP_CONCAT(accounts.account_number) AS account_numbers 
+        FROM properties 
+        LEFT JOIN accounts ON properties.property_id = accounts.property_id 
+        WHERE properties.user_id = :user_id 
+        GROUP BY properties.property_id";
+$stmt = $pdo->prepare($sql);
+$stmt->execute([':user_id' => $userId]);
 $properties = $stmt->fetchAll(PDO::FETCH_ASSOC);
+} catch (PDOException $e) {
+echo "Database error: " . $e->getMessage();
+exit();
+}
 
 // Initialize variables for applicant details
 $applicant_address = '';
@@ -72,70 +40,48 @@ $description = '';
 
 // Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
-        echo "Invalid CSRF token.";
-        exit();
+// Sanitize and assign form data
+$selectedPropertyId = filter_var($_POST['select_property'], FILTER_SANITIZE_NUMBER_INT);
+$applicant_address = filter_var($_POST['applicant_address'], FILTER_SANITIZE_STRING);
+$contact_number = filter_var($_POST['contact_number'], FILTER_SANITIZE_STRING);
+$email_address = filter_var($_POST['email_address'], FILTER_SANITIZE_EMAIL);
+$relationship_to_owner = filter_var($_POST['relationship_to_owner'], FILTER_SANITIZE_STRING);
+$description = filter_var($_POST['description'], FILTER_SANITIZE_STRING);
+
+// Define the upload directory
+$uploadDir = '../uploads/';
+$folder_path = $uploadDir . $userId . '/';
+if (!is_dir($folder_path)) {
+    mkdir($folder_path, 0777, true);
+}
+
+// Function to handle file uploads
+function handleFileUpload($file, $folder_path) {
+    if ($file['error'] !== UPLOAD_ERR_OK) {
+        return "Error: " . $file['error'];
     }
-
-    // Validate and assign form data
-    $selectedPropertyId = $_POST['select_property'] ?? null;
-    $applicant_address = $_POST['applicant_address'] ?? '';
-    $contact_number = $_POST['contact_number'] ?? '';
-    $email_address = $_POST['email_address'] ?? '';
-    $relationship_to_owner = $_POST['relationship_to_owner'] ?? '';
-    $description = $_POST['description'] ?? '';
-
-    // Handle file uploads
-    $title_deed = $_FILES['title_deed']['name'] ?? '';
-    $identity_proof = $_FILES['identity_proof']['name'] ?? '';
-    $additional_documents = $_FILES['additional_documents']['name'] ?? '';
-
-    // Define the upload directory
-    $uploadDir = '../uploads/';
-    $errors = [];
-    $folder_path = $folder_path;
-
-    // Function to handle file uploads
-    function handleFileUpload($file, $folder_path) {
-        $targetFile = $folder_path . basename($file["pdfile"]['name']);
-        $fileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
-
-        // Allow only specific file formats
-        if (!in_array($fileType, ['pdf', 'jpg', 'jpeg', 'png', 'doc', 'docx']) || $_FILES["pdffile"]["size"] > 5000000 ) {
-            return "Error: Only PDF, JPG, JPEG, and PNG files are allowed.";
-        }
-        // Move the file to the upload directory
-        if (!move_uploaded_file($file["pdffile"]['tmp_name'], $targetFile)) {
-            return "Error: There was an error uploading your file.";
-        }
-        return $file['name'];
+    $targetFile = $folder_path . basename($file['name']);
+    $fileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
+    $allowedTypes = ['pdf', 'jpg', 'jpeg', 'png', 'doc', 'docx'];
+    if (!in_array($fileType, $allowedTypes) || $file["size"] > 5000000) {
+        return "Error: Only PDF, JPG, JPEG, PNG, DOC, and DOCX files are allowed, and file size must be less than 5MB.";
     }
-    
-    
-
-    // Handle each file upload
-    $title_deed = handleFileUpload($_FILES['title_deed'], $folder_path);
-    if (is_string($title_deed)) $errors[] = $title_deed; // Store error if any
-
-    $identity_proof = handleFileUpload($_FILES['identity_proof'], $folder_path);
-    if (is_string($identity_proof)) $errors[] = $identity_proof;
-
-    $additional_documents = handleFileUpload($_FILES['additional_documents'], $folder_path);
-    if (is_string($additional_documents)) $errors[] = $additional_documents;
-
-    // If there are errors, display them
-    if (!empty($errors)) {
-        foreach ($errors as $error) {
-            echo "<p>$error</p>";
-        }
-        exit();
+    if (!move_uploaded_file($file['tmp_name'], $targetFile)) {
+        return "Error: There was an error uploading your file.";
     }
+    return basename($targetFile);
+}
 
-    // Insert application into the database
-    $insertSql = "INSERT INTO rate_clearance_applications (user_id, property_id, applicant_address, email_address, relationship_to_owner, description, title_deed, identity_proof, additional_documents, folder_path) 
-                  VALUES (:user_id, :property_id, :applicant_address, :email_address, :relationship_to_owner, :description, :title_deed, :identity_proof, :additional_documents, :folder_path)";
+// Handle file uploads
+$title_deed = handleFileUpload($_FILES['title_deed'], $folder_path);
+$identity_proof = handleFileUpload($_FILES['identity_proof'], $folder_path);
+$additional_documents = handleFileUpload($_FILES['additional_documents'], $folder_path);
 
-    $insertStmt = $pdo->prepare($insertSql);
+// Insert application into the database
+$insertSql = "INSERT INTO rate_clearance_applications (user_id, property_id, applicant_address, email_address, relationship_to_owner, description, title_deed, identity_proof, additional_documents, folder_path) 
+              VALUES (:user_id, :property_id, :applicant_address, :email_address, :relationship_to_owner, :description, :title_deed, :identity_proof, :additional_documents, :folder_path)";
+$insertStmt = $pdo->prepare($insertSql);
+try {
     $insertStmt->execute([
         ':user_id' => $userId,
         ':property_id' => $selectedPropertyId,
@@ -148,14 +94,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         ':additional_documents' => $additional_documents,
         ':folder_path' => $folder_path
     ]);
-
     echo "Application submitted successfully!";
+    header("Location: cdashboard.php");
+    exit();
+} catch (PDOException $e) {
+    echo "Database error: " . $e->getMessage();
 }
-
+}
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -253,5 +204,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <a href="cdashboard.php" style="display: inline-block; margin-top: 10px; padding: 10px; background-color: blue; color: white; text-decoration: none; border-radius: 10px;">Back to Dashboard</a>
         </form>
     </div>
+
+
 </body>
 </html>

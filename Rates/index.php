@@ -3,8 +3,9 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 session_start();
+
 // Regenerate session to prevent session fixation
-session_regenerate_id(true);
+//session_regenerate_id(true);
 
 
 // Ensure $requestedPage is defined

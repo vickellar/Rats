@@ -1,5 +1,5 @@
 <?php
-/*
+
 session_start();
 
 if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'finance_director') {
@@ -10,7 +10,7 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'finance_director') {
 }
 
 include '../Database/db.php';
-*/
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -401,7 +401,7 @@ include '../Database/db.php';
                 <a href="#">Dashboard</a>
                 <a href="#" id="profileTab">Profile</a>
                 <a href="#" id="history">History</a>
-                <a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                <a href="../includes/logout.php?page=logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
             </div>
         </div>
 

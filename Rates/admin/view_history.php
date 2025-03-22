@@ -11,9 +11,25 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
 // Include database connection
 require_once '../Database/db.php';
 
-// Logic for fetching and displaying history goes here
-// For example, fetching application history from the database
+$query = "SELECT * FROM rate_clearance_applications WHERE application_id = :application_id";
+$stmt = $pdo->prepare($query);
+$stmt->execute(['application_id' => $_GET['application_id']]);
+$results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
+if (count($results) > 0) {
+    echo '<table border="1"><tr><th>Application ID</th><th>First Name</th><th>Last Name</th><th>Status</th></tr>';
+    foreach ($results as $row) {
+        echo '<tr>';
+        echo '<td>' . htmlspecialchars($row['application_id']) . '</td>';
+        echo '<td>' . htmlspecialchars($row['first_name']) . '</td>';
+        echo '<td>' . htmlspecialchars($row['last_name']) . '</td>';
+        echo '<td>' . htmlspecialchars($row['status']) . '</td>';
+        echo '</tr>';
+    }
+    echo '</table>';
+} else {
+    echo '<p>No application history found.</p>';
+}
 ?>
 
 <!DOCTYPE html>

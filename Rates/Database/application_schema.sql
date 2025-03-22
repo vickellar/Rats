@@ -1,26 +1,16 @@
 CREATE TABLE rate_clearance_applications (
-    application_id INT AUTO_INCREMENT PRIMARY KEY,
+    application_id SERIAL PRIMARY KEY,  -- Serial to auto-increment
     user_id INT NOT NULL,
     property_id INT NOT NULL,
-    applicant_name VARCHAR(255) NOT NULL,
-    contact_number VARCHAR(15) NOT NULL,
-    email_address VARCHAR(100) NOT NULL,
-    relationship_to_owner VARCHAR(100),
+    applicant_address VARCHAR(255) NOT NULL,
+    email_address VARCHAR(255) NOT NULL,
+    relationship_to_owner VARCHAR(100) NOT NULL,
     description TEXT,
+    title_deed VARCHAR(255),
+    identity_proof VARCHAR(255),
+    additional_documents VARCHAR(255),
+    file_path VARCHAR(255),
+    status VARCHAR(100) NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    FOREIGN KEY (user_id) REFERENCES users(user_id),
-    FOREIGN KEY (property_id) REFERENCES properties(property_id)
-);
-
-
-CREATE TABLE documents (
-    document_id INT AUTO_INCREMENT PRIMARY KEY,
-    application_id INT NOT NULL,
-    title_deed VARCHAR(255) COMMENT 'Path or URL for the title deed file',
-    identity_proof VARCHAR(255) COMMENT 'Path or URL for the identity proof file',
-    additional_documents VARCHAR(255) COMMENT 'Path or URL for additional documents file',
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    FOREIGN KEY (application_id) REFERENCES rate_clearance_applications(application_id)
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );

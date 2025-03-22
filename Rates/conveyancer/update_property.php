@@ -15,11 +15,11 @@ if ($_SESSION['role'] !== 'conveyancer') {
 $error_message = "";
 
 // Check if property ID is provided
-if (isset($_GET['id'])) {
-    $property_id = $_GET['id'];
+if (isset($_GET['property_id'])) {
+    $property_id = $_GET['property_id'];
 
     // Fetch existing property details
-    $sql = "SELECT * FROM properties WHERE id = :id";
+    $sql = "SELECT * FROM properties WHERE id = :property_id";
     $stmt = $pdo->prepare($sql);
     $stmt->execute([':id' => $property_id]);
     $property = $stmt->fetch();

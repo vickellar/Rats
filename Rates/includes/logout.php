@@ -11,7 +11,8 @@ if (isset($_POST['confirm_logout']) && isset($_SESSION['user_id'])) {
     // Destroy the session
     session_destroy(); // Ensure session is destroyed
     // Redirect to the login page or home page
-    header("Location: ../index.php");
+    header("Location:../includes/logout.php ");
+
     exit();
 }
 

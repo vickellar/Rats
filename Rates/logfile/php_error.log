@@ -1,0 +1,9 @@
+[12-Mar-2025 14:27:38 Europe/Berlin] PHP Warning:  Undefined variable $stmt in C:\xampp\htdocs\Rats\Rates\conveyancer\apply_rates.php on line 66
+[12-Mar-2025 14:27:38 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetchAll() on null in C:\xampp\htdocs\Rats\Rates\conveyancer\apply_rates.php:66
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Rats\Rates\conveyancer\apply_rates.php on line 66
+[13-Mar-2025 15:59:20 Europe/Berlin] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in C:\xampp\htdocs\Rats\Rates\conveyancer\apply_rates.php on line 63
+[13-Mar-2025 15:59:20 Europe/Berlin] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in C:\xampp\htdocs\Rats\Rates\conveyancer\apply_rates.php on line 64
+[13-Mar-2025 15:59:20 Europe/Berlin] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in C:\xampp\htdocs\Rats\Rates\conveyancer\apply_rates.php on line 66
+[13-Mar-2025 15:59:20 Europe/Berlin] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in C:\xampp\htdocs\Rats\Rates\conveyancer\apply_rates.php on line 67
