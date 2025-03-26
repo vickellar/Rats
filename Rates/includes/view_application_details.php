@@ -163,6 +163,27 @@ if (!$application) {
         <?php endif; ?>
 
     </div>
-</main>
+    <div class="notifications">
+        <h3>Notifications</h3>
+        <ul>
+            <?php
+            if (count($notifications) > 0) {
+                foreach ($notifications as $notification) {
+                    echo '<li>';
+                    echo '<a href="../includes/fetch_property_details.php?property_id=' . $notification['property_id'] . '">' . htmlspecialchars($notification['first_name']) . ' ' . htmlspecialchars($notification['surname']) . '</a>';
+                    echo ' - <a href="../includes/fetch_property_details.php?property_id=' . $notification['property_id'] . '">' . htmlspecialchars($notification['property_address']) . ' ' . htmlspecialchars($notification['property_owner']) . '</a>';
+                    echo ' - ' . htmlspecialchars($notification['status']) . ' ' . htmlspecialchars($notification['created_at']);
+                    if ($notification['status'] === 'awaiting') {
+                        echo ' <span class="new-notification">New</span>';
+                    }
+                    echo '</li>';
+                }
+            } else {
+                echo '<li>No notifications found</li>';
+            }
+            ?>
+        </ul>
+    </div>
+
 </body>
 </html>

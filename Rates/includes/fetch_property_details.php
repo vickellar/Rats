@@ -98,23 +98,21 @@ if (isset($_GET['property_id'])) {
     } catch (PDOException $e) {
         echo "Error fetching properties: " . $e->getMessage();
     }
+
+    // Add Reply Button
+    echo "<div style='margin-top: 20px; pedding: 20px;'>";
+    echo "<form action='../admin/calculate_rates.php' method='POST'>";
+    echo "<input type='hidden' name='property_id' value='" . htmlspecialchars($propertyId) . "'>";
+    echo "<button type='submit'>Calculate Rates</button>";
+    echo "</form>";
+    echo "</div>";
+
 } else {
     echo "No property ID provided.";
 }
 
-// Add Reply Button
-echo "<div style='margin-top: 20px;'>";
-echo "<form action='add_reply.php' method='POST'>";
-echo "<input type='hidden' name='property_id' value='" . htmlspecialchars($property_id) . "'>";
-echo "<input type='hidden' name='content' value='" . htmlspecialchars($content) . "'>";
-
-echo "<button type='submit'>Reply</button>";
-echo "</form>";
-echo "</div>";
 ?>
-
-?>
-       
+    
 <style>
     .property-container {
         max-width: 1200px;

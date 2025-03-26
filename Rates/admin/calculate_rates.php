@@ -1,23 +1,17 @@
 <?php
-session_start(); // Start the session
+/*
+session_start();
 
-require_once("../Database/db.php"); // Include database connection file
-
-// Retrieve the property_id from the URL parameter
-$propertyId = isset($_GET['property_id']) ? $_GET['property_id'] : null;
-
-if ($propertyId) {
-    // Prepare and execute the SQL query to get the account count
-    $sql = "SELECT COUNT(*) as account_count FROM accounts WHERE property_id = :property_id";
-    $stmt = $pdo->prepare($sql);
-    $stmt->bindParam(':property_id', $propertyId, PDO::PARAM_INT);
-    $stmt->execute();
-    $accountCount = $stmt->fetchColumn(); // Fetch account count from the database
-} else {
-    $accountCount = 0; // Default to 0 if property_id is not provided
+// Check if user is logged in and is an admin
+if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
+    header("Location: ../index.php");
+    exit();
 }
-?>
 
+// Include database connection
+require_once '../Database/db.php';
+*/
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -193,33 +187,22 @@ if ($propertyId) {
 
         <input type="text" id="customPeriod" name="customPeriod" placeholder="Enter period in months" style="display:none;" oninput="updateCustomPeriod()">
     </div>
+
+    <div class="accounts-section">
+        <label for="accounts">Number of Accounts</label>
+        <select id="accounts" name="accounts" onchange="updateAccountDetails()">
+            <option value="">Select Account</option>
+            <option value="1">1 Account</option>
+            <option value="2">2 Accounts</option>
+            <option value="3">3 Accounts</option>
+        </select>
+    </div>
 </div>
 
 <div class="balance-section">
-    <div class="input-group">
-        <label>Account Holder:</label>
-        <input type="text" id="accountHolder" placeholder="Enter account holder name">
-    </div>
     
     <h3>Account Summary</h3>
-    <div id="accountDetails">
-        <?php
-        // Generate account details based on the account count
-        for ($i = 1; $i <= $accountCount; $i++) {
-            echo '
-                <h4>Account ' . $i . '</h4>
-                <div class="input-group">
-                    <label>Account Holder:</label>
-                    <input type="text" id="accountHolder' . $i . '" placeholder="Enter account holder name">
-                </div>
-                <div class="input-group">
-                    <label>Balance (USD):</label>
-                    <input type="text" id="accountBalance' . $i . '" placeholder="Enter balance" class="account-balance" onblur="formatCurrency(this)">
-                </div>
-            ';
-        }
-        ?>
-    </div>
+    <div id="accountDetails"></div>
 
     <div class="input-group">
         <label>Processing Fee (USD):</label>
@@ -228,13 +211,13 @@ if ($propertyId) {
 
     <div class="input-group">
         <label>Total Balance (USD):</label>
-        <input type="text" id="totalBalance" placeholder="Total balance" readonly>
+        <input type="text" id="OveralTotalBalance" placeholder="Overal Total balance" readonly>
     </div>
-
+    
+    
     <button onclick="calculateTotal()">Calculate</button>
     <button onclick="saveRecords()">Save</button>
-    <button onclick="viewSavedRecords()">Submit</button>
-  
+    <button onclick="viewSavedRecords()">View Saved</button>
 </div>
 
 <div class="footer">
@@ -252,20 +235,144 @@ if ($propertyId) {
 </div>
 
 <script>
+
+    const records = [];
+
     function updatePeriodDetails() {
         const period = document.getElementById('period').value;
         const customInput = document.getElementById('customPeriod');
+        const accountCount = document.getElementById('accounts').value;
+        const accountDetails = document.getElementById('accountDetails');
 
         if (period === 'custom') {
             customInput.style.display = 'block';
+            return; // Exit if custom is selected
         } else {
             customInput.style.display = 'none';
+            if (period) {
+                generateAccountDetails(period, accountCount);
+            }
         }
     }
 
     function updateCustomPeriod() {
         const customPeriod = document.getElementById('customPeriod').value;
-        // You can add custom period handling logic here if needed
+        const accountCount = document.getElementById('accounts').value;
+        generateAccountDetails(customPeriod, accountCount);
+    }
+
+    function updateAccountDetails() {
+        const accountCount = document.getElementById('accounts').value;
+        const period = document.getElementById('period').value;
+        const customInput = document.getElementById('customPeriod');
+
+        if (period === 'custom') {
+            if (customInput.value) {
+                generateAccountDetails(customInput.value, accountCount);
+            }
+        } else {
+            generateAccountDetails(period, accountCount);
+        }
+    }
+
+    function generateAccountDetails(months, accountCount) {
+        const accountDetails = document.getElementById('accountDetails');
+        accountDetails.innerHTML = ''; // Clear previous details
+
+        // Loop through each account
+        for (let i = 1; i <= accountCount; i++) {
+            accountDetails.innerHTML += `
+
+                <p>Account ${i} </p>
+                <div class="input-group">
+                    <label>Account number:</label>
+                    <input type="text" id="accountNumber" placeholder="Enter account number">
+                </div>
+
+                <!--old code-->
+                <div class="input-group">
+                    <label>Balance for Account ${i} (USD):</label>
+                    <input type="text" placeholder="Enter balance" class="account-balance" onblur="formatCurrency(this)">
+                </div>
+
+                <div class="input-group">
+                    <label>Month 1 
+                        <select id="accounts" name="accounts"">
+                            <option value="January">Jan Account</option>
+                            <option value="February">Feb Accounts</option>
+                            <option value="MAtch">Mat Accounts</option>
+                            <option value="April"> Apr Accounts</option>
+                            <option value="May"> May Accounts</option>
+                            <option value="June"> Jun Accounts</option>
+                            <option value="July "> Jul Accounts</option>
+                            <option value="August "> Aug Accounts</option>
+                            <option value="September "> Sep Accounts</option>
+                            <option value="October "> Oct Accounts</option>
+                            <option value="November "> Nov Accounts</option>
+                            <option value="December "> Dec</option>
+                        </select>(USD):
+                    </label>
+                    <input type="text" placeholder="Enter monthly balance" class="monthly-balance" onblur="formatCurrency(this)">
+                </div>
+
+                <div class="input-group">
+                     <label>Month 2  
+                        <select id="accounts" name="accounts"">
+                            <option value="January">Jan Account</option>
+                            <option value="February">Feb Accounts</option>
+                            <option value="MAtch">Mat Accounts</option>
+                            <option value="April"> Apr Accounts</option>
+                            <option value="May"> May Accounts</option>
+                            <option value="June"> Jun Accounts</option>
+                            <option value="July "> Jul Accounts</option>
+                            <option value="August "> Aug Accounts</option>
+                            <option value="September "> Sep Accounts</option>
+                            <option value="October "> Oct Accounts</option>
+                            <option value="November "> Nov Accounts</option>
+                            <option value="December "> Dec</option>
+                        </select>
+                     (USD):
+                     </label>
+                     <input type="text" placeholder="Enter monthly balance" class="monthly-balance" onblur="formatCurrency(this)">
+                </div>
+                <div class="input-group">
+                     <label>Month 3
+                        <select id="accounts" name="accounts"">
+                            <option value="January">Jan Account</option>
+                            <option value="February">Feb Accounts</option>
+                            <option value="MAtch">Mat Accounts</option>
+                            <option value="April"> Apr Accounts</option>
+                            <option value="May"> May Accounts</option>
+                            <option value="June"> Jun Accounts</option>
+                            <option value="July "> Jul Accounts</option>
+                            <option value="August "> Aug Accounts</option>x
+                            <option value="September "> Sep Accounts</option>
+                            <option value="October "> Oct Accounts</option>
+                            <option value="November "> Nov Accounts</option>
+                            <option value="December "> Dec</option>
+                        </select>
+                     (USD):
+                     </label>
+                     <input type="text" placeholder="Enter monthly balance" class="monthly-balance" onblur="formatCurrency(this)">
+                </div>
+
+                <div class="input-group">
+                    <label>Account Total Balance (USD):</label>
+                    <input type="text" id="totalBalance" placeholder="Total balance" readonly>
+                </div>
+
+            `;
+        }
+
+        // // Loop through the months after the account balances
+        // for (let j = 1; j <= months; j++) {
+        //     accountDetails.innerHTML += `
+        //         <div class="input-group">
+        //             <label>Month ${j} (USD):</label>
+        //             <input type="text" placeholder="Enter monthly balance" class="monthly-balance" onblur="formatCurrency(this)">
+        //         </div>
+        //     `;
+        // }
     }
 
     function formatCurrency(input) {
@@ -277,30 +384,61 @@ if ($propertyId) {
         }
     }
 
-    function calculateTotal() {
+    function calculateOveralTotal() {
+        const accountBalances = document.querySelectorAll('.account-balance');
+        const monthlyBalances = document.querySelectorAll('.monthly-balance');
         let total = 0;
-        const accountCount = <?php echo $accountCount; ?>;
 
-        for (let i = 1; i <= accountCount; i++) {
-            const balanceInput = document.getElementById('accountBalance' + i);
-            const balanceValue = parseFloat(balanceInput.value.replace(/[^0-9.-]+/g, "")) || 0;
-            total += balanceValue;
-        }
+        // Sum account balances
+        accountBalances.forEach(input => {
+            const value = parseFloat(input.value.replace(/[^0-9.-]+/g, "")) || 0;
+            total += value;
+        });
 
-        const processingFee = document.querySelector('.processing-fee').value;
-        total += parseFloat(processingFee.replace(/[^0-9.-]+/g, "")) || 0;
+        // Sum monthly balances
+        monthlyBalances.forEach(input => {
+            const value = parseFloat(input.value.replace(/[^0-9.-]+/g, "")) || 0;
+            total += value;
+        });
 
+        // Display total balance
         document.getElementById('totalBalance').value = total.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
     }
 
+    function calculateTotal() {
+        const accountBalances = document.querySelectorAll('.account-balance');
+        const monthlyBalances = document.querySelectorAll('.monthly-balance');
+        let total = 0;
+
+        // Sum account balances
+        accountBalances.forEach(input => {
+            const value = parseFloat(input.value.replace(/[^0-9.-]+/g, "")) || 0;
+            total += value;
+        });
+
+        // Sum monthly balances
+        monthlyBalances.forEach(input => {
+            const value = parseFloat(input.value.replace(/[^0-9.-]+/g, "")) || 0;
+            total += value;
+        });
+
+        // Add processing fee
+        const processingFee = document.querySelector('.processing-fee').value;
+        total += parseFloat(processingFee.replace(/[^0-9.-]+/g, "")) || 0;
+
+        // Display total balance
+        document.getElementById('OveralTotalBalance').value = total.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
+    }
+
     function saveRecords() {
-        const accountHolder = document.getElementById('accountHolder').value;
-        const totalBalance = document.getElementById('totalBalance').value;
+        const accountNumber = document.getElementById('accountNumber').value;
+        const TotalBalance = document.getElementById('TotalBalance').value;
+        const OveralTotalBalance = document.getElementById('OveralTotalBalance').value;
         const processingFee = document.querySelector('.processing-fee').value;
         const accountDetails = document.getElementById('accountDetails').innerHTML;
 
-        if (accountHolder && totalBalance) {
-            const record = { holder: accountHolder, totalBalance, processingFee, accountDetails, date: new Date() };
+        if (accountNumber && OveralTotalBalance && TotalBalance) {
+            const record = { holder: accountNumber,TotalBalance, OveralTotalBalance, processingFee, accountDetails, date: new Date() };
             records.unshift(record); // Add the new record at the beginning of the array
             generatePDF(record); // Generate PDF after saving
             clearEntries(); // Clear entries after saving
@@ -310,20 +448,21 @@ if ($propertyId) {
     }
 
     function generatePDF(record) {
-        const { holder, totalBalance, processingFee, accountDetails } = record;
+        const { holder,TotalBalance, OveralTotalBalance, processingFee, accountDetails } = record;
         const { jsPDF } = window.jspdf;
         const doc = new jsPDF();
 
         doc.setFontSize(16);
         doc.text("Rates Clearance Calculator", 20, 20);
         doc.setFontSize(12);
-        doc.text("Account Holder: " + holder, 20, 40);
-        doc.text("Total Balance: " + totalBalance, 20, 50);
+        doc.text("Account Holder:" + holder, 20, 40);
+        doc.text("Total Balance:" + TotalBalance , 20, 50);
+        doc.text("Overal Total Balance:" + OveralTotalBalance , 20, 50);
         doc.text("Processing Fee: " + processingFee, 20, 60);
         doc.text("Account Details:", 20, 70);
         doc.fromHTML(accountDetails, 20, 80);
 
-        const pdfName = holder + "_rates_clearance.pdf";
+        const pdfName = `${holder}_rates_clearance.pdf`;
         doc.save(pdfName);
     }
 
@@ -338,7 +477,7 @@ if ($propertyId) {
             noRecordsMessage.style.display = 'none'; // Hide no records message
             records.forEach(record => {
                 const li = document.createElement('li');
-                li.textContent = "Holder: " + record.holder + ", Total Balance: " + record.totalBalance + ", Processing Fee: " + record.processingFee;
+                li.textContent = `Holder: ${record.holder}, Overal Total Balance: ${record.OveralTotalBalance}, Processing Fee: ${record.processingFee}`;
                 li.className = 'record-item';
                 recordList.appendChild(li);
             });
@@ -370,11 +509,13 @@ if ($propertyId) {
     }
 
     function clearEntries() {
-        document.getElementById('accountHolder').value = '';
-        document.getElementById('totalBalance').value = '';
+        document.getElementById('accountNumber').value = '';
+        document.getElementById('TotalBalance').value = '';
+        document.getElementById('OveralTotalBalance').value = '';
         document.getElementById('accountDetails').innerHTML = '';
         document.getElementById('customPeriod').value = '';
         document.getElementById('period').selectedIndex = 0;
+        document.getElementById('accounts').selectedIndex = 0;
     }
 </script>
 
