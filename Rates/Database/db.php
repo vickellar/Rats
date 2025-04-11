@@ -8,7 +8,8 @@ define('DB_NAME', 'rate_clearance_system');
 try {
     // Create PDO connection
     $pdo = new PDO(
-        "mysql:host=" . DB_HOST . ";dbname=" . DB_NAME,
+    "mysql:host=" . DB_HOST . ";port=3307;dbname=" . DB_NAME,
+
         DB_USER,
         DB_PASS,
         [
