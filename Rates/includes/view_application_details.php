@@ -49,6 +49,9 @@ $applicationStmt = $pdo->prepare($applicationQuery);
 $applicationStmt->execute([$application_id]);
 $application = $applicationStmt->fetch();
 
+// Debug: Verify property_id exists
+error_log("Debug - Property ID: " . ($application['property_id'] ?? 'NOT FOUND'));
+
 if (!$application) {
     header("Location: ../error.php?error=Application not found");
 
@@ -162,6 +165,9 @@ if (!$application) {
             <a href="<?php echo htmlspecialchars($application['additional_documents']); ?>" target="_blank">Additional Documents</a>
         <?php endif; ?>
 
+    </div>
+    <div class="actions">
+        <a href="../admin/calculate_rate.php?property_id=<?php echo $application['property_id']; ?>" class="btn">Calculate Rates</a>
     </div>
     <div class="notifications">
         <h3>Notifications</h3>
