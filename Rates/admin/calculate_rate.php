@@ -7,18 +7,31 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
     header("Location: ../index.php");
     exit();
 }
-
+*/
 // Include database connection
 require_once '../Database/db.php';
-*/
+
+// Fetch account number based on application_id or property_id
 if (isset($_GET['property_id'])) {
     $propertyId = $_GET['property_id'];
-    error_log("Received property_id in calculate_rate.php: " . $propertyId);
+    error_log("../logfile/php_error.log.php: " . $propertyId);
     echo "property id " . htmlspecialchars($propertyId);
+
+    // Fetch account number from the database
+    $stmt = $pdo->prepare("SELECT account_number FROM accounts WHERE account_id = :propertyId");
+    $stmt->execute(['propertyId' => $propertyId]);
+    $account = $stmt->fetch();
+
+    if ($account) {
+        echo "Account Number: " . htmlspecialchars($account['account_number']);
+    } else {
+        echo "No account found for the given property ID.";
+    }
 } else {
     error_log("Error: No property_id received in calculate_rate.php");
     echo "Error: No property ID provided";
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
