@@ -12,6 +12,7 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
 // Include database connection file
 require_once("../Database/db.php");
 
+// Check if property_id is set in the URL
 if (isset($_GET['property_id'])) {
     $propertyId = $_GET['property_id'];
     // SQL query to fetch property details and account numbers by property ID
@@ -101,16 +102,16 @@ if (isset($_GET['property_id'])) {
         } else {
             echo "No property found with the given ID.";
         }
+        
     } catch (PDOException $e) {
         echo "Error fetching properties: " . $e->getMessage();
     }
 
     // Add Reply Button
-    echo "<div style='margin-top: 20px; pedding: 20px;'>";
-    echo "<form action='../admin/calculate_rates.php' method='POST'>";
-    echo "<input type='hidden' name='property_id' value='" . htmlspecialchars($propertyId) . "'>";
-    echo "<button type='submit'>Calculate Rates</button>";
-    echo "</form>";
+    echo "<div style='margin-top: 20px; padding: 20px; text-align: center;'>";
+    echo "<a href='../admin/calculate_rates.php?property_id=" . urlencode($propertyId) . "'>";
+    echo "<button type='button'>Calculate Rates</button>";
+    echo "</a>";
     echo "</div>";
 
 } else {

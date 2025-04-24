@@ -1,12 +1,4 @@
 
-Today
-You said
-can you give me code for index.php for handling pages
-Copilot said
-Certainly! Here’s a simple example of an index.php file that handles different pages using PHP. This script uses query parameters to determine which page to display:
-
-php
-
 Copy
 <?php
 // Define the pages and their respective files

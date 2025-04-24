@@ -3,9 +3,9 @@
 INSERT INTO Accounts (account_number, balance) VALUES ('123456', 45.00);
 
 -- Insert Month Data for Account 1
-INSERT INTO Months (month_name, month_balance, account_id) VALUES ('January', 12.00, 1);
-INSERT INTO Months (month_name, month_balance, account_id) VALUES ('February', 12.00, 1);
-INSERT INTO Months (month_name, month_balance, account_id) VALUES ('March', 12.00, 1);
+INSERT INTO Months (month_name, month_balance, account_id) VALUES ('?', ?, ?);
+INSERT INTO Months (month_name, month_balance, account_id) VALUES ('?', ?, ?);
+INSERT INTO Months (month_name, month_balance, account_id) VALUES ('?', ?, ?);
 
 -- Insert Fee Data for Account 1
 INSERT INTO Fees (processing_fee, total_balance, account_id) VALUES (56.00, 105.00, 1);
