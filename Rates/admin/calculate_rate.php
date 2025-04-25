@@ -18,18 +18,26 @@ if (isset($_GET['property_id'])) {
     echo "property id " . htmlspecialchars($propertyId);
 
     // Fetch account number from the database
-    $stmt = $pdo->prepare("SELECT account_number FROM accounts WHERE account_id = :propertyId");
+    $stmt = $pdo->prepare("SELECT account_number FROM accounts WHERE property_id = :propertyId");
     $stmt->execute(['propertyId' => $propertyId]);
-    $account = $stmt->fetch();
+    $accounts = $stmt->fetchAll();
 
-    if ($account) {
-        echo "Account Number: " . htmlspecialchars($account['account_number']);
+    if ($accounts) {
+        $accountCount = count($accounts);
+        $accountNumbers = array_column($accounts, 'account_number');
+        // Remove the echo of account numbers as plain text
+        // foreach ($accounts as $account) {
+        //     echo "Account Number: " . htmlspecialchars($account['account_number']) . "<br>";
+        // }
     } else {
+        $accountCount = 0;
+        $accountNumbers = [];
         echo "No account found for the given property ID.";
     }
 } else {
     error_log("Error: No property_id received in calculate_rate.php");
     echo "Error: No property ID provided";
+    $accountCount = 0;
 }
 
 ?>
@@ -39,7 +47,7 @@ if (isset($_GET['property_id'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rates Clearance Calculator</title>
-I<style>
+<style>
     body {
         font-family: 'Arial', sans-serif; /* Modern font */
         margin: 10px; /* Reduced margin */
@@ -145,12 +153,20 @@ I<style>
         <label for="accounts">Number of Accounts</label>
         <select id="accounts" name="accounts" onchange="updateAccountDetails()">
             <option value="">Select Account</option>
-            <option value="1">1 Account</option>
-            <option value="2">2 Accounts</option>
-            <option value="3">3 Accounts</option>
+            <?php
+                for ($i = 1; $i <= $accountCount; $i++) {
+                    $selected = ($i == $accountCount) ? 'selected' : '';
+                    echo "<option value=\"$i\" $selected>$i Account" . ($i > 1 ? 's' : '') . "</option>";
+                }
+            ?>
         </select>
     </div>
 </div>
+
+<script>
+    // Pass PHP account numbers array to JS
+    const accountNumbers = <?php echo json_encode($accountNumbers); ?>;
+</script>
 
 <div class="balance-section">
     
@@ -234,12 +250,13 @@ I<style>
 
         // Loop through each account
         for (let i = 1; i <= accountCount; i++) {
+            const accountNumberValue = accountNumbers[i - 1] || '';
             accountDetails.innerHTML += `
 
                 <p>Account ${i} </p>
                 <div class="input-group">
                     <label>Account number:</label>
-                    <input type="text" id="accountNumber" placeholder="Enter account number">
+                    <input type="text" id="accountNumber${i}" placeholder="Enter account number" value="${accountNumberValue}">
                 </div>
 
                 <!--old code-->

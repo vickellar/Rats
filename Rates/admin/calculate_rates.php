@@ -47,7 +47,7 @@ if (isset($_GET['property_id'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rates Clearance Calculator</title>
-I<style>
+<style>
     body {
         font-family: 'Arial', sans-serif; /* Modern font */
         margin: 10px; /* Reduced margin */
