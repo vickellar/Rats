@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rate Clearance System - Login</title>
+    <link rel="stylesheet" href="./assets/css/styles.css">
+    
+</head>
+<body>
+    <div class="page-container">
+        <header class="header">
+            <div class="container">
+                <div class="header-content">
+                    <div class="logo-section">
+                        <img src="./assets/images/mslogo.png" alt="Logo" class="logo">
+                        <h1 class="site-title">Rate Clearance System</h1>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <nav class="navigation">
+            <div class="container">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="login.html" class="nav-link active">Login</a></li>
+                    <li><a href="register.html" class="nav-link">Register</a></li>
+                    <li><a href="services.html" class="nav-link">Services</a></li>
+                    <li><a href="contacts.html" class="nav-link">Contacts</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <main class="main-content">
+            <div class="container">
+                <div class="form-container">
+                    <div class="form-card">
+                        <div class="form-header">
+                            <h2 class="form-title">Login</h2>
+                            <p class="form-description">Enter your credentials to access your account</p>
+                        </div>
+                        <form class="form-content" action="./includes/signin.php" method="POST">
+                            <div class="form-group">
+                                <i class="fas fa-user"></i>
+                                <label for="username" class="form-label">Username</label>
+                                <input type="text" id="username" name="username" class="form-input" placeholder="Enter your username" required>
+                            </div>
+                            <div class="form-group">
+                                <div class="password-header">
+                                    <label for="password" class="form-label">Password</label>
+                                    <i class="fas fa-lock"></i>
+                                    <a href="#" class="forgot-link">Forgot password?</a>
+                                </div>
+                                <input type="password" id="password" name="password" class="form-input" placeholder="Enter your password" required>
+                            </div>
+                             <div class="form-group">
+                                <label for="role" class="form-label">Select Role</label>
+                                <i class="fas fa-user-tag"></i>
+                                <select id="role" name ="role" class="form-select" required>
+                                    <option value="conveyancer">Conveyancer</option>
+                                    <option value="admin">Admin</option>
+                                    <option value="finance_director">Finance Director</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="form-button">Login</button>
+                            <div class="form-footer">
+                                Don't have an account? <a href="register.html" class="form-link">Register</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <p>&copy; 2024 Rate Clearance System. All rights reserved.</p>
+                    <div class="footer-links">
+                        <a href="#" class="footer-link">Privacy Policy</a>
+                        <a href="#" class="footer-link">Terms of Service</a>
+                        <a href="#" class="footer-link">Contact Us</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

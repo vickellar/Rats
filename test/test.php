@@ -1,153 +1,162 @@
-
-
 <?php
-//signin.php
-// Configuration
-$db_host = 'localhost';
-$db_username = 'root';
-$db_password = '';
-$db_name = 'rate_clearance';
+session_start(); // Start the session
 
-// Connect to database
-$conn = new mysqli($db_host, $db_username, $db_password, $db_name);
+// Include database connection file
+require_once("../Database/db.php");
 
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+// Check if user is logged in
+if (!isset($_SESSION['user_id'])) {
+    // Redirect to login page if not logged in
+    header("Location: ../signin.php");
+    exit();
 }
 
-// Get form data
-$username = $_POST['username'];
-$password = $_POST['password'];
+// Fetch properties added by the logged-in user
+$userId = $_SESSION['user_id'];
+$sql = "SELECT properties.*, GROUP_CONCAT(accounts.account_number) AS account_numbers 
+        FROM properties 
+        LEFT JOIN accounts ON properties.id = accounts.property_id 
+        WHERE properties.user_id = :user_id 
+        GROUP BY properties.id";
 
-// Query database
-$query = "SELECT * FROM users WHERE username = '$username' AND password = '$password'";
-$result = $conn->query($query);
+$stmt = $pdo->prepare($sql);
+$stmt->execute([':user_id' => $userId]);
 
-// Check result
-if ($result->num_rows > 0) {
-    // Login successful
-    echo "Welcome, $username!";
-} else {
-    // Login failed
-    echo "Invalid username or password.";
-}
+$properties = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-// Close connection
-$conn->close();
+$applicant_name = ''; // Initialize variables for applicant details
+$contact_number = '';
+$email_address = '';
+
 ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign In/Up</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-      <style>
-                
+    <title>Rate Clearance Application Form</title>
+    <style>
+        @page {
+            size: A4;
+        }
         body {
             font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
         }
-
         .container {
-            width: 300px;
-            margin: 50px auto;
-            padding: 20px;
             background-color: #fff;
-            border: 1px solid #ddd;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 600px;
         }
-
-        form {
-            margin-top: 20px;
+        h2, h3 {
+            color: #333;
         }
-
         label {
             display: block;
-            margin-bottom: 10px;
+            margin-top: 10px;
+            color: #555;
         }
-
-        input[type="text"], input[type="email"], input[type="password"] {
+        input, select, textarea {
             width: 100%;
-            height: 40px;
-            margin-bottom: 20px;
-            padding: 10px;
-            border: 1px solid #ccc;
+            padding: 8px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
         }
-
-        input[type="submit"] {
-            width: 100%;
-            height: 40px;
+        button {
             background-color: #4CAF50;
-            color: #fff;
-            padding: 10px;
+            color: white;
+            padding: 10px 15px;
             border: none;
-            border-radius: 5px;
+            border-radius: 4px;
             cursor: pointer;
         }
-
-        input[type="submit"]:hover {
-            background-color: #3e8e41;
+        button:hover {
+            background-color: #45a049;
         }
-
-        p {
-            margin-top: 20px;
+        .file-input {
+            padding: 8px 0;
         }
-
-        a {
-            text-decoration: none;
-            color: #4CAF50;
-        }
-
-        a:hover {
-            color: #3e8e41;
-        }
-
-      </style>  
-
+    </style>
+</head>
+<body>
     <div class="container">
-        <form action="signin.php" method="post" id="signin-form">
-            <h2>Sign In</h2>
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username"><br><br>
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password"><br><br>
-            <input type="submit" value="Sign In">
-            <p>Don't have an account? <a href="#" onclick="showRegisterForm()">Register here</a></p>
-        </form>
-        <form action="register.php" method="post" id="register-form" style="display: none;">
-            <h2>Register</h2>
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username"><br><br>
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email"><br><br>
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password"><br><br>
-            <label for="confirm-password">Confirm Password:</label>
-            <input type="password" id="confirm-password" name="confirm-password"><br><br>
-            <input type="submit" value="Register">
-            <p>Already have an account? <a href="#" onclick="showSignInForm()">Sign in here</a></p>
+        <h2>Rate Clearance Application Form</h2>
+        <form action="rate_clearance_form.php" method="post" enctype="multipart/form-data">
+            <label for="select-property">Select Property:</label>
+            <select id="select-property" name="select_property" required onchange="fetchPropertyDetails(this.value)">
+                <option value="">Select a property</option>
+                <?php foreach ($properties as $property): ?>
+                    <option value="<?= htmlspecialchars($property['id']); ?>"><?= htmlspecialchars($property['address']); ?></option>
+                <?php endforeach; ?>
+            </select>
+
+            <h3>Property Details</h3>
+            <div id="property-details">
+                <!-- Property details will be displayed here -->
+            </div>
+
+            <h3>Upload Required Documents</h3>
+            <label for="title-deed">Title Deed/Ownership Proof:</label>
+            <input type="file" id="title-deed" name="title_deed" class="file-input" required>
+
+            <label for="previous_certificate">Previous Rate Clearance Certificate (if any):</label>
+            <input type="file" id="previous_certificate" name="previous_certificate" class="file-input">
+
+            <label for="identity_proof">Proof of Identity:</label>
+            <input type="file" id="identity_proof" name="identity_proof" required>
+
+            <label for="additional_documents">Additional Supporting Documents (optional):</label>
+            <input type="file" id="additional_documents" name="additional_documents">
+
+            <h3>Applicant Details</h3>
+            <label for="applicant-name">Applicant Name:</label>
+            <input type="text" id="applicant-name" name="applicant_name" value="<?= htmlspecialchars($applicant_name); ?>" readonly required>
+
+            <label for="contact-number">Contact Number:</label>
+            <input type="tel" id="contact-number" name="contact_number" value="<?= htmlspecialchars($contact_number); ?>" readonly required>
+
+            <label for="email-address">Email Address:</label>
+            <input type="email" id="email-address" name="email_address" value="<?= htmlspecialchars($email_address); ?>" readonly required>
+
+            <label for="relationship">Relationship to Owner:</label>
+            <input type="text" id="relationship" name="relationship">
+
+            <h3>Additional Information</h3>
+            <label for="description">Description:</label>
+            <textarea id="description" name="description" rows="4"></textarea>
+
+            <!-- CSRF Protection Token -->
+            <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($_SESSION['csrf_token']); ?>">
+
+            <button type="submit">Submit Application</button>
+            <a href="cdashboard.php" style="display: inline-block; margin-top: 10px; padding: 10px; background-color: blue; color: white; text-decoration: none; border-radius: 4px;">Back to Dashboard</a>
+
         </form>
     </div>
-
     <script>
-        
-
-        function showRegisterForm() {
-            document.getElementById("signin-form").style.display = "none";
-            document.getElementById("register-form").style.display = "block";
-        }
-
-        function showSignInForm() {
-            document.getElementById("signin-form").style.display = "block";
-            document.getElementById("register-form").style.display = "none";
-        }
+    function fetchPropertyDetails(propertyId) {
+        // Use AJAX to fetch property details based on selected property
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "./fetch_property_details.php", true);
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                document.getElementById("property-details").innerHTML = xhr.responseText;
+            }
+        };
+        xhr.send("property_id=" + propertyId);
+    }
     </script>
 </body>
 </html>

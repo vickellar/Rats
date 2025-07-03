@@ -3,85 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background: url('./assets/images/BACKGROUP.jpg') no-repeat center center fixed; /* Replace with your image path */
-            background-size: 1300px;
-            color: #333;
-        }
-        header {
-            display: flex; /* Use flexbox for layout */
-            align-items: center; /* Vertically center items */
-            background-color: rgba(36, 75, 184, 0.7);
-            color: #fff;
-            padding: 10px 20px; /* Add some padding */
-        }
-        header img {
-            width: 100%;         /* Make the logo responsive */
-            max-width: 150px;    /* Set a maximum width */
-            height: auto;        /* Maintain aspect ratio */
-            margin-right: 5px;  /* Reduce space between logo and title */
-        }
-        header h1 {
-            flex: 1;             /* Allow title to take up remaining space */
-            text-align: center;  /* Center the title */
-        }
-        nav {
-            background-color: rgba(31, 181, 192, 0.7);
-            color: #fff;
-            padding: 10px 0;
-            text-align: center;
-        }
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            padding: 10px 20px;
-        }
-        nav a:hover {
-            background-color: rgb(189, 193, 199);
-        }
-        main {
-            padding: 20px;
-            max-width: 1000px;
-            margin: auto;
-            background-color: rgba(255, 255, 255, 0.9);
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            padding-bottom: 50px; /* Add space for footer */
-        }
-        footer {
-            background-color: rgba(65, 214, 182, 0.7);
-            color: #fff;
-            text-align: center;
-            padding: 10px 0;
-            position: relative; /* Keep this as relative */
-            bottom: 0;
-            width: 100%;
-        }
-    </style>
+    <title>Rate Clearance System - Home</title>
+    <link rel="stylesheet" href="./assets/css/styles.css">
 </head>
 <body>
-    <header>
-        <img src="./assets/images/mslogo.png" alt="Logo"> <!-- Add your logo -->
-        <h1>Rate Clearance System</h1>
-    </header>
-    <nav>
-        <a href="index.php?page=home">Home</a>
-        <a href="index.php?page=login">Login</a>
-        <a href="index.php?page=register">Register</a>
-        <a href="index.php?page=services">Services</a>
-        <a href="index.php?page=contacts">Contacts</a>
-        <a href="index.php?page=about">About</a>
-    </nav>
-    <main>
-    
-    
-       
-    </main>
-    <?php include('./includes/footer.html');?>
+    <div class="page-container">
+        <header class="header">
+            <div class="container">
+                <div class="header-content">
+                    <div class="logo-section">
+                        <img src="./assets/images/mslogo.png" alt="Logo" class="logo">
+                        <h1 class="site-title">Rate Clearance System</h1>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <nav class="navigation">
+            <div class="container">
+                <ul class="nav-list">
+                    <li><a href="index.php" class="nav-link active">Home</a></li>
+                    <li><a href="signin.php" class="nav-link">Login</a></li>
+                    <li><a href="signup.php" class="nav-link">Register</a></li>
+                    <li><a href="services.html" class="nav-link">Services</a></li>
+                    <li><a href="contacts.html" class="nav-link">Contacts</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <main class="main-content">
+            <div class="container">
+                <div class="content-card">
+                    <div class="welcome-section">
+                        <h2 class="section-title">Welcome to the Rate Clearance System</h2>
+                        <p class="section-description">
+                            This system provides a streamlined process for managing and clearing rates. Please login or register to
+                            access the full features of the system.
+                        </p>
+                    </div>
+
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <h3 class="feature-title">Easy Rate Management</h3>
+                            <p class="feature-description">Manage all your rates in one place with our intuitive interface.</p>
+                        </div>
+                        <div class="feature-card">
+                            <h3 class="feature-title">Secure Clearance</h3>
+                            <p class="feature-description">Our system ensures secure and compliant rate clearance processes.</p>
+                        </div>
+                        <div class="feature-card">
+                            <h3 class="feature-title">Real-time Updates</h3>
+                            <p class="feature-description">Get instant notifications and updates on your clearance status.</p>
+                        </div>
+                        <div class="feature-card">
+                            <h3 class="feature-title">Comprehensive Reporting</h3>
+                            <p class="feature-description">Access detailed reports and analytics on your rate clearance history.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <p>&copy; 2025 Rate Clearance System. All rights reserved.</p>
+                    <div class="footer-links">
+                        <a href="#" class="footer-link">Privacy Policy</a>
+                        <a href="#" class="footer-link">Terms of Service</a>
+                        <a href="contacts.html" class="footer-link">Contact Us</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
 </body>
 </html>

@@ -79,3 +79,31 @@
 2025-03-14 08:24:32 - Database connection failed: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it
 2025-04-03 18:52:10 - Database connection failed: SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
 2025-04-03 19:05:25 - Database connection failed: SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+2025-04-26 16:02:56 - Error adding property: SQLSTATE[HY000]: General error: 1364 Field 'account_id' doesn't have a default value
+2025-04-26 16:05:19 - Error adding property: SQLSTATE[HY000]: General error: 1364 Field 'account_id' doesn't have a default value
+2025-04-26 16:14:43 - Database connection failed: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it
+2025-04-26 16:14:59 - Database connection failed: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it
+2025-04-26 16:15:05 - Database connection failed: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it
+2025-04-28 20:08:33 - Database connection failed: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it
+2025-04-30 17:46:46 - Database connection failed: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it
+2025-04-30 17:46:54 - Database connection failed: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it
+2025-04-30 17:47:07 - Database connection failed: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it
+2025-05-14 13:48:18 - Database connection failed: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it
+2025-05-14 13:51:34 - Database connection failed: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it
+2025-05-19 15:30:21 - Error adding property: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '0' for key 'PRIMARY'
+2025-05-19 15:35:29 - Error adding property: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '0' for key 'PRIMARY'
+2025-05-27 10:49:30 - Database connection failed: SQLSTATE[HY000] [2006] MySQL server has gone away
+2025-05-27 10:49:34 - Database connection failed: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it
+2025-05-27 10:56:25 - Database connection failed: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it
+2025-05-27 11:05:18 - Database connection failed: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it
+Database error: SQLSTATE[42S02]: Base table or view not found: 1932 Table 'rate_clearance_system.employees' doesn't exist in engine in C:\xampp\htdocs\rats\rates\signin.php on line 50Database error: SQLSTATE[42S02]: Base table or view not found: 1932 Table 'rate_clearance_system.employees' doesn't exist in engine in C:\xampp\htdocs\rats\rates\signin.php on line 50Database error: SQLSTATE[42S02]: Base table or view not found: 1932 Table 'rate_clearance_system.employees' doesn't exist in engine in C:\xampp\htdocs\rats\rates\signin.php on line 50Database error: SQLSTATE[42S02]: Base table or view not found: 1932 Table 'rate_clearance_system.employees' doesn't exist in engine in C:\xampp\htdocs\rats\rates\signin.php on line 50Database error: SQLSTATE[42S02]: Base table or view not found: 1932 Table 'rate_clearance_system.employees' doesn't exist in engine in C:\xampp\htdocs\rats\rates\signin.php on line 50Database error: SQLSTATE[42S02]: Base table or view not found: 1932 Table 'rate_clearance_system.users' doesn't exist in engine in C:\xampp\htdocs\rats\rates\signin.php on line 922025-05-27 16:56:47 - Error adding property: SQLSTATE[HY000]: General error: 1364 Field 'account_id' doesn't have a default value
+2025-06-01 07:32:02 - Database connection failed: SQLSTATE[HY000] [1049] Unknown database 'rate_clearance_system'
+2025-06-01 07:38:32 - Error adding property: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '0' for key 'PRIMARY'
+2025-06-01 11:22:19 - Error adding account: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '0' for key 'PRIMARY'
+Error inserting calculated bill: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'Error inserting calculated bill: SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'month4_name' cannot be nullError inserting calculated bill: SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'month4_name' cannot be nullError inserting calculated bill: SQLSTATE[23000]: 
+Integrity constraint violation: 1048 Column 'month4_name' cannot be null2025-06-08 14:20:47 - Database connection failed: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it
+2025-06-08 14:21:26 - Database connection failed: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it
+2025-06-08 22:47:43 - Database connection failed: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it
+2025-06-14 15:57:57 - Database connection failed: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it
+2025-06-14 15:59:05 - Database connection failed: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it
+2025-06-14 15:59:19 - Database connection failed: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it

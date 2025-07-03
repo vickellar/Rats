@@ -22,6 +22,15 @@ switch ($requestedPage) {
     case 'login':
         include './signin.php';
         break;
+    case 'services':
+        include './services.php';
+        break;
+    case 'about':
+        include './about.php';
+        break;
+    case 'contacts':
+        include './contacts.php';
+        break;
     case 'logout':
         echo "Logout page accessed."; // Debugging output
 
@@ -68,11 +77,7 @@ if (isset($_POST['login'])) {
         }
     }
 }
-/*
-if (empty($_SESSION['role'])) {
-    header("Location: index.php");
-    exit();
-}
-    */
-
 ?>
+
+
+

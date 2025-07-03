@@ -1,0 +1,12 @@
+{
+  "name": "admin-dashboard-realtime",
+  "version": "1.0.0",
+  "description": "Real-time admin dashboard with WebSocket support",
+  "scripts": {
+    "start-websocket": "php websocket_server.php",
+    "install-deps": "composer install"
+  },
+  "dependencies": {
+    "ratchet/pawl": "^0.4"
+  }
+}

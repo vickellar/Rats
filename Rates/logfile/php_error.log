@@ -7,3 +7,2606 @@ Stack trace:
 [13-Mar-2025 15:59:20 Europe/Berlin] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in C:\xampp\htdocs\Rats\Rates\conveyancer\apply_rates.php on line 64
 [13-Mar-2025 15:59:20 Europe/Berlin] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in C:\xampp\htdocs\Rats\Rates\conveyancer\apply_rates.php on line 66
 [13-Mar-2025 15:59:20 Europe/Berlin] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in C:\xampp\htdocs\Rats\Rates\conveyancer\apply_rates.php on line 67
+[01-Jun-2025 07:53:55 Europe/Berlin] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\rats\rates\conveyancer\apply_ratesTest.php on line 219
+[2025-06-09 15:56:47] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+[2025-06-09 15:56:51] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+[2025-06-09 15:56:52] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+[2025-06-09 15:56:53] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+[2025-06-09 15:56:53] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+[2025-06-09 16:02:11] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+[2025-06-09 16:02:15] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+[2025-06-09 16:02:15] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+[2025-06-09 16:02:20] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+[2025-06-09 17:45:10] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 17:45:40] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 17:46:10] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 17:46:41] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 17:47:11] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 17:47:41] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 17:48:11] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 17:48:41] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 17:49:11] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 17:49:41] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 17:50:11] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 17:50:42] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 17:51:12] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 17:51:42] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 17:52:12] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 18:00:49] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 18:01:19] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 18:01:50] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 18:02:21] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 18:02:51] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 18:03:21] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 18:03:51] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 18:04:21] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 18:04:51] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 18:05:21] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 18:05:51] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 18:06:21] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 18:06:51] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 18:07:22] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 18:07:52] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 18:08:22] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 18:08:52] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 18:09:22] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 18:09:52] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 18:10:22] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 18:10:52] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 18:11:22] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 18:11:52] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 18:12:22] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 18:12:52] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 18:13:22] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 18:13:52] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 18:14:22] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 18:14:52] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 18:15:22] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 18:15:52] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 18:16:23] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 18:16:53] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 18:17:23] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 18:17:53] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 18:18:23] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 18:18:53] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 18:19:23] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 18:19:53] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 18:26:19] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 18:26:50] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 18:27:20] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 18:27:38] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 18:28:08] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 18:28:38] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 18:29:08] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 18:29:38] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 18:41:32] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 18:42:03] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 18:42:32] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 18:43:02] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 18:43:09] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 18:43:10] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 18:43:11] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 18:43:13] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 18:43:14] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 18:43:44] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 18:44:17] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 18:44:47] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 18:45:17] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 18:45:47] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 18:46:17] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 19:43:47] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 19:44:38] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 19:45:05] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 19:45:35] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 19:46:05] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 19:46:35] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 19:47:05] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 19:47:36] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 19:48:06] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 19:48:36] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 19:49:07] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 19:49:37] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 19:50:14] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 19:50:42] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 19:51:14] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 19:51:42] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 19:52:12] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 19:52:42] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 19:53:15] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 19:53:46] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 19:54:16] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 19:54:46] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 19:55:16] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 19:55:46] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 19:56:16] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 19:56:46] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 19:57:16] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 19:57:46] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 19:58:16] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 19:58:47] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 19:59:17] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 19:59:47] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 20:00:17] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 20:00:47] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 20:01:17] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 20:01:47] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 20:02:17] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 20:02:47] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 20:03:18] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 20:04:05] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 20:04:32] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 20:05:03] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 20:05:40] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 20:06:03] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 20:06:33] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 20:07:03] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 20:07:33] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 20:08:03] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 20:08:44] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 20:09:14] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 20:09:44] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 20:10:16] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 20:10:46] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 20:11:16] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 20:11:46] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 20:12:16] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 20:12:46] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 20:13:16] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 20:13:47] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 20:14:17] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 20:14:47] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 20:15:26] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 20:15:56] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 20:16:26] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 20:16:56] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 20:17:26] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 20:17:56] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 20:18:26] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 20:18:56] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 20:19:26] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 20:19:57] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 20:20:27] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 20:20:57] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 20:21:27] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 20:21:57] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 20:22:27] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 20:22:57] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 20:23:27] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 20:23:58] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 20:24:28] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 20:25:00] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 20:25:28] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 20:25:59] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 20:26:29] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 20:26:59] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 20:27:29] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 20:27:59] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 20:28:29] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 20:28:59] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 20:29:29] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 20:29:59] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 20:30:30] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 20:31:00] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 20:31:31] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 20:32:01] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 20:32:31] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 20:33:02] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 20:33:32] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 20:34:22] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 20:34:50] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 20:35:21] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 20:35:51] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 20:36:21] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 20:36:51] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 21:58:43] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 21:59:08] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 21:59:38] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 22:00:08] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 22:00:38] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 22:01:08] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 22:01:38] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 22:02:08] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 22:02:39] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 22:03:08] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 22:03:41] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 22:04:11] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 22:04:41] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 22:05:11] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 22:05:41] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 22:06:12] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 22:06:46] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 22:07:16] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 22:07:50] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 22:08:20] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 22:08:49] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 22:09:21] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 22:09:49] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 22:18:40] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 22:19:09] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 22:19:36] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 22:20:06] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 22:20:36] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 22:21:06] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 22:21:36] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 22:22:06] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 22:22:36] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 22:23:07] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 22:23:38] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 22:24:09] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cb.created_at' in 'field list'
+User ID: 9
+[2025-06-09 22:24:42] Database Error: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'as address
+    FROM 
+        calculated_bills cb
+    LEFT JOIN 
+        rate_...' at line 9
+User ID: 9
+[2025-06-09 22:24:45] Database Error: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'as address
+    FROM 
+        calculated_bills cb
+    LEFT JOIN 
+        rate_...' at line 9
+User ID: 9
+[2025-06-09 22:24:46] Database Error: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'as address
+    FROM 
+        calculated_bills cb
+    LEFT JOIN 
+        rate_...' at line 9
+User ID: 9
+[2025-06-09 22:24:47] Database Error: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'as address
+    FROM 
+        calculated_bills cb
+    LEFT JOIN 
+        rate_...' at line 9
+User ID: 9
+[2025-06-09 22:24:48] Database Error: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'as address
+    FROM 
+        calculated_bills cb
+    LEFT JOIN 
+        rate_...' at line 9
+User ID: 9
+[2025-06-09 22:25:13] Database Error: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'as address
+    FROM 
+        calculated_bills cb
+    LEFT JOIN 
+        rate_...' at line 9
+User ID: 9
+[2025-06-09 22:25:19] Database Error: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'as address
+    FROM 
+        calculated_bills cb
+    LEFT JOIN 
+        rate_...' at line 9
+User ID: 9
+[2025-06-09 22:25:43] Database Error: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'as address
+    FROM 
+        calculated_bills cb
+    LEFT JOIN 
+        rate_...' at line 9
+User ID: 9
+[2025-06-09 22:25:49] Database Error: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'as address
+    FROM 
+        calculated_bills cb
+    LEFT JOIN 
+        rate_...' at line 9
+User ID: 9
+[2025-06-09 22:26:13] Database Error: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'as address
+    FROM 
+        calculated_bills cb
+    LEFT JOIN 
+        rate_...' at line 9
+User ID: 9
+[2025-06-09 22:26:19] Database Error: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'as address
+    FROM 
+        calculated_bills cb
+    LEFT JOIN 
+        rate_...' at line 9
+User ID: 9
+[2025-06-09 22:26:43] Database Error: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'as address
+    FROM 
+        calculated_bills cb
+    LEFT JOIN 
+        rate_...' at line 9
+User ID: 9
+[2025-06-09 22:26:50] Database Error: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'as address
+    FROM 
+        calculated_bills cb
+    LEFT JOIN 
+        rate_...' at line 9
+User ID: 9
+[2025-06-09 22:27:14] Database Error: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'as address
+    FROM 
+        calculated_bills cb
+    LEFT JOIN 
+        rate_...' at line 9
+User ID: 9
+[2025-06-09 22:27:21] Database Error: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'as address
+    FROM 
+        calculated_bills cb
+    LEFT JOIN 
+        rate_...' at line 9
+User ID: 9
+[2025-06-09 22:27:44] Database Error: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'as address
+    FROM 
+        calculated_bills cb
+    LEFT JOIN 
+        rate_...' at line 9
+User ID: 9
+[2025-06-09 22:27:51] Database Error: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'as address
+    FROM 
+        calculated_bills cb
+    LEFT JOIN 
+        rate_...' at line 9
+User ID: 9
+[2025-06-09 22:28:15] Database Error: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'as address
+    FROM 
+        calculated_bills cb
+    LEFT JOIN 
+        rate_...' at line 9
+User ID: 9
+[2025-06-09 22:28:21] Database Error: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'as address
+    FROM 
+        calculated_bills cb
+    LEFT JOIN 
+        rate_...' at line 9
+User ID: 9
+[2025-06-09 22:28:46] Database Error: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'as address
+    FROM 
+        calculated_bills cb
+    LEFT JOIN 
+        rate_...' at line 9
+User ID: 9
+[2025-06-09 22:28:52] Database Error: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'as address
+    FROM 
+        calculated_bills cb
+    LEFT JOIN 
+        rate_...' at line 9
+User ID: 9
+[2025-06-09 22:29:15] Database Error: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'as address
+    FROM 
+        calculated_bills cb
+    LEFT JOIN 
+        rate_...' at line 9
+User ID: 9
+[2025-06-09 22:29:21] Database Error: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'as address
+    FROM 
+        calculated_bills cb
+    LEFT JOIN 
+        rate_...' at line 9
+User ID: 9
+[2025-06-09 22:29:45] Database Error: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'as address
+    FROM 
+        calculated_bills cb
+    LEFT JOIN 
+        rate_...' at line 9
+User ID: 9
+[2025-06-09 22:29:51] Database Error: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'as address
+    FROM 
+        calculated_bills cb
+    LEFT JOIN 
+        rate_...' at line 9
+User ID: 9
+[2025-06-09 22:30:16] Database Error: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'as address
+    FROM 
+        calculated_bills cb
+    LEFT JOIN 
+        rate_...' at line 9
+User ID: 9
+[2025-06-09 22:30:22] Database Error: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'as address
+    FROM 
+        calculated_bills cb
+    LEFT JOIN 
+        rate_...' at line 9
+User ID: 9
+[2025-06-09 22:30:46] Database Error: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'as address
+    FROM 
+        calculated_bills cb
+    LEFT JOIN 
+        rate_...' at line 9
+User ID: 9
+[2025-06-09 22:30:52] Database Error: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'as address
+    FROM 
+        calculated_bills cb
+    LEFT JOIN 
+        rate_...' at line 9
+User ID: 9
+[2025-06-09 22:31:16] Database Error: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'as address
+    FROM 
+        calculated_bills cb
+    LEFT JOIN 
+        rate_...' at line 9
+User ID: 9
+[2025-06-09 22:31:22] Database Error: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'as address
+    FROM 
+        calculated_bills cb
+    LEFT JOIN 
+        rate_...' at line 9
+User ID: 9
+[2025-06-09 22:31:46] Database Error: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'as address
+    FROM 
+        calculated_bills cb
+    LEFT JOIN 
+        rate_...' at line 9
+User ID: 9
+[2025-06-09 22:31:52] Database Error: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'as address
+    FROM 
+        calculated_bills cb
+    LEFT JOIN 
+        rate_...' at line 9
+User ID: 9
+[2025-06-09 22:32:16] Database Error: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'as address
+    FROM 
+        calculated_bills cb
+    LEFT JOIN 
+        rate_...' at line 9
+User ID: 9
+[2025-06-09 22:32:23] Database Error: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'as address
+    FROM 
+        calculated_bills cb
+    LEFT JOIN 
+        rate_...' at line 9
+User ID: 9
+[2025-06-09 22:32:44] Database Error: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'as address
+    FROM 
+        calculated_bills cb
+    LEFT JOIN 
+        rate_...' at line 9
+User ID: 9
+[2025-06-09 22:32:45] Database Error: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'as address
+    FROM 
+        calculated_bills cb
+    LEFT JOIN 
+        rate_...' at line 9
+User ID: 9
+[2025-06-09 22:32:46] Database Error: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'as address
+    FROM 
+        calculated_bills cb
+    LEFT JOIN 
+        rate_...' at line 9
+User ID: 9
+[2025-06-09 22:32:47] Database Error: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'as address
+    FROM 
+        calculated_bills cb
+    LEFT JOIN 
+        rate_...' at line 9
+User ID: 9
+[2025-06-09 22:32:47] Database Error: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'as address
+    FROM 
+        calculated_bills cb
+    LEFT JOIN 
+        rate_...' at line 9
+User ID: 9
+[2025-06-09 22:32:47] Database Error: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'as address
+    FROM 
+        calculated_bills cb
+    LEFT JOIN 
+        rate_...' at line 9
+User ID: 9
+[2025-06-09 22:32:48] Database Error: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'as address
+    FROM 
+        calculated_bills cb
+    LEFT JOIN 
+        rate_...' at line 9
+User ID: 9
+[2025-06-09 22:33:17] Database Error: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'as address
+    FROM 
+        calculated_bills cb
+    LEFT JOIN 
+        rate_...' at line 9
+User ID: 9
+[2025-06-09 22:33:19] Database Error: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'as address
+    FROM 
+        calculated_bills cb
+    LEFT JOIN 
+        rate_...' at line 9
+User ID: 9
+[2025-06-09 22:33:47] Database Error: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'as address
+    FROM 
+        calculated_bills cb
+    LEFT JOIN 
+        rate_...' at line 9
+User ID: 9
+[2025-06-09 22:33:49] Database Error: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'as address
+    FROM 
+        calculated_bills cb
+    LEFT JOIN 
+        rate_...' at line 9
+User ID: 9
+ [2025-06-11 18:17:09] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-11 18:18:02] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-11 18:18:33] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-11 18:19:03] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-11 18:19:33] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-11 18:20:03] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-11 18:20:33] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-11 18:21:03] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-11 18:21:33] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-11 18:21:45] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-11 19:48:20] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-11 19:57:35] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-11 20:08:48] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-11 20:09:21] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-11 20:10:20] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-11 20:10:52] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-11 20:11:22] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-11 20:11:52] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-11 20:12:22] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-11 20:12:52] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-11 20:13:22] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-11 20:13:52] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-11 20:14:22] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-11 20:14:52] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-11 20:15:23] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-11 20:15:53] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-11 20:16:23] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-11 20:16:53] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-11 20:17:23] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-11 20:17:53] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-11 20:18:23] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-11 20:18:54] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-11 20:19:24] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-11 20:19:54] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-11 20:20:26] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-11 20:20:55] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-11 20:21:26] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-11 20:21:56] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-11 20:22:26] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-11 20:22:56] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-11 20:23:26] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-11 20:23:57] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-11 20:24:27] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-11 20:24:57] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-11 20:25:27] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-11 20:25:57] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-11 20:26:27] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[12-Jun-2025 17:17:54 Europe/Berlin] PHP Warning:  Undefined variable $receipt_name in C:\xampp\htdocs\rats\rates\conveyancer\upload_payment.php on line 12
+[12-Jun-2025 17:17:54 Europe/Berlin] DB fetch error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'account_name' in 'field list'
+[12-Jun-2025 17:17:54 Europe/Berlin] PHP Warning:  Undefined variable $result_accounts in C:\xampp\htdocs\rats\rates\conveyancer\upload_payment.php on line 305
+[12-Jun-2025 17:17:54 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in C:\xampp\htdocs\rats\rates\conveyancer\upload_payment.php on line 305
+[12-Jun-2025 17:33:35 Europe/Berlin] PHP Warning:  Undefined variable $receipt_name in C:\xampp\htdocs\rats\rates\conveyancer\upload_payment.php on line 12
+[12-Jun-2025 17:33:58 Europe/Berlin] PHP Warning:  Undefined variable $receipt_name in C:\xampp\htdocs\rats\rates\conveyancer\upload_payment.php on line 12
+[12-Jun-2025 17:33:58 Europe/Berlin] DB fetch error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'account_name' in 'field list'
+[12-Jun-2025 17:33:58 Europe/Berlin] PHP Warning:  Undefined variable $result_accounts in C:\xampp\htdocs\rats\rates\conveyancer\upload_payment.php on line 305
+[12-Jun-2025 17:33:58 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in C:\xampp\htdocs\rats\rates\conveyancer\upload_payment.php on line 305
+[12-Jun-2025 17:41:41 Europe/Berlin] PHP Warning:  Undefined variable $receipt_name in C:\xampp\htdocs\rats\rates\conveyancer\upload_payment.php on line 12
+[12-Jun-2025 17:41:41 Europe/Berlin] DB fetch error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'account_name' in 'field list'
+[12-Jun-2025 17:41:41 Europe/Berlin] PHP Warning:  Undefined variable $result_accounts in C:\xampp\htdocs\rats\rates\conveyancer\upload_payment.php on line 45
+[12-Jun-2025 17:41:41 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in C:\xampp\htdocs\rats\rates\conveyancer\upload_payment.php on line 45
+[12-Jun-2025 18:16:05 Europe/Berlin] DB fetch error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'account_name' in 'field list'
+[12-Jun-2025 18:16:05 Europe/Berlin] PHP Warning:  Undefined variable $result_accounts in C:\xampp\htdocs\rats\rates\conveyancer\upload_payment.php on line 40
+[12-Jun-2025 18:16:05 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in C:\xampp\htdocs\rats\rates\conveyancer\upload_payment.php on line 40
+[12-Jun-2025 18:56:23 Europe/Berlin] DB fetch error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'account_name' in 'field list'
+[12-Jun-2025 18:56:23 Europe/Berlin] PHP Warning:  Undefined variable $result_accounts in C:\xampp\htdocs\rats\rates\conveyancer\upload_payment.php on line 40
+[12-Jun-2025 18:56:23 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in C:\xampp\htdocs\rats\rates\conveyancer\upload_payment.php on line 40
+[2025-06-20 13:37:05] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 13:37:25] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 13:37:35] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 13:37:55] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 13:38:25] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 13:38:55] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 13:39:25] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 13:39:28] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 13:39:56] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 13:40:03] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 13:40:26] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 13:40:27] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 13:40:56] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 13:40:57] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 13:41:26] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 13:41:27] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 13:41:56] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 13:41:57] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 13:42:26] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 13:42:27] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 13:42:56] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 13:42:57] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 13:43:26] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 13:43:27] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 13:43:56] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 13:43:57] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 13:44:26] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 13:44:27] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 13:44:56] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 13:44:57] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 13:45:26] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 13:45:27] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 13:45:56] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 13:45:57] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 13:46:26] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 13:46:27] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 13:46:56] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 13:46:57] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 13:47:26] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 13:47:27] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 13:47:56] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 13:47:57] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 13:48:26] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 13:48:27] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 13:48:57] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 13:48:57] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 13:49:27] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 13:49:27] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 13:49:57] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 13:49:57] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 13:50:27] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 13:50:28] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 13:50:58] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 13:50:58] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 13:51:28] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 13:51:28] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 13:51:58] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 13:51:58] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 13:52:28] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 13:52:28] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 13:52:58] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 13:52:58] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 13:53:28] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 13:53:28] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 13:53:58] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 13:53:58] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 13:54:28] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 13:54:28] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 14:03:21] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 14:03:21] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 14:03:49] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 14:03:49] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 14:04:17] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 14:04:17] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 14:04:47] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 14:04:47] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 14:05:17] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 14:05:17] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 14:05:47] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 14:05:48] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 14:06:17] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 14:06:18] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 14:06:47] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 14:06:48] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 14:07:17] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 14:07:18] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 14:07:47] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 14:07:49] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 14:08:17] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 14:08:19] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 14:08:47] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 14:08:49] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 14:09:17] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 14:09:19] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 14:09:47] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 14:09:49] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 14:10:17] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 14:10:19] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 14:10:33] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 14:10:47] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 14:11:03] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 14:11:17] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 14:11:33] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 14:11:47] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 14:12:03] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 14:12:17] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 14:12:34] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 14:12:47] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 14:13:04] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 14:13:18] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 14:13:34] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 14:13:48] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 14:14:04] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 14:14:18] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 14:14:35] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 14:14:48] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 14:15:05] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 14:15:18] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 14:15:35] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 14:15:48] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 14:16:05] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 14:16:18] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 14:16:35] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 14:16:48] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 14:17:05] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 14:17:19] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 17:28:49] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 17:29:11] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 17:29:42] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 17:30:12] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 17:30:42] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 17:31:12] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 17:31:42] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 17:32:12] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 17:32:40] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 17:33:12] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 17:33:42] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 17:34:13] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 17:34:43] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 17:35:13] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 17:35:43] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 17:36:11] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 17:36:41] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 17:37:17] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 17:37:48] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 17:38:18] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 17:38:48] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 17:39:18] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 17:39:49] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 17:40:18] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 17:40:48] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 17:41:18] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 17:41:48] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 17:42:19] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 17:42:49] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 17:43:19] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 17:43:50] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 17:44:19] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 17:44:50] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 17:45:20] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 17:45:50] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 17:46:21] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 17:46:51] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 17:47:21] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 17:47:51] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 17:47:59] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 17:48:28] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 17:49:01] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 17:49:30] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 17:50:00] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 17:50:30] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 17:51:00] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 17:51:30] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 17:51:58] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 17:52:30] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 17:53:01] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 17:53:31] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 17:54:01] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 17:54:31] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 17:55:01] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 17:55:31] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 17:56:01] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 17:56:31] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 17:57:01] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 17:57:31] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 17:58:01] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 17:58:30] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 17:59:02] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 17:59:30] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 18:00:00] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 18:00:30] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 18:01:00] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 18:01:30] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 18:02:00] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 18:02:30] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 18:03:00] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 18:03:30] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 18:04:00] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 18:04:30] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 18:05:00] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 18:05:30] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 18:06:00] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 18:06:30] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 18:07:00] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 18:07:32] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 18:08:01] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 18:08:30] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 18:09:00] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 18:09:30] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 18:10:00] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 18:10:30] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 18:11:00] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 18:11:32] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 18:12:02] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 18:12:32] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 18:13:03] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 18:13:33] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 18:14:03] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 18:14:33] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 20:37:17] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 20:37:44] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 20:38:16] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 20:38:46] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 20:39:16] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 20:39:47] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 20:40:16] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 20:40:47] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 20:41:16] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-20 20:41:47] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 11:54:17] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 11:54:47] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 11:55:03] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 11:55:34] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 11:55:55] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 11:56:26] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 11:56:56] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 11:57:26] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 11:57:56] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 11:58:26] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 11:58:56] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 11:59:26] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 11:59:56] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 12:00:27] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 12:00:57] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 12:01:17] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 12:01:31] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 12:02:01] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 12:02:31] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 12:03:01] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 12:03:31] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 12:04:01] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 12:04:31] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 12:05:01] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 12:05:31] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 12:06:01] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 12:06:31] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 12:07:01] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 12:07:31] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 12:07:51] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 12:08:22] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 12:08:52] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 12:09:22] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 12:09:52] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 12:10:22] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 12:10:52] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 12:11:23] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 12:11:53] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 12:12:23] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 12:12:53] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 12:13:24] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 12:13:54] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 12:14:28] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 12:14:55] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 12:15:27] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 12:15:56] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 12:16:26] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 12:16:56] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 12:17:26] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 12:17:56] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 12:18:26] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 12:18:56] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 12:19:26] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 12:19:56] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 12:20:26] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 12:20:56] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 12:21:26] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 12:21:56] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 12:22:30] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 12:23:00] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 12:23:30] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 12:24:00] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 12:24:30] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 12:25:00] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 12:25:30] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 12:26:00] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 12:26:30] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 12:27:00] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 12:27:30] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 12:28:00] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 12:28:30] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 12:29:00] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 12:29:30] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 12:30:00] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 12:30:30] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 12:31:00] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 12:31:30] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 12:32:00] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 12:32:33] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 12:33:03] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 12:33:33] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 12:34:03] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 12:34:33] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 12:34:53] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 12:35:23] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 12:48:48] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 12:49:18] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 12:49:48] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 12:50:18] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 12:50:49] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 12:51:03] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 12:51:33] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 12:52:03] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 12:52:33] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 12:53:03] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 12:53:33] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 12:54:03] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 12:54:33] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 12:55:03] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 12:55:33] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 12:56:04] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 12:56:26] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 12:56:56] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 12:57:26] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 12:57:56] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 12:58:27] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 12:58:58] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 12:59:28] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 12:59:58] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 13:00:28] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 13:00:58] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 13:01:28] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 13:01:58] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 13:02:28] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 13:02:58] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 13:03:28] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 13:03:58] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 13:04:28] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 13:04:58] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 13:05:28] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 13:05:58] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 13:06:29] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 13:06:58] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 13:07:29] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 13:07:59] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 13:08:29] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 13:08:59] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 13:09:29] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 13:09:59] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 13:10:30] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 13:11:00] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 13:11:30] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 13:12:01] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 13:12:30] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 13:13:01] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 13:13:31] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 13:14:01] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 13:14:31] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 13:15:01] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 13:15:31] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 13:16:01] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 13:16:32] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 13:17:02] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 13:17:32] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 13:18:02] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 13:18:32] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 13:19:03] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 13:19:33] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 13:20:04] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 13:20:34] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 13:21:05] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 13:21:35] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 13:22:05] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 13:22:35] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 13:23:05] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 13:23:35] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 13:24:05] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 13:24:35] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 13:25:05] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 13:25:35] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 13:26:05] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 13:26:35] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 13:27:06] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 13:27:36] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 13:28:07] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 13:28:37] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 13:29:07] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 13:29:37] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 13:30:07] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 13:30:37] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 13:31:07] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 13:31:37] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 13:32:08] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 13:32:38] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 13:33:08] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 13:33:38] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 13:34:08] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 13:34:39] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 13:35:10] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 13:35:40] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 13:36:09] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 13:39:16] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 13:40:02] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 13:40:47] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 13:42:37] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 13:42:46] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 13:50:13] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 13:51:37] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 13:51:51] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 13:52:23] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 13:52:53] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 13:53:45] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 13:54:11] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 13:54:42] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 13:55:12] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 13:55:42] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 13:56:12] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 13:56:42] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 13:57:13] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 13:57:44] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 13:58:14] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 13:58:44] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 13:59:14] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 13:59:45] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:00:15] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:00:45] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:01:15] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:01:45] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:02:15] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:02:45] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:03:15] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:03:45] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:04:18] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:04:47] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:05:19] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:05:49] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:06:06] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:06:22] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:06:33] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:07:05] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:07:10] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:07:23] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:07:35] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:08:06] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:08:36] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:09:06] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:09:36] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:10:06] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:10:36] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:11:06] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:11:36] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:12:06] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:12:36] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:13:06] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:13:36] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:14:06] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:14:37] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:15:07] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:15:37] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:16:07] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:16:37] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:17:07] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:17:47] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:18:17] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:18:48] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:19:18] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:19:48] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:20:18] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:20:53] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:21:18] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:21:48] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:22:18] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:22:49] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:23:19] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:23:50] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:24:20] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:24:50] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:25:21] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:25:51] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:26:21] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:26:51] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:27:21] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:27:54] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:28:24] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:28:54] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:29:24] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:29:54] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:30:24] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:30:55] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:31:26] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:31:56] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:32:26] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:32:57] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:33:27] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:34:00] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:34:29] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:34:59] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:35:34] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:36:02] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:36:32] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:37:09] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:37:40] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:38:11] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:38:41] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:39:11] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:39:41] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:40:11] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:40:41] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:41:11] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:41:41] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:42:11] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:42:41] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:43:11] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:43:41] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:44:11] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:44:41] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:45:11] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:45:41] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:46:11] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:46:42] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:47:12] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:47:42] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:48:12] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:48:42] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:49:12] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:49:42] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:50:12] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:50:42] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:51:12] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:51:42] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:52:12] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:52:42] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:53:12] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:53:42] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:54:12] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:54:42] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:55:12] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:55:42] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:56:12] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:56:42] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:57:13] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:57:42] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:58:12] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:58:42] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:59:12] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 14:59:42] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:00:12] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:00:42] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:01:12] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:01:42] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:02:12] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:02:42] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:03:12] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:03:42] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:04:12] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:04:42] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:05:12] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:05:42] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:06:12] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:06:42] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:07:12] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:07:42] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:08:12] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:08:42] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:09:12] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:09:42] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:10:12] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:10:42] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:11:12] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:11:42] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:12:12] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:12:42] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:13:12] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:13:42] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:14:12] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:14:42] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:15:12] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:15:42] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:16:12] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:16:42] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:17:12] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:17:42] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:18:12] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:18:42] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:19:12] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:19:42] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:20:12] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:20:42] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:21:12] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:21:42] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:22:12] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:22:42] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:23:12] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:23:42] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:24:12] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:24:42] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:25:12] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:25:42] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:26:12] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:26:42] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:27:12] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:27:42] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:28:12] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:28:42] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:29:12] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:29:42] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:30:12] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:30:42] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:31:12] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:31:42] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:32:13] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:32:43] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:33:13] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:33:43] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:34:13] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:34:43] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:35:13] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:35:43] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:36:13] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:36:43] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:37:13] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:37:43] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:38:13] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:38:43] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:39:13] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:39:43] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:40:13] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:40:43] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:41:13] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:41:43] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:42:13] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:42:43] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:43:13] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:43:43] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:44:13] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:44:43] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:45:13] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:45:43] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:46:14] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:46:44] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:47:15] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:47:45] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:48:29] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:48:54] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:49:24] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:49:54] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:50:24] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:50:54] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:51:24] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:51:54] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:52:24] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:52:54] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:53:24] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:53:55] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:54:25] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:54:55] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:55:25] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:55:55] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:56:25] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:56:55] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:57:25] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:57:55] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:58:25] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:58:55] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:59:25] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 15:59:55] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 16:00:25] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 16:00:55] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 16:01:25] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 16:01:57] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 16:02:27] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 16:02:57] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 16:03:27] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 16:03:57] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 16:04:27] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 16:04:57] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 16:05:28] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 16:05:58] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 16:06:28] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 16:06:58] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 16:07:28] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 16:07:58] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 16:08:28] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 16:08:59] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 16:09:30] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 16:10:00] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 16:10:30] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 16:11:00] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 16:11:30] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 16:12:00] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 16:12:31] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 16:13:03] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 16:13:33] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 16:14:03] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 16:14:33] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 16:15:03] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 16:15:36] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 16:16:03] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 16:16:41] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 16:17:11] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 16:17:41] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 16:18:11] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 16:18:42] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 16:19:12] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 16:19:40] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 16:20:09] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 16:20:39] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 16:21:12] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 16:21:42] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 16:22:12] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 16:22:42] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 16:23:12] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 16:23:42] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 16:23:54] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 16:40:15] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 16:43:21] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 16:43:58] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 1
+[2025-06-21 16:44:35] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-06-21 16:44:55] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-06-21 16:45:12] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-06-21 16:45:27] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-06-21 16:45:42] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-06-21 16:50:01] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-06-21 17:43:49] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-06-21 17:44:17] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-06-21 17:44:38] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-06-21 17:44:55] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-06-22 20:04:04] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-06-22 20:04:15] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-06-22 20:04:24] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-06-22 20:04:33] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-06-22 20:10:35] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-06-22 20:11:05] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-06-22 20:11:35] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-06-22 20:12:06] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-06-22 20:12:37] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-06-22 20:13:07] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-06-22 20:13:37] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-06-22 20:14:07] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-06-22 20:14:37] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-06-22 20:15:07] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-06-22 20:15:37] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-06-22 20:57:16] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-06-22 20:57:30] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[23-Jun-2025 16:22:03 Europe/Berlin] DB fetch error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'account_name' in 'field list'
+[23-Jun-2025 16:22:03 Europe/Berlin] PHP Warning:  Undefined variable $result_accounts in C:\xampp\htdocs\rats\rates\conveyancer\upload_payment.php on line 40
+[23-Jun-2025 16:22:03 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in C:\xampp\htdocs\rats\rates\conveyancer\upload_payment.php on line 40
+[23-Jun-2025 17:50:55 Europe/Berlin] DB fetch error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'account_name' in 'field list'
+[23-Jun-2025 17:50:55 Europe/Berlin] PHP Warning:  Undefined variable $result_accounts in C:\xampp\htdocs\rats\rates\conveyancer\upload_payment.php on line 40
+[23-Jun-2025 17:50:55 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in C:\xampp\htdocs\rats\rates\conveyancer\upload_payment.php on line 40
+[23-Jun-2025 18:22:51 Europe/Berlin] DB fetch error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'account_name' in 'field list'
+[23-Jun-2025 18:22:51 Europe/Berlin] PHP Warning:  Undefined variable $result_accounts in C:\xampp\htdocs\rats\rates\conveyancer\upload_payment.php on line 40
+[23-Jun-2025 18:22:51 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in C:\xampp\htdocs\rats\rates\conveyancer\upload_payment.php on line 40
+[23-Jun-2025 18:23:22 Europe/Berlin] DB fetch error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'account_name' in 'field list'
+[23-Jun-2025 18:23:22 Europe/Berlin] PHP Warning:  Undefined variable $result_accounts in C:\xampp\htdocs\rats\rates\conveyancer\upload_payment.php on line 40
+[23-Jun-2025 18:23:22 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in C:\xampp\htdocs\rats\rates\conveyancer\upload_payment.php on line 40
+[23-Jun-2025 18:24:29 Europe/Berlin] DB fetch error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'account_name' in 'field list'
+[23-Jun-2025 18:24:29 Europe/Berlin] PHP Warning:  Undefined variable $result_accounts in C:\xampp\htdocs\rats\rates\conveyancer\upload_payment.php on line 40
+[23-Jun-2025 18:24:29 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in C:\xampp\htdocs\rats\rates\conveyancer\upload_payment.php on line 40
+[23-Jun-2025 18:24:36 Europe/Berlin] DB fetch error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'account_name' in 'field list'
+[23-Jun-2025 18:24:36 Europe/Berlin] PHP Warning:  Undefined variable $result_accounts in C:\xampp\htdocs\rats\rates\conveyancer\upload_payment.php on line 40
+[23-Jun-2025 18:24:36 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in C:\xampp\htdocs\rats\rates\conveyancer\upload_payment.php on line 40
+[23-Jun-2025 18:48:08 Europe/Berlin] DB fetch error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'account_name' in 'field list'
+[23-Jun-2025 18:48:08 Europe/Berlin] PHP Warning:  Undefined variable $result_accounts in C:\xampp\htdocs\rats\rates\conveyancer\upload_payment.php on line 40
+[23-Jun-2025 18:48:08 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in C:\xampp\htdocs\rats\rates\conveyancer\upload_payment.php on line 40
+[23-Jun-2025 18:49:41 Europe/Berlin] DB fetch error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'account_name' in 'field list'
+[23-Jun-2025 18:49:41 Europe/Berlin] PHP Warning:  Undefined variable $result_accounts in C:\xampp\htdocs\rats\rates\conveyancer\upload_payment.php on line 40
+[23-Jun-2025 18:49:41 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in C:\xampp\htdocs\rats\rates\conveyancer\upload_payment.php on line 40
+[23-Jun-2025 18:52:37 Europe/Berlin] DB fetch error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'account_name' in 'field list'
+[23-Jun-2025 18:52:37 Europe/Berlin] PHP Warning:  Undefined variable $result_accounts in C:\xampp\htdocs\rats\rates\conveyancer\upload_payment.php on line 40
+[23-Jun-2025 18:52:37 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in C:\xampp\htdocs\rats\rates\conveyancer\upload_payment.php on line 40
+[23-Jun-2025 18:53:54 Europe/Berlin] DB fetch error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'account_name' in 'field list'
+[23-Jun-2025 18:53:54 Europe/Berlin] PHP Warning:  Undefined variable $result_accounts in C:\xampp\htdocs\rats\rates\conveyancer\upload_payment.php on line 40
+[23-Jun-2025 18:53:54 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in C:\xampp\htdocs\rats\rates\conveyancer\upload_payment.php on line 40
+[23-Jun-2025 19:09:08 Europe/Berlin] DB fetch error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'user_id' in 'where clause'
+[23-Jun-2025 19:09:08 Europe/Berlin] PHP Warning:  Undefined variable $result_accounts in C:\xampp\htdocs\rats\rates\conveyancer\upload_payment.php on line 40
+[23-Jun-2025 19:09:08 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in C:\xampp\htdocs\rats\rates\conveyancer\upload_payment.php on line 40
+[23-Jun-2025 23:01:51 Europe/Berlin] DB fetch error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'user_id' in 'where clause'
+[23-Jun-2025 23:01:51 Europe/Berlin] PHP Warning:  Undefined variable $result_accounts in C:\xampp\htdocs\rats\rates\conveyancer\upload_payment.php on line 45
+[23-Jun-2025 23:01:51 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in C:\xampp\htdocs\rats\rates\conveyancer\upload_payment.php on line 45
+[23-Jun-2025 23:11:07 Europe/Berlin] DB fetch error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'user_id' in 'where clause'
+[23-Jun-2025 23:11:07 Europe/Berlin] PHP Warning:  Undefined variable $result_accounts in C:\xampp\htdocs\rats\rates\conveyancer\upload_payment.php on line 45
+[23-Jun-2025 23:11:07 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in C:\xampp\htdocs\rats\rates\conveyancer\upload_payment.php on line 45
+[23-Jun-2025 23:11:17 Europe/Berlin] DB fetch error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'user_id' in 'where clause'
+[23-Jun-2025 23:11:17 Europe/Berlin] PHP Warning:  Undefined variable $result_accounts in C:\xampp\htdocs\rats\rates\conveyancer\upload_payment.php on line 45
+[23-Jun-2025 23:11:17 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in C:\xampp\htdocs\rats\rates\conveyancer\upload_payment.php on line 45
+[23-Jun-2025 23:11:40 Europe/Berlin] DB fetch error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'user_id' in 'where clause'
+[23-Jun-2025 23:11:40 Europe/Berlin] PHP Warning:  Undefined variable $result_accounts in C:\xampp\htdocs\rats\rates\conveyancer\upload_payment.php on line 45
+[23-Jun-2025 23:11:40 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in C:\xampp\htdocs\rats\rates\conveyancer\upload_payment.php on line 45
+[2025-06-23 23:13:06] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-06-23 23:14:24] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[23-Jun-2025 23:14:39 Europe/Berlin] DB fetch error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'user_id' in 'where clause'
+[23-Jun-2025 23:14:39 Europe/Berlin] PHP Warning:  Undefined variable $result_accounts in C:\xampp\htdocs\rats\rates\conveyancer\upload_payment.php on line 45
+[23-Jun-2025 23:14:39 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in C:\xampp\htdocs\rats\rates\conveyancer\upload_payment.php on line 45
+[2025-06-25 10:57:45] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-06-25 10:58:15] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[25-Jun-2025 10:58:15 Europe/Berlin] DB fetch error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'user_id' in 'where clause'
+[25-Jun-2025 10:58:15 Europe/Berlin] PHP Warning:  Undefined variable $result_accounts in C:\xampp\htdocs\rats\rates\conveyancer\upload_payment.php on line 45
+[25-Jun-2025 10:58:15 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in C:\xampp\htdocs\rats\rates\conveyancer\upload_payment.php on line 45
+[2025-06-25 10:58:24] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-06-25 10:58:33] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-06-25 10:59:42] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-06-25 11:00:12] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[25-Jun-2025 11:00:16 Europe/Berlin] DB fetch error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'user_id' in 'where clause'
+[25-Jun-2025 11:00:16 Europe/Berlin] PHP Warning:  Undefined variable $result_accounts in C:\xampp\htdocs\rats\rates\conveyancer\upload_payment.php on line 45
+[25-Jun-2025 11:00:16 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in C:\xampp\htdocs\rats\rates\conveyancer\upload_payment.php on line 45
+[25-Jun-2025 11:37:44 Europe/Berlin] DB fetch error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'user_id' in 'where clause'
+[25-Jun-2025 11:37:44 Europe/Berlin] PHP Warning:  Undefined variable $result_accounts in C:\xampp\htdocs\rats\rates\conveyancer\upload_payment.php on line 40
+[25-Jun-2025 11:37:44 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in C:\xampp\htdocs\rats\rates\conveyancer\upload_payment.php on line 40
+[25-Jun-2025 11:39:21 Europe/Berlin] DB fetch error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'user_id' in 'where clause'
+[25-Jun-2025 11:39:21 Europe/Berlin] PHP Warning:  Undefined variable $result_accounts in C:\xampp\htdocs\rats\rates\conveyancer\upload_payment.php on line 40
+[25-Jun-2025 11:39:21 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in C:\xampp\htdocs\rats\rates\conveyancer\upload_payment.php on line 40
+[2025-06-25 12:55:53] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[25-Jun-2025 12:55:57 Europe/Berlin] DB fetch error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'user_id' in 'where clause'
+[25-Jun-2025 12:55:57 Europe/Berlin] PHP Warning:  Undefined variable $result_accounts in C:\xampp\htdocs\rats\rates\conveyancer\upload_payment.php on line 40
+[25-Jun-2025 12:55:57 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in C:\xampp\htdocs\rats\rates\conveyancer\upload_payment.php on line 40
+[2025-06-25 14:33:44] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-06-25 14:34:17] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[25-Jun-2025 14:34:34 Europe/Berlin] DB fetch error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'user_id' in 'where clause'
+[25-Jun-2025 14:34:34 Europe/Berlin] PHP Warning:  Undefined variable $result_accounts in C:\xampp\htdocs\rats\rates\conveyancer\upload_payment.php on line 40
+[25-Jun-2025 14:34:34 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in C:\xampp\htdocs\rats\rates\conveyancer\upload_payment.php on line 40
+[25-Jun-2025 14:59:10 Europe/Berlin] DB fetch error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'user_id' in 'where clause'
+[25-Jun-2025 14:59:10 Europe/Berlin] PHP Warning:  Undefined variable $result_accounts in C:\xampp\htdocs\rats\rates\conveyancer\upload_payment.php on line 40
+[25-Jun-2025 14:59:10 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in C:\xampp\htdocs\rats\rates\conveyancer\upload_payment.php on line 40
+[2025-06-26 17:39:06] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[26-Jun-2025 17:39:13 Europe/Berlin] DB fetch error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'user_id' in 'where clause'
+[26-Jun-2025 17:39:13 Europe/Berlin] PHP Warning:  Undefined variable $result_accounts in C:\xampp\htdocs\rats\rates\conveyancer\upload_payment.php on line 40
+[26-Jun-2025 17:39:13 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in C:\xampp\htdocs\rats\rates\conveyancer\upload_payment.php on line 40
+[2025-06-27 17:37:53] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-06-27 17:38:23] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-06-27 17:38:53] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-06-27 17:39:23] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-06-27 17:39:53] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-06-27 17:40:23] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-06-27 17:40:53] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-06-27 17:41:23] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-06-27 17:41:53] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-06-27 17:42:23] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-06-27 17:42:53] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-06-27 17:43:23] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-06-27 17:43:53] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-06-27 17:44:23] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-06-27 17:44:53] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-06-27 17:45:23] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-06-27 17:45:53] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-06-27 17:46:23] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-06-27 17:46:53] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-06-27 17:47:23] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-06-27 17:47:54] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-06-27 17:48:24] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-06-27 17:48:54] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-06-27 17:49:24] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-06-27 17:49:54] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-06-27 17:50:24] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-06-27 17:50:54] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-06-27 17:51:24] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-06-27 17:51:54] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-06-27 17:52:25] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[27-Jun-2025 17:52:39 Europe/Berlin] DB fetch error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'user_id' in 'where clause'
+[27-Jun-2025 17:52:39 Europe/Berlin] PHP Warning:  Undefined variable $result_accounts in C:\xampp\htdocs\rats\rates\conveyancer\upload_payment.php on line 40
+[27-Jun-2025 17:52:39 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in C:\xampp\htdocs\rats\rates\conveyancer\upload_payment.php on line 40
+[2025-06-27 17:52:50] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[27-Jun-2025 17:52:58 Europe/Berlin] DB fetch error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'user_id' in 'where clause'
+[27-Jun-2025 17:52:58 Europe/Berlin] PHP Warning:  Undefined variable $result_accounts in C:\xampp\htdocs\rats\rates\conveyancer\upload_payment.php on line 40
+[27-Jun-2025 17:52:58 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in C:\xampp\htdocs\rats\rates\conveyancer\upload_payment.php on line 40
+[2025-06-28 11:04:37] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-06-28 11:05:03] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[28-Jun-2025 11:06:19 Europe/Berlin] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in C:\xampp\htdocs\rats\rates\conveyancer\upload_payment.php on line 165
+[28-Jun-2025 11:06:19 Europe/Berlin] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in C:\xampp\htdocs\rats\rates\conveyancer\upload_payment.php on line 168
+[28-Jun-2025 11:06:19 Europe/Berlin] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in C:\xampp\htdocs\rats\rates\conveyancer\upload_payment.php on line 169
+[28-Jun-2025 11:07:11 Europe/Berlin] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in C:\xampp\htdocs\rats\rates\conveyancer\upload_payment.php on line 165
+[28-Jun-2025 11:07:11 Europe/Berlin] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in C:\xampp\htdocs\rats\rates\conveyancer\upload_payment.php on line 168
+[28-Jun-2025 11:07:11 Europe/Berlin] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in C:\xampp\htdocs\rats\rates\conveyancer\upload_payment.php on line 169
+[2025-06-28 11:13:06] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-06-28 11:13:23] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-06-28 11:13:53] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-06-28 11:14:27] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-06-28 11:15:27] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-06-28 11:15:58] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-06-28 11:16:28] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-06-28 11:16:59] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-06-28 11:17:30] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-06-28 11:18:00] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-06-28 11:18:30] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-06-28 11:19:00] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-06-28 11:19:30] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-06-28 11:20:00] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-06-28 11:20:30] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-06-28 11:21:00] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-06-28 11:21:30] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-06-28 11:22:01] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-06-28 11:22:31] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-06-28 11:23:01] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-06-28 11:23:31] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-06-28 11:24:01] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-06-28 11:24:31] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-06-28 11:25:01] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-06-28 11:25:31] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-06-28 11:26:01] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-06-28 11:26:31] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-06-28 11:27:01] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-06-28 11:27:31] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-06-28 11:28:01] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-06-28 11:28:31] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-06-28 11:29:01] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-06-28 11:29:31] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-06-28 11:30:01] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-06-28 11:30:31] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-06-28 11:31:01] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-06-28 11:31:48] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-06-28 11:32:02] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-06-28 11:32:17] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-06-28 12:33:37] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-06-28 12:34:26] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[28-Jun-2025 12:35:45 Europe/Berlin] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in C:\xampp\htdocs\rats\rates\conveyancer\upload_payment.php on line 176
+[28-Jun-2025 12:35:45 Europe/Berlin] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in C:\xampp\htdocs\rats\rates\conveyancer\upload_payment.php on line 179
+[28-Jun-2025 12:35:45 Europe/Berlin] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in C:\xampp\htdocs\rats\rates\conveyancer\upload_payment.php on line 180
+[28-Jun-2025 12:36:20 Europe/Berlin] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in C:\xampp\htdocs\rats\rates\conveyancer\upload_payment.php on line 176
+[28-Jun-2025 12:36:20 Europe/Berlin] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in C:\xampp\htdocs\rats\rates\conveyancer\upload_payment.php on line 179
+[28-Jun-2025 12:36:20 Europe/Berlin] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in C:\xampp\htdocs\rats\rates\conveyancer\upload_payment.php on line 180
+[2025-06-28 12:37:38] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-06-30 18:11:52] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6

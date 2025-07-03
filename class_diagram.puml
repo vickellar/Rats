@@ -1,0 +1,64 @@
+@startuml
+' Class diagram based on database schema
+
+class rate_clearance_applications {
+  +application_id: SERIAL
+  +user_id: INT
+  +property_id: INT
+  +applicant_address: VARCHAR(255)
+  +email_address: VARCHAR(255)
+  +relationship_to_owner: VARCHAR(100)
+  +description: TEXT
+  +title_deed: VARCHAR(255)
+  +identity_proof: VARCHAR(255)
+  +additional_documents: VARCHAR(255)
+  +file_path: VARCHAR(255)
+  +status: VARCHAR(100)
+  +created_at: TIMESTAMP
+  +updated_at: TIMESTAMP
+}
+
+class properties {
+  +property_id: INT
+  +address: VARCHAR(255)
+  +size: FLOAT
+  +type: VARCHAR(50)
+  +owner: VARCHAR(100)
+}
+
+class accounts {
+  +id: INT
+  +property_id: INT
+  +account_number: VARCHAR(50)
+  +created_at: TIMESTAMP
+  +updated_at: TIMESTAMP
+}
+
+class months_fees {
+  +month_id: INT
+  +month_name: VARCHAR(20)
+  +month_balance: DECIMAL(10, 2)
+  +account_id: INT
+  +property_id: INT
+  +application_id: INT
+}
+
+class accounts_Fees {
+  +fee_id: INT
+  +processing_fee: DECIMAL(10, 2)
+  +total_balance: DECIMAL(10, 2)
+  +account_id: INT
+  +property_id: INT
+  +application_id: INT
+}
+
+' Relationships based on foreign keys
+properties "1" -- "0..*" accounts : has
+accounts "1" -- "0..*" months_fees : has
+properties "1" -- "0..*" months_fees : has
+rate_clearance_applications "1" -- "0..*" months_fees : has
+accounts "1" -- "0..*" accounts_Fees : has
+properties "1" -- "0..*" accounts_Fees : has
+rate_clearance_applications "1" -- "0..*" accounts_Fees : has
+
+@enduml

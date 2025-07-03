@@ -1,0 +1,26 @@
+{
+	"folders": [
+		{
+			"path": "../.."
+		}
+	],
+	"settings": {
+		"sqltools.connections": [
+			{
+				"mysqlOptions": {
+					"authProtocol": "default",
+					"enableSsl": "Disabled"
+				},
+				"previewLimit": 50,
+				"server": "localhost",
+				"port": 3307,
+				"driver": "MySQL",
+				"name": "rate_clearance_system",
+				"database": "rate_clearance_system",
+				"username": "root",
+				"password": ""
+			}
+		],
+		"codium.codeCompletion.enable": true
+	}
+}

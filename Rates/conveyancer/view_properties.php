@@ -36,29 +36,118 @@ $properties = $stmt->fetchAll(PDO::FETCH_ASSOC); // Fetch properties from databa
     <title>View Properties</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        * {
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-
-        .container {
-            width: 80%;
-            max-width: 800px;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             box-sizing: border-box;
         }
 
-        h2 {
-            color: #333;
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h2 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            opacity: 0.9;
+            font-size: 1.1rem;
+        }
+
+        .content {
+            padding: 30px;
+        }
+
+        .toolbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .property-count {
+            background: #e8f5e8;
+            color: #2e7d32;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .export-buttons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .export-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 18px;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .export-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .export-btn.pdf {
+            background: linear-gradient(135deg, #e53e3e 0%, #c53030 100%);
+            color: white;
+        }
+
+        .export-btn.excel {
+            background: linear-gradient(135deg, #38a169 0%, #2f855a 100%);
+            color: white;
+        }
+
+        .export-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .table-container {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
         }
 
         table {
@@ -66,49 +155,424 @@ $properties = $stmt->fetchAll(PDO::FETCH_ASSOC); // Fetch properties from databa
             border-collapse: collapse;
         }
 
-        th, td {
-            border: 1px solid #ccc;
-            padding: 10px;
+        th {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            color: #2c3e50;
+            font-weight: 600;
+            padding: 20px 15px;
             text-align: left;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-bottom: 2px solid #dee2e6;
         }
 
-        th {
-            background-color: #f2f2f2;
+        td {
+            padding: 18px 15px;
+            border-bottom: 1px solid #f1f3f4;
+            color: #495057;
+            font-size: 0.95rem;
+        }
+
+        tr:hover {
+            background-color: #f8f9fa;
+            transform: translateY(-1px);
+            transition: all 0.2s ease;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        .no-properties {
+            text-align: center;
+            padding: 40px;
+            color: #6c757d;
+            font-style: italic;
+        }
+
+        .next-steps {
+            background: linear-gradient(135deg, #e3f2fd 0%, #f3e5f5 100%);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 30px;
+            border-left: 4px solid #2196f3;
+        }
+
+        .next-steps h3 {
+            color: #1976d2;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .next-steps p {
+            color: #424242;
+            line-height: 1.6;
+            font-size: 1rem;
+        }
+
+        .button-container {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 28px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
+        }
+
+        .btn-success {
+            background: linear-gradient(135deg, #56ab2f 0%, #a8e6cf 100%);
+            color: white;
+        }
+
+        .btn-success:hover {
+            background: linear-gradient(135deg, #4e9a2a 0%, #96d4b5 100%);
+        }
+
+        .account-numbers {
+            background: #f0f8ff;
+            color: #1976d2;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-family: monospace;
+        }
+
+        .success-message {
+            background: #d4edda;
+            color: #155724;
+            padding: 12px 20px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            border: 1px solid #c3e6cb;
+            display: none;
+        }
+
+        .error-message {
+            background: #f8d7da;
+            color: #721c24;
+            padding: 12px 20px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            border: 1px solid #f5c6cb;
+        }
+
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .loading-content {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #667eea;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 15px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h2 {
+                font-size: 2rem;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .toolbar {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .export-buttons {
+                justify-content: center;
+            }
+
+            .table-container {
+                overflow-x: auto;
+            }
+
+            table {
+                min-width: 600px;
+            }
+
+            .button-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            th, td {
+                padding: 12px 8px;
+                font-size: 0.85rem;
+            }
+
+            .header h2 {
+                font-size: 1.5rem;
+            }
+
+            .export-btn {
+                padding: 8px 14px;
+                font-size: 0.85rem;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h2>Your Properties</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Owner</th>
-                    <th>Address</th>
-                    <th>Size (sq meters)</th>
-                    <th>Type</th>
-                    <th>Accounts</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php if (count($properties) > 0): ?>
-                    <?php foreach ($properties as $property): ?>
-                        <tr>
-                            <td><?php echo htmlspecialchars($property['owner']); ?></td>
-                            <td><?php echo htmlspecialchars($property['address']); ?></td>
-                            <td><?php echo htmlspecialchars($property['size']); ?></td>
-                            <td><?php echo htmlspecialchars($property['type']); ?></td>
-                            <td><?php echo htmlspecialchars($property['account_numbers']); ?></td>
+        <div class="header">
+            <h2><i class="fas fa-home"></i> Your Properties</h2>
+            <p>Manage and view all your registered properties</p>
+        </div>
+        
+        <div class="content">
+            <?php if (isset($_GET['success'])): ?>
+                <div class="success-message" style="display: block;">
+                    <i class="fas fa-check-circle"></i> 
+                    <?php 
+                    if ($_GET['success'] == 'pdf') echo 'PDF export completed successfully!';
+                    elseif ($_GET['success'] == 'excel') echo 'Excel export completed successfully!';
+                    ?>
+                </div>
+            <?php endif; ?>
 
+            <?php if (isset($_GET['error'])): ?>
+                <div class="error-message">
+                    <i class="fas fa-exclamation-triangle"></i> 
+                    Export failed. Please try again.
+                </div>
+            <?php endif; ?>
+
+            <div class="toolbar">
+                <div class="property-count">
+                    <i class="fas fa-building"></i> <?php echo count($properties); ?> Properties Found
+                </div>
+                
+                <div class="export-buttons">
+                    <button onclick="exportToPDF()" class="export-btn pdf" id="pdfBtn">
+                        <i class="fas fa-file-pdf"></i>
+                        Export PDF
+                    </button>
+                    <button onclick="exportToExcel()" class="export-btn excel" id="excelBtn">
+                        <i class="fas fa-file-excel"></i>
+                        Export Excel
+                    </button>
+                </div>
+            </div>
+            
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th><i class="fas fa-user"></i> Owner</th>
+                            <th><i class="fas fa-map-marker-alt"></i> Address</th>
+                            <th><i class="fas fa-ruler-combined"></i> Size (sq meters)</th>
+                            <th><i class="fas fa-tag"></i> Type</th>
+                            <th><i class="fas fa-file-invoice"></i> Accounts</th>
                         </tr>
-                    <?php endforeach; ?>
-                <?php else: ?>
-                    <tr>
-                        <td colspan="4">No properties found.</td>
-                    </tr>
-                <?php endif; ?>
-            </tbody>
-        </table>
+                    </thead>
+                    <tbody>
+                        <?php if (count($properties) > 0): ?>
+                            <?php foreach ($properties as $property): ?>
+                                <tr>
+                                    <td><?php echo htmlspecialchars($property['owner']); ?></td>
+                                    <td><?php echo htmlspecialchars($property['address']); ?></td>
+                                    <td><?php echo htmlspecialchars($property['size']); ?></td>
+                                    <td><?php echo htmlspecialchars($property['type']); ?></td>
+                                    <td>
+                                        <?php if ($property['account_numbers']): ?>
+                                            <span class="account-numbers"><?php echo htmlspecialchars($property['account_numbers']); ?></span>
+                                        <?php else: ?>
+                                            <span style="color: #6c757d; font-style: italic;">No accounts</span>
+                                        <?php endif; ?>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
+                        <?php else: ?>
+                            <tr>
+                                <td colspan="5" class="no-properties">No properties found.</td>
+                            </tr>
+                        <?php endif; ?>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="next-steps">
+                <h3><i class="fas fa-info-circle"></i> Next Steps</h3>
+                <p>To apply for a rates clearance certificate, select a property from the list above and click the "Apply for Rates Clearance" button below.</p>
+            </div>
+            
+            <div class="button-container">
+                <a href="../conveyancer/cdashboard.php" class="btn btn-primary">
+                    <i class="fas fa-arrow-left"></i>
+                    Back to Dashboard
+                </a>
+                <a href="../conveyancer/apply_rates.php" class="btn btn-success">
+                    <i class="fas fa-file-alt"></i>
+                    Apply for Rates Clearance
+                </a>
+            </div>
+        </div>
     </div>
+
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="loading-overlay">
+        <div class="loading-content">
+            <div class="spinner"></div>
+            <p>Generating export file...</p>
+        </div>
+    </div>
+
+    <script>
+        function showLoading() {
+            document.getElementById('loadingOverlay').style.display = 'flex';
+            document.getElementById('pdfBtn').disabled = true;
+            document.getElementById('excelBtn').disabled = true;
+        }
+
+        function hideLoading() {
+            document.getElementById('loadingOverlay').style.display = 'none';
+            document.getElementById('pdfBtn').disabled = false;
+            document.getElementById('excelBtn').disabled = false;
+        }
+
+        function showSuccess() {
+            const successMsg = document.querySelector('.success-message');
+            if (successMsg) {
+                successMsg.style.display = 'block';
+                setTimeout(() => {
+                    successMsg.style.display = 'none';
+                }, 3000);
+            }
+        }
+
+        function exportToPDF() {
+            showLoading();
+            
+            // Create form to submit to PHP export script
+            const form = document.createElement('form');
+            form.method = 'POST';
+            form.action = 'export_pdf_fpdf.php'; // You'll need to create this file
+            form.style.display = 'none';
+            
+            document.body.appendChild(form);
+            form.submit();
+            
+            // Simulate loading time
+            setTimeout(() => {
+                hideLoading();
+                document.body.removeChild(form);
+            }, 2000);
+        }
+
+        function exportToExcel() {
+            showLoading();
+            
+            // Create form to submit to PHP export script
+            const form = document.createElement('form');
+            form.method = 'POST';
+            form.action = 'export_excel.php'; // You'll need to create this file
+            form.style.display = 'none';
+            
+            document.body.appendChild(form);
+            form.submit();
+            
+            // Simulate loading time
+            setTimeout(() => {
+                hideLoading();
+                document.body.removeChild(form);
+            }, 2000);
+        }
+
+        // Handle form submission response
+        window.addEventListener('beforeunload', function() {
+            hideLoading();
+        });
+
+        // Show loading state when export buttons are clicked
+        document.querySelectorAll('.export-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                this.disabled = true;
+                const icon = this.querySelector('i');
+                icon.className = 'fas fa-spinner fa-spin';
+                setTimeout(() => {
+                    this.disabled = false;
+                    if (this.id === 'pdfBtn') {
+                        icon.className = 'fas fa-file-pdf';
+                    } else {
+                        icon.className = 'fas fa-file-excel';
+                    }
+                }, 3000);
+            });
+        });
+    </script>
 </body>
 </html>

@@ -51,11 +51,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Handle file uploads
     $upload_dir = __DIR__ . '/../uploads/';
-    if (!is_dir($upload_dir)) {
-        if (!mkdir($upload_dir, 0755, true)) {
-            throw new Exception("Failed to create upload directory");
-        }
-    }
+    // if (!is_dir($upload_dir)) {
+    //     if (!mkdir($upload_dir, 0755, true)) {
+    //         throw new Exception("Failed to create upload directory");
+    //     }
+    // }
 
 
     $allowed_types = [
@@ -280,8 +280,6 @@ try {
             <label for="mailing-address">Mailing Address:</label>
             <input type="text" id="mailing-address" name="mailing_address" required>
 
-            <label for="relationship">Relationship to Owner:</label>
-            <input type="text" id="relationship" name="relationship" required>
 
             <h3>Additional Information</h3>
             <label for="description">Description:</label>

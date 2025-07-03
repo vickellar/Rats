@@ -13,9 +13,8 @@ if (empty($_SESSION['role']) || $_SESSION['role'] !== 'conveyancer' ||
 */
 
 ob_start();
-
 ini_set('display_errors', 1);
-
+// Include database connection
 require_once("./Database/db.php");
 
 // Initialize error message
@@ -29,8 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['register'])) {
     $password = $_POST["password"];
     $confirmPassword = $_POST["confirmPassword"];
     $role = $_POST["role"];
-    $employee_id = isset($_POST["employee_id"]) ? filter_input(INPUT_POST, 'employee_id', FILTER_SANITIZE_NUMBER_INT) : null;
-    $contact_number = filter_input(INPUT_POST, 'contact_number', FILTER_SANITIZE_SPECIAL_CHARS); // New field for contact number
+    $contact_number = filter_input(INPUT_POST, 'contact_number', FILTER_SANITIZE_SPECIAL_CHARS);
 
     // Validation
     if (!preg_match("/^[a-zA-Z-' ]*$/", $first_name)) {
@@ -44,101 +42,54 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['register'])) {
     }
 
     if (empty($error_message)) {
-        $password = password_hash($password, PASSWORD_DEFAULT);
+        $password_hash = password_hash($password, PASSWORD_DEFAULT);
+
         try {
-            // For admin and finance_director roles, check employee database
-            if ($role === 'admin' || $role === 'finance_director') {
-                // First check if employee exists in employees table
-                $sql = "SELECT * FROM employees WHERE role = :role";
-                $stmt = $pdo->prepare($sql);
-                $stmt->execute([':role' => $role]);
-                $employee = $stmt->fetch();
-                
-                if (!$employee) {
-                    $error_message = "Employee record not found. Please register as employee first.";
-                    throw new Exception($error_message);
-                }
-                
-                // Verify employee_id exists
-                if (!isset($employee['employee_id'])) {
-                    $error_message = "Invalid employee record. Missing employee_id.";
-                    throw new Exception($error_message);
-                }
-                
-                $employee_id = $employee['employee_id'];
-            } else {
-                // Set employee_id to null for non-admin/finance_director roles
-                $employee_id = null;
-            }
-
-            // Verify employee_id is valid for admin/finance_director roles
-            if (($role === 'admin' || $role === 'finance_director') && empty($employee_id)) {
-                $error_message = "Employee ID is required for admin/finance_director roles.";
-                throw new Exception($error_message);
-            }
-
             // Check for existing username
             $sql = "SELECT * FROM users WHERE username = :username";
             $stmt = $pdo->prepare($sql);
             $stmt->execute([':username' => $username]);
-            
+
             if ($stmt->rowCount() > 0) {
                 $error_message = "Username already exists. Please use a different username.";
             } else {
                 // Insert new user
-                $sql = "INSERT INTO users (first_name, surname, username, password, role, employee_id, contact_number) 
-                        VALUES (:first_name, :surname, :username, :password, :role, :employee_id, :contact_number)";
+                $sql = "INSERT INTO users (first_name, surname, username, password, role, contact_number) 
+                        VALUES (:first_name, :surname, :username, :password, :role, :contact_number)";
                 $stmt = $pdo->prepare($sql);
-                $stmt->execute([
+
+                $result = $stmt->execute([
                     ':first_name' => $first_name,
                     ':surname' => $surname,
                     ':username' => $username,
-                    ':password' => $password,
+                    ':password' => $password_hash,
                     ':role' => $role,
-                    ':employee_id' => $employee_id,
-                    ':contact_number' => $contact_number // Include contact number in the insertion
+                    ':contact_number' => $contact_number
                 ]);
 
-                $_SESSION['role'] = $role;
-                $_SESSION['username'] = $username; // Store username in session
+                if ($result) {
+                    $user_id = $pdo->lastInsertId();
+                    $_SESSION['role'] = $role;
+                    $_SESSION['user_id'] = $user_id;
+                    $_SESSION['username'] = $username;
 
-                error_log("Session data after registration: " . print_r($_SESSION, true)); // Log the entire session data for debugging
-                
-                // Clear output buffer before redirecting
-                ob_end_clean();
-                
-                session_start();
-                error_log("Session data after registration: " . print_r($_SESSION, true)); // Log the entire session data for debugging
-                if (!isset($_SESSION['role'])) {
-                    // If the user role is not set in the session, redirect to login or another appropriate page
-                    header("Location: /login.php");
-                    exit();
-                }
-
-                // Display the appropriate dashboard based on the user role
-                $role = $_SESSION['role'];
-
-                if ($role === 'admin') {
-                    header("Location: ./admin/adminDashboard.php");
-                } elseif ($role === 'finance_director') {
-                    header("Location: ./finance_director/fdashboard.php");
-                } elseif ($role === 'conveyancer') {
-                    header("Location: ./conveyancer/cdashboard.php");
+                    $success_message = "Registration successful! Welcome " . htmlspecialchars($first_name) . "!";
+                    if ($role === 'conveyancer') {
+                        $redirect_url = "./conveyancer/cdashboard.php";
+                    } else {
+                        $redirect_url = "/login.php";
+                    }
                 } else {
-                    // Redirect to login or another appropriate page if the role is invalid
-                    header("Location: /login.php");
-                    exit();
+                    $error_message = "Failed to create user account. Please try again.";
                 }
-
-                exit();
             }
         } catch (PDOException $e) {
             $error_message = "Database error: " . $e->getMessage();
-            error_log($e->getMessage()); // Log the error message
         }
     }
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -146,172 +97,270 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['register'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Registration</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-
-        main {
-            padding: 20px;
-            max-width: 500px;
-            background-color: #fff;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        h2 {
-            color: #333;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        form {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .input-container-group {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        input, select, button {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-
-        button {
-            background-color: #007BFF;
-            color: #fff;
-            border: none;
-            cursor: pointer;
-            grid-column: span 2;
-        }
-
-        button:hover {
-            background-color: #0056b3;
-        }
-
-        .input-container {
-            display: flex;
-            align-items: center;
-            background-color: #f4f4f4;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            padding: 10px;
-        }
-
-        .input-container i {
-            margin-right: 10px;
-            color: #007BFF;
-        }
-
-        .employee-id-container {
-            display: none;
-            grid-column: span 2;
-        }
-
-        .error {
-            color: red;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-    </style>
-    <script>
+    <link rel="stylesheet" href="./assets/css/styles.css">
+    <link rel="stylesheet" href="./assets/css/signup.css">
+   
+ <script>
         function toggleEmployeeIdField() {
             const role = document.getElementById("role").value;
             const employeeIdContainer = document.getElementById("employee-id-container");
             if (role === "admin" || role === "finance_director") {
                 employeeIdContainer.style.display = "block";
+                employeeIdContainer.classList.add("show");
             } else {
                 employeeIdContainer.style.display = "none";
+                employeeIdContainer.classList.remove("show");
             }
         }
 
         document.addEventListener('DOMContentLoaded', function () {
-            const errorMessage = "<?php echo $error_message; ?>";
-            if (errorMessage) {
-                alert(errorMessage);
+            const errorMessage = "<?php echo addslashes($error_message); ?>";
+            const successMessage = "<?php echo isset($success_message) ? addslashes($success_message) : ''; ?>";
+            const redirectUrl = "<?php echo isset($redirect_url) ? addslashes($redirect_url) : ''; ?>";
+
+            if (successMessage && redirectUrl) {
+                // Show success animation
+                showSuccessAnimation(redirectUrl);
+            } else if (errorMessage) {
+                console.log('Registration error:', errorMessage);
             }
+
+            // Add form validation
+            const form = document.querySelector('.registration-form');
+            const submitBtn = document.querySelector('.submit-btn');
+            let isSubmitting = false;
+
+            form.addEventListener('submit', function(e) {
+                // Prevent multiple submissions
+                if (isSubmitting) {
+                    e.preventDefault();
+                    return;
+                }
+
+                const password = document.getElementById('password').value;
+                const confirmPassword = document.getElementById('confirmPassword').value;
+
+                // Validate passwords
+                if (password !== confirmPassword) {
+                    e.preventDefault();
+                    alert('Passwords do not match!');
+                    return;
+                }
+
+                if (password.length < 8) {
+                    e.preventDefault();
+                    alert('Password must be at least 8 characters long!');
+                    return;
+                }
+
+                // If validation passes, set loading state but allow form to submit
+                isSubmitting = true;
+                
+                // Add loading state with a small delay to allow form submission
+                setTimeout(() => {
+                    submitBtn.disabled = true;
+                    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Creating Account...';
+                }, 100);
+
+                // Don't prevent default - let the form submit naturally
+            });
+
+            // Add real-time password validation
+            const passwordInput = document.getElementById('password');
+            const confirmPasswordInput = document.getElementById('confirmPassword');
+
+            function validatePasswords() {
+                if (confirmPasswordInput.value && passwordInput.value !== confirmPasswordInput.value) {
+                    confirmPasswordInput.setCustomValidity('Passwords do not match');
+                } else {
+                    confirmPasswordInput.setCustomValidity('');
+                }
+            }
+
+            passwordInput.addEventListener('input', validatePasswords);
+            confirmPasswordInput.addEventListener('input', validatePasswords);
         });
-    </script>
+
+        function showSuccessAnimation(redirectUrl) {
+            const overlay = document.getElementById('successOverlay');
+            const countdownElement = document.getElementById('countdown');
+            
+            // Create confetti
+            createConfetti();
+            
+            // Show overlay
+            setTimeout(() => {
+                overlay.classList.add('show');
+            }, 100);
+            
+            // Countdown and redirect
+            let countdown = 3;
+            const countdownInterval = setInterval(() => {
+                countdown--;
+                countdownElement.textContent = countdown;
+                
+                if (countdown <= 0) {
+                    clearInterval(countdownInterval);
+                    window.location.href = redirectUrl;
+                }
+            }, 1000);
+        }
+
+        function createConfetti() {
+            const overlay = document.getElementById('successOverlay');
+            const confettiCount = 50;
+            
+            for (let i = 0; i < confettiCount; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * 100 + '%';
+                confetti.style.animationDelay = Math.random() * 3 + 's';
+                confetti.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                overlay.appendChild(confetti);
+            }
+        }
+</script>
+
 
 </head>
 <body>
-    <main>
-        <h2>User Registration</h2>
-        <form method="POST" action="">
-            <div class="input-container-group">
-                <div class="input-container">
-                    <i class="fas fa-user"></i>
-                    <input type="text" id="first_name" name="first_name" placeholder="First Name" required>
-                </div>
-                <div class="input-container">
-                    <i class="fas fa-user"></i>
-                    <input type="text" id="surname" name="surname" placeholder="Surname" required>
+    <div class="page-container">
+        <header class="header">
+            <div class="container">
+                <div class="header-content">
+                    <div class="logo-section">
+                        <img src="./assets/images/mslogo.png" alt="Logo" class="logo">
+                        <h1 class="site-title">Rate Clearance System</h1>
+                    </div>
                 </div>
             </div>
+        </header>
 
-            <div class="input-container-group">
-                <div class="input-container">
-                    <i class="fas fa-user"></i>
-                    <input type="text" id="username" name="username" placeholder="Username" required>
-                </div>
-                <div class="input-container">
-                    <i class="fas fa-phone"></i>
-                    <input type="text" id="contact_number" name="contact_number" placeholder="Contact Number" required>
+        <nav class="navigation">
+            <div class="container">
+                <ul class="nav-list">
+                    <li><a href="home.php" class="nav-link">Home</a></li>
+                    <li><a href="signin.php" class="nav-link">Login</a></li>
+                    <li><a href="signup.php" class="nav-link active">Register</a></li>
+                    <li><a href="services.html" class="nav-link">Services</a></li>
+                    <li><a href="contacts.html" class="nav-link">About</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <main class="main-content">
+            <div class="registration-container">
+                <h2 class="form-title">Create Account</h2>
+                       
+                <form method="POST" action="" class="registration-form">
+                    <div class="form-row">
+                        <div class="input-group">
+                            <div class="input-container">
+                                <i class="fas fa-user"></i>
+                                <input type="text" id="first_name" name="first_name" placeholder="First Name" required>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <div class="input-container">
+                                <i class="fas fa-user"></i>
+                                <input type="text" id="surname" name="surname" placeholder="Surname" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="input-group">
+                            <div class="input-container">
+                                <i class="fas fa-user-circle"></i>
+                                <input type="text" id="username" name="username" placeholder="Username" required>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <div class="input-container">
+                                <i class="fas fa-phone"></i>
+                                <input type="text" id="contact_number" name="contact_number" placeholder="Contact Number" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="input-group">
+                            <div class="input-container">
+                                <i class="fas fa-lock"></i>
+                                <input type="password" id="password" name="password" placeholder="Password" required>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <div class="input-container">
+                                <i class="fas fa-lock"></i>
+                                <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="input-group">
+                            <div class="input-container">
+                                <i class="fas fa-user-tag"></i>
+                                <select id="role" name="role" required onchange="toggleEmployeeIdField()">
+                                    <option value="" disabled selected>Select Role</option>
+                                    <!--<option value="admin">Admin</option>
+                                    <option value="finance_director">Finance Director</option>-->
+                                    <option value="conveyancer">Conveyancer</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div id="employee-id-container" class="input-group employee-id-container">
+                            <div class="input-container">
+                                <i class="fas fa-id-badge"></i>
+                                <input type="text" id="employee_id" name="employee_id" placeholder="Employee ID">
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" name="register" class="submit-btn">
+                        <i class="fas fa-user-plus"></i>
+                        Create Account
+                    </button>
+                    <?php if (!empty($error_message)): ?>
+                        <div class="error-message">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            <?php echo htmlspecialchars($error_message); ?>
+                        </div>
+                    <?php endif; ?>
+                </form>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <p>&copy; 2024 Rate Clearance System. All rights reserved.</p>
+                    <div class="footer-links">
+                        <a href="#" class="footer-link">Privacy Policy</a>
+                        <a href="#" class="footer-link">Terms of Service</a>
+                        <a href="#" class="footer-link">Contact Us</a>
+                    </div>
                 </div>
             </div>
+        </footer>
+    </div>
 
-            <div class="input-container-group">
-                <div class="input-container">
-                    <i class="fas fa-lock"></i>
-                    <input type="password" id="password" name="password" placeholder="Password" required>
-                </div>
-                <div class="input-container">
-                    <i class="fas fa-lock"></i>
-                    <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" required>
-                </div>
+    <?php if (isset($success_message) && isset($redirect_url)): ?>
+    <div id="successOverlay" class="success-overlay">
+        <div class="success-animation">
+            <div class="success-icon">
+                <i class="fas fa-check"></i>
             </div>
-
-            <div class="input-container-group">
-                <div class="input-container">
-                    <i class="fas fa-user-tag"></i>
-                    <select id="role" name="role" required onchange="toggleEmployeeIdField()">
-                        <option value="" disabled selected>Select Role</option>
-                        <option value="admin">Admin</option>
-                        <option value="finance_director">Finance Director</option>
-                        <option value="conveyancer">Conveyancer</option>
-                    </select>
-                </div>
-                <div id="employee-id-container" class="input-container employee-id-container">
-                    <i class="fas fa-id-badge"></i>
-                    <input type="text" id="employee_id" name="employee_id" placeholder="Employee ID">
-                </div>
+            <h3 class="success-title">Welcome Aboard!</h3>
+            <p class="success-message"><?php echo htmlspecialchars($success_message); ?></p>
+            <div class="success-progress">
+                <div class="success-progress-bar"></div>
             </div>
+            <p class="redirect-text">Redirecting in <span id="countdown">3</span> seconds...</p>
+        </div>
+    </div>
+    <?php endif; ?>
 
-            <button type="submit" name="register">Register</button>
-            <?php if (!empty($error_message)): ?>
-                <p class="error"><?php echo $error_message; ?></p>
-            <?php endif; ?>
-        </form>
-    </main>
 </body>
 </html>

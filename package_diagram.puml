@@ -1,0 +1,78 @@
+@startuml
+' Package diagram for Rates Project
+
+package "Entry Point" {
+  [index.php]
+}
+
+package "Admin Package" {
+  [Admin Dashboard]
+  [User Management]
+  [Application Management]
+  [Rate Calculation]
+  [Reports]
+  [Document Downloads]
+}
+
+package "Conveyancer Package" {
+  [Conveyancer Dashboard]
+  [Property Management]
+  [Application Processing]
+}
+
+package "Finance Director Package" {
+  [Finance Dashboard]
+  [Payment Verification]
+  [Rates Viewing]
+}
+
+package "Includes Package" {
+  [Shared Utilities]
+  [Helper Scripts]
+}
+
+package "Database Package" {
+  [DB Connection]
+  [SQL Scripts]
+}
+
+package "Calculations Package" {
+  [Rate Calculation Logic]
+}
+
+package "Recover Password Package" {
+  [Password Recovery]
+}
+
+package "Uploads Package" {
+  [File Storage]
+}
+
+' Dependencies
+[index.php] --> [Admin Dashboard]
+[index.php] --> [Conveyancer Dashboard]
+[index.php] --> [Finance Dashboard]
+
+[Admin Dashboard] --> [DB Connection]
+[Admin Dashboard] --> [Shared Utilities]
+
+[Conveyancer Dashboard] --> [DB Connection]
+[Conveyancer Dashboard] --> [Shared Utilities]
+
+[Finance Dashboard] --> [DB Connection]
+[Finance Dashboard] --> [Shared Utilities]
+
+[Shared Utilities] --> [DB Connection]
+
+[Rate Calculation Logic] --> [DB Connection]
+[Rate Calculation Logic] --> [Shared Utilities]
+
+[Password Recovery] --> [DB Connection]
+[Password Recovery] --> [Shared Utilities]
+
+' Uploads used indirectly by other packages
+[Admin Dashboard] ..> [File Storage]
+[Conveyancer Dashboard] ..> [File Storage]
+[Finance Dashboard] ..> [File Storage]
+
+@enduml

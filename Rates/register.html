@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rate Clearance System - Register</title>
+    <link rel="stylesheet" href="./assets/css/styles.css">
+</head>
+<body>
+    <div class="page-container">
+        <header class="header">
+            <div class="container">
+                <div class="header-content">
+                    <div class="logo-section">
+                        <img src="./assets/images/mslogo.png" alt="Logo" class="logo">
+                        <h1 class="site-title">Rate Clearance System</h1>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <nav class="navigation">
+            <div class="container">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="login.html" class="nav-link">Login</a></li>
+                    <li><a href="register.html" class="nav-link active">Register</a></li>
+                    <li><a href="services.html" class="nav-link">Services</a></li>
+                    <li><a href="contacts.html" class="nav-link">Contacts</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <main class="main-content">
+            <div class="container">
+                <div class="form-container">
+                    <div class="form-card register-card">
+                        <div class="form-header">
+                            <h2 class="form-title">Create an Account</h2>
+                            <p class="form-description">Enter your information to register for an account</p>
+                        </div>
+                        <form class="form-content" action="./includes/signup.php" method="POST" >
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="firstName" class="form-label">First Name</label>
+                                    <input type="text" id="firstName" class="form-input" placeholder="Enter your first name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="lastName" class="form-label">Last Name</label>
+                                    <input type="text" id="lastName" class="form-input" placeholder="Enter your last name" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" id="email" class="form-input" placeholder="Enter your email" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="username" class="form-label">Username</label>
+                                <input type="text" id="username" class="form-input" placeholder="Choose a username" required>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="password" class="form-label">Password</label>
+                                    <input type="password" id="password" class="form-input" placeholder="Create a password" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="confirmPassword" class="form-label">Confirm Password</label>
+                                    <input type="password" id="confirmPassword" class="form-input" placeholder="Confirm your password" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="userType" class="form-label">User Type</label>
+                                <select id="userType" class="form-select" required>
+                                    <option value="">Select user type</option>
+                                    <option value="client">Client</option>
+                                    <option value="agent">Agent</option>
+                                    <option value="admin">Administrator</option>
+                                </select>
+                            </div>
+                            
+                            <button type="submit" class="form-button">Register</button>
+                            <div class="form-footer">
+                                Already have an account? <a href="login.html" class="form-link">Login</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <p>&copy; 2024 Rate Clearance System. All rights reserved.</p>
+                    <div class="footer-links">
+                        <a href="#" class="footer-link">Privacy Policy</a>
+                        <a href="#" class="footer-link">Terms of Service</a>
+                        <a href="#" class="footer-link">Contact Us</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
