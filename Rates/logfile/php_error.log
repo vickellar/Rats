@@ -2610,3 +2610,111 @@ User ID: 6
 User ID: 6
 [2025-06-30 18:11:52] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
 User ID: 6
+[2025-07-03 09:34:05] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-07-03 09:34:24] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-07-03 09:34:34] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-07-03 09:36:06] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-07-03 09:36:37] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-07-03 17:12:01] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-07-03 17:12:31] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[04-Jul-2025 14:44:06 Europe/Berlin] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in C:\xampp\htdocs\rats\rates\conveyancer\upload_payment.php on line 176
+[04-Jul-2025 14:44:06 Europe/Berlin] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in C:\xampp\htdocs\rats\rates\conveyancer\upload_payment.php on line 179
+[04-Jul-2025 14:44:06 Europe/Berlin] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in C:\xampp\htdocs\rats\rates\conveyancer\upload_payment.php on line 180
+[04-Jul-2025 14:44:06 Europe/Berlin] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in C:\xampp\htdocs\rats\rates\conveyancer\upload_payment.php on line 183
+[04-Jul-2025 14:44:49 Europe/Berlin] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in C:\xampp\htdocs\rats\rates\conveyancer\upload_payment.php on line 176
+[04-Jul-2025 14:44:49 Europe/Berlin] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in C:\xampp\htdocs\rats\rates\conveyancer\upload_payment.php on line 179
+[04-Jul-2025 14:44:49 Europe/Berlin] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in C:\xampp\htdocs\rats\rates\conveyancer\upload_payment.php on line 180
+[04-Jul-2025 14:44:49 Europe/Berlin] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in C:\xampp\htdocs\rats\rates\conveyancer\upload_payment.php on line 183
+[04-Jul-2025 14:44:49 Europe/Berlin] Insert payment error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'transaction_status' in 'field list'
+[04-Jul-2025 14:45:27 Europe/Berlin] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in C:\xampp\htdocs\rats\rates\conveyancer\upload_payment.php on line 176
+[04-Jul-2025 14:45:27 Europe/Berlin] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in C:\xampp\htdocs\rats\rates\conveyancer\upload_payment.php on line 179
+[04-Jul-2025 14:45:27 Europe/Berlin] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in C:\xampp\htdocs\rats\rates\conveyancer\upload_payment.php on line 180
+[04-Jul-2025 14:45:27 Europe/Berlin] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in C:\xampp\htdocs\rats\rates\conveyancer\upload_payment.php on line 183
+[04-Jul-2025 14:45:27 Europe/Berlin] Insert payment error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'transaction_status' in 'field list'
+[04-Jul-2025 15:26:14 Europe/Berlin] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in C:\xampp\htdocs\rats\rates\conveyancer\upload_payment.php on line 187
+[04-Jul-2025 15:26:14 Europe/Berlin] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in C:\xampp\htdocs\rats\rates\conveyancer\upload_payment.php on line 190
+[04-Jul-2025 15:26:14 Europe/Berlin] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in C:\xampp\htdocs\rats\rates\conveyancer\upload_payment.php on line 191
+[04-Jul-2025 15:26:14 Europe/Berlin] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in C:\xampp\htdocs\rats\rates\conveyancer\upload_payment.php on line 194
+[04-Jul-2025 15:26:14 Europe/Berlin] Insert payment error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'transaction_status' in 'field list'
+[04-Jul-2025 15:37:17 Europe/Berlin] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in C:\xampp\htdocs\rats\rates\conveyancer\upload_payment.php on line 187
+[04-Jul-2025 15:37:17 Europe/Berlin] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in C:\xampp\htdocs\rats\rates\conveyancer\upload_payment.php on line 190
+[04-Jul-2025 15:37:17 Europe/Berlin] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in C:\xampp\htdocs\rats\rates\conveyancer\upload_payment.php on line 191
+[04-Jul-2025 15:37:17 Europe/Berlin] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in C:\xampp\htdocs\rats\rates\conveyancer\upload_payment.php on line 194
+[04-Jul-2025 15:37:17 Europe/Berlin] Insert payment error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'transaction_status' in 'field list'
+[04-Jul-2025 15:43:28 Europe/Berlin] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in C:\xampp\htdocs\rats\rates\conveyancer\upload_payment.php on line 187
+[04-Jul-2025 15:43:28 Europe/Berlin] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in C:\xampp\htdocs\rats\rates\conveyancer\upload_payment.php on line 190
+[04-Jul-2025 15:43:28 Europe/Berlin] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in C:\xampp\htdocs\rats\rates\conveyancer\upload_payment.php on line 191
+[04-Jul-2025 15:43:28 Europe/Berlin] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in C:\xampp\htdocs\rats\rates\conveyancer\upload_payment.php on line 194
+[04-Jul-2025 15:43:43 Europe/Berlin] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in C:\xampp\htdocs\rats\rates\conveyancer\upload_payment.php on line 187
+[04-Jul-2025 15:43:43 Europe/Berlin] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in C:\xampp\htdocs\rats\rates\conveyancer\upload_payment.php on line 190
+[04-Jul-2025 15:43:43 Europe/Berlin] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in C:\xampp\htdocs\rats\rates\conveyancer\upload_payment.php on line 191
+[04-Jul-2025 15:43:43 Europe/Berlin] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in C:\xampp\htdocs\rats\rates\conveyancer\upload_payment.php on line 194
+[2025-07-04 15:59:02] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-07-04 16:07:52] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-07-04 16:08:05] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-07-04 16:27:34] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-07-04 16:27:47] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-07-04 16:27:56] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-07-04 16:28:06] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-07-04 16:29:37] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-07-04 16:29:55] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-07-04 16:30:25] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-07-04 16:30:55] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-07-04 16:31:26] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-07-04 16:31:42] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-07-04 16:32:03] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-07-04 16:32:08] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-07-04 16:32:38] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-07-04 16:33:08] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-07-04 16:33:27] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-07-04 16:33:37] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-07-04 16:33:52] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-07-04 16:34:02] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-07-04 16:35:04] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-07-04 16:35:12] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-07-04 16:35:15] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-07-04 16:37:02] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-07-04 16:37:11] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-07-04 16:37:42] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-07-04 16:38:12] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-07-04 16:38:42] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-07-04 16:39:12] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-07-04 16:39:42] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6

@@ -1,12 +1,12 @@
 <?php
 session_start();
-
+/*
 if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'finance_director') {
     error_log("Redirecting to index.php due to invalid role: " . (isset($_SESSION['role']) ? $_SESSION['role'] : 'No role set'));
     header("Location: ../index.php");
     exit();
 }
-
+*/
 include '../Database/db.php';
 
 // Fetch financial data

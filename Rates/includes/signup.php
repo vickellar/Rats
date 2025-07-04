@@ -2,6 +2,11 @@
 // session start
 if(session_status() === PHP_SESSION_NONE){
     session_start();
+
+    $_SESSION['user_id'] = $user['user_id'];
+    $_SESSION['username'] = $username;
+    $_SESSION['role'] = $role;
+    $_SESSION['employee_id'] = $user['employee_id'];
 }
 /*
 // Check if user is logged in and has required session data

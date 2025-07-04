@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'finance_director') {
     error_log("Redirecting to index.php due to invalid role: " . (isset($_SESSION['role']) ? $_SESSION['role'] : 'No role set'));
     header("Location: ../index.php");
@@ -9,11 +8,96 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'finance_director') {
 
 include '../Database/db.php';
 
-// Fetch financial data
-$pending_invoices = 12;
-$approved_payments = 45;
-$total_amount_pending = 125000;
-$monthly_budget = 500000;
+$payments = [];
+$payment_approvals = [];
+
+try {
+    // Fetch payments with related data
+    $stmt = $pdo->query("SELECT * FROM payments ORDER BY payment_date DESC");
+    $payments = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    
+    // Fetch payment approvals with all related information
+    $approval_query = "
+        SELECT 
+            p.payment_id,
+            p.property_id,
+            p.account_id,
+            p.user_id,
+            p.amount_paid,
+            p.payment_date,
+            p.payment_method,
+            p.payment_status,
+            p.invoice_number,
+            p.receipt_number,
+            p.bill_id,
+            p.notes,
+            prop.address as property_address,
+            prop.owner as property_owner,
+            u.first_name,
+            u.surname,
+            cb.due_date,
+            cb.invoice_number as bill_invoice_number,
+            cb.total_balance,
+            cb.overall_total
+        FROM payments p
+        LEFT JOIN properties prop ON p.property_id = prop.property_id
+        LEFT JOIN users u ON p.user_id = u.user_id
+        LEFT JOIN calculated_bills cb ON p.bill_id = cb.bill_id
+        WHERE p.payment_status = 'pending' OR p.payment_status IS NULL
+        ORDER BY p.payment_date DESC
+    ";
+    
+    $approval_stmt = $pdo->prepare($approval_query);
+    $approval_stmt->execute();
+    $payment_approvals = $approval_stmt->fetchAll(PDO::FETCH_ASSOC);
+    
+} catch (PDOException $e) {
+    error_log("Error fetching payments: " . $e->getMessage());
+}
+
+// Calculate financial data
+try {
+    // Count pending invoices from calculated_bills
+    $pending_stmt = $pdo->query("SELECT COUNT(*) as count FROM calculated_bills WHERE due_date >= NOW()");
+    $pending_result = $pending_stmt->fetch(PDO::FETCH_ASSOC);
+    $pending_invoices = $pending_result['count'];
+    
+    // Count approved payments
+    $approved_stmt = $pdo->query("SELECT COUNT(*) as count FROM payments WHERE payment_status = 'approved'");
+    $approved_result = $approved_stmt->fetch(PDO::FETCH_ASSOC);
+    $approved_payments = $approved_result['count'];
+    
+    // Calculate total pending amount
+    $pending_amount_stmt = $pdo->query("SELECT SUM(amount_paid) as total FROM payments WHERE payment_status = 'pending' OR payment_status IS NULL");
+    $pending_amount_result = $pending_amount_stmt->fetch(PDO::FETCH_ASSOC);
+    $total_amount_pending = $pending_amount_result['total'] ?? 0;
+    
+    $monthly_budget = 500000; // This could also come from a budget table
+    
+} catch (PDOException $e) {
+    error_log("Error calculating financial data: " . $e->getMessage());
+    $pending_invoices = 0;
+    $approved_payments = 0;
+    $total_amount_pending = 0;
+    $monthly_budget = 500000;
+}
+
+foreach ($payments as $payment) {
+    $payment['payment_id'];
+    $payment['property_id'];
+    $payment['account_id'];
+    $payment['user_id'];
+    $payment['receipt_name'];
+    $payment['receipt_fpath'];
+    $payment['amount_paid'];
+    $payment['payment_date'];
+    $payment['payment_method'];
+    $payment['payment_status'];
+    $payment['invoice_number'];
+    $payment['receipt_number'];
+    $payment['bill_id'];
+    $payment['notes'];
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -70,9 +154,9 @@ $monthly_budget = 500000;
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#budget" class="nav-link" data-section="budget">
-                            <i class="fas fa-calculator"></i>
-                            <span>Budget Management</span>
+                        <a href="#settings" class="nav-link" data-section="settings">
+                            <i class="fas fa-cog"></i>
+                            <span>Settings</span>
                         </a>
                     </li>
                 </ul>
@@ -160,7 +244,7 @@ $monthly_budget = 500000;
                         </div>
                         <div class="stat-content">
                             <h3>Budget Utilization</h3>
-                            <p class="stat-number"><?php echo round(($total_amount_pending / $monthly_budget) * 100); ?>%</p>
+                            <p class="stat-number"><?php echo $monthly_budget > 0 ? round(($total_amount_pending / $monthly_budget) * 100) : 0; ?>%</p>
                             <span class="stat-change neutral">On track</span>
                         </div>
                     </div>
@@ -174,41 +258,41 @@ $monthly_budget = 500000;
                         </div>
                         <div class="card-content">
                             <div class="invoice-list">
-                                <div class="invoice-item urgent">
+                                <?php 
+                                // Display recent invoices from calculated_bills
+                                try {
+                                    $recent_invoices_query = "
+                                        SELECT cb.invoice_number, cb.overall_total, cb.calculated_at, p.owner
+                                        FROM calculated_bills cb
+                                        LEFT JOIN properties p ON cb.property_id = p.property_id
+                                        ORDER BY cb.calculated_at DESC
+                                        LIMIT 3
+                                    ";
+                                    $recent_stmt = $pdo->prepare($recent_invoices_query);
+                                    $recent_stmt->execute();
+                                    $recent_invoices = $recent_stmt->fetchAll(PDO::FETCH_ASSOC);
+                                    
+                                    foreach ($recent_invoices as $index => $invoice): 
+                                        $urgency_class = $index === 0 ? 'urgent' : '';
+                                        $status_badge = $index === 0 ? 'urgent' : 'pending';
+                                        $time_ago = $index === 0 ? '2 hours ago' : ($index === 1 ? '5 hours ago' : '1 day ago');
+                                ?>
+                                <div class="invoice-item <?php echo $urgency_class; ?>">
                                     <div class="invoice-info">
-                                        <span class="invoice-number">INV-2024-001</span>
-                                        <span class="vendor">Acme Corp</span>
-                                        <span class="amount">$15,000</span>
+                                        <span class="invoice-number"><?php echo htmlspecialchars($invoice['invoice_number']); ?></span>
+                                        <span class="property-owner"><?php echo htmlspecialchars($invoice['owner'] ?? 'Unknown Owner'); ?></span>
+                                        <span class="amount">$<?php echo number_format($invoice['overall_total']); ?></span>
                                     </div>
                                     <div class="invoice-status">
-                                        <span class="status-badge urgent">Urgent</span>
-                                        <span class="time">2 hours ago</span>
+                                        <span class="status-badge <?php echo $status_badge; ?>"><?php echo ucfirst($status_badge); ?></span>
+                                        <span class="time"><?php echo $time_ago; ?></span>
                                     </div>
                                 </div>
-                                
-                                <div class="invoice-item">
-                                    <div class="invoice-info">
-                                        <span class="invoice-number">INV-2024-002</span>
-                                        <span class="vendor">Tech Solutions Ltd</span>
-                                        <span class="amount">$8,500</span>
-                                    </div>
-                                    <div class="invoice-status">
-                                        <span class="status-badge pending">Pending</span>
-                                        <span class="time">5 hours ago</span>
-                                    </div>
-                                </div>
-                                
-                                <div class="invoice-item">
-                                    <div class="invoice-info">
-                                        <span class="invoice-number">INV-2024-003</span>
-                                        <span class="vendor">Office Supplies Inc</span>
-                                        <span class="amount">$2,300</span>
-                                    </div>
-                                    <div class="invoice-status">
-                                        <span class="status-badge pending">Pending</span>
-                                        <span class="time">1 day ago</span>
-                                    </div>
-                                </div>
+                                <?php endforeach; 
+                                } catch (PDOException $e) {
+                                    echo '<div class="invoice-item"><div class="invoice-info">No recent invoices found</div></div>';
+                                }
+                                ?>
                             </div>
                         </div>
                     </div>
@@ -220,31 +304,25 @@ $monthly_budget = 500000;
                         </div>
                         <div class="card-content">
                             <div class="approval-queue">
-                                <div class="queue-item high-priority">
+                                <?php 
+                                // Display first 2 payment approvals
+                                $queue_items = array_slice($payment_approvals, 0, 2);
+                                foreach ($queue_items as $index => $approval): 
+                                    $priority_class = $index === 0 ? 'high-priority' : '';
+                                ?>
+                                <div class="queue-item <?php echo $priority_class; ?>">
                                     <div class="priority-indicator"></div>
                                     <div class="queue-info">
-                                        <span class="payment-ref">PAY-2024-045</span>
-                                        <span class="description">Vendor Payment - Q1 Services</span>
-                                        <span class="amount">$25,000</span>
+                                        <span class="payment-ref">PAY-<?php echo htmlspecialchars($approval['payment_id']); ?></span>
+                                        <span class="description"><?php echo htmlspecialchars($approval['property_owner'] ?? 'Unknown Owner'); ?> - Payment</span>
+                                        <span class="amount">$<?php echo number_format($approval['amount_paid']); ?></span>
                                     </div>
                                     <div class="queue-actions">
-                                        <button class="btn-approve">Approve</button>
-                                        <button class="btn-review">Review</button>
+                                        <button class="btn-approve" onclick="approvePayment(<?php echo $approval['payment_id']; ?>)">Approve</button>
+                                        <button class="btn-review" onclick="reviewPayment(<?php echo $approval['payment_id']; ?>)">Review</button>
                                     </div>
                                 </div>
-                                
-                                <div class="queue-item">
-                                    <div class="priority-indicator"></div>
-                                    <div class="queue-info">
-                                        <span class="payment-ref">PAY-2024-046</span>
-                                        <span class="description">Employee Reimbursement</span>
-                                        <span class="amount">$1,200</span>
-                                    </div>
-                                    <div class="queue-actions">
-                                        <button class="btn-approve">Approve</button>
-                                        <button class="btn-review">Review</button>
-                                    </div>
-                                </div>
+                                <?php endforeach; ?>
                             </div>
                         </div>
                     </div>
@@ -266,14 +344,13 @@ $monthly_budget = 500000;
                         </button>
                     </div>
                 </div>
-
                 <div class="invoice-verification-container">
                     <div class="invoice-table-container">
                         <table class="data-table">
                             <thead>
                                 <tr>
                                     <th>Invoice #</th>
-                                    <th>Vendor</th>
+                                    <th>Property Owner</th>
                                     <th>Amount</th>
                                     <th>Date</th>
                                     <th>Status</th>
@@ -282,15 +359,32 @@ $monthly_budget = 500000;
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr class="invoice-row" data-invoice="INV-2024-001">
-                                    <td>INV-2024-001</td>
-                                    <td>Acme Corporation</td>
-                                    <td>$15,000.00</td>
-                                    <td>2024-01-15</td>
-                                    <td><span class="status-badge urgent">Urgent Review</span></td>
-                                    <td><span class="priority-badge high">High</span></td>
+                                <?php 
+                                try {
+                                    $invoice_query = "
+                                        SELECT cb.invoice_number, cb.overall_total, cb.calculated_at, cb.due_date, p.owner
+                                        FROM calculated_bills cb
+                                        LEFT JOIN properties p ON cb.property_id = p.property_id
+                                        ORDER BY cb.calculated_at DESC
+                                        LIMIT 10
+                                    ";
+                                    $invoice_stmt = $pdo->prepare($invoice_query);
+                                    $invoice_stmt->execute();
+                                    $invoices = $invoice_stmt->fetchAll(PDO::FETCH_ASSOC);
+                                    
+                                    foreach ($invoices as $invoice): 
+                                        $status = (strtotime($invoice['due_date']) < time()) ? 'urgent' : 'pending';
+                                        $priority = (strtotime($invoice['due_date']) < time()) ? 'high' : 'medium';
+                                ?>
+                                <tr class="invoice-row" data-invoice="<?php echo htmlspecialchars($invoice['invoice_number']); ?>">
+                                    <td><?php echo htmlspecialchars($invoice['invoice_number']); ?></td>
+                                    <td><?php echo htmlspecialchars($invoice['owner'] ?? 'Unknown Owner'); ?></td>
+                                    <td>$<?php echo number_format($invoice['overall_total']); ?></td>
+                                    <td><?php echo date('Y-m-d', strtotime($invoice['calculated_at'])); ?></td>
+                                    <td><span class="status-badge <?php echo $status; ?>"><?php echo ucfirst($status); ?></span></td>
+                                    <td><span class="priority-badge <?php echo $priority; ?>"><?php echo ucfirst($priority); ?></span></td>
                                     <td>
-                                        <button class="btn-action" onclick="openInvoiceModal('INV-2024-001')">
+                                        <button class="btn-action" onclick="openInvoiceModal('<?php echo htmlspecialchars($invoice['invoice_number']); ?>')">
                                             <i class="fas fa-eye"></i>
                                         </button>
                                         <button class="btn-action">
@@ -298,22 +392,11 @@ $monthly_budget = 500000;
                                         </button>
                                     </td>
                                 </tr>
-                                <tr class="invoice-row" data-invoice="INV-2024-002">
-                                    <td>INV-2024-002</td>
-                                    <td>Tech Solutions Ltd</td>
-                                    <td>$8,500.00</td>
-                                    <td>2024-01-14</td>
-                                    <td><span class="status-badge pending">Pending</span></td>
-                                    <td><span class="priority-badge medium">Medium</span></td>
-                                    <td>
-                                        <button class="btn-action" onclick="openInvoiceModal('INV-2024-002')">
-                                            <i class="fas fa-eye"></i>
-                                        </button>
-                                        <button class="btn-action">
-                                            <i class="fas fa-download"></i>
-                                        </button>
-                                    </td>
-                                </tr>
+                                <?php endforeach; 
+                                } catch (PDOException $e) {
+                                    echo '<tr><td colspan="7">Error loading invoices</td></tr>';
+                                }
+                                ?>
                             </tbody>
                         </table>
                     </div>
@@ -329,7 +412,6 @@ $monthly_budget = 500000;
                         <button class="btn-secondary">Export Report</button>
                     </div>
                 </div>
-
                 <div class="payment-approvals-container">
                     <div class="approval-filters">
                         <select class="filter-select">
@@ -345,61 +427,46 @@ $monthly_budget = 500000;
                             <option>Over $10,000</option>
                         </select>
                     </div>
-
                     <div class="payment-grid">
+                        <?php foreach ($payment_approvals as $approval): ?>
                         <div class="payment-card">
                             <div class="payment-header">
-                                <span class="payment-id">PAY-2024-045</span>
-                                <span class="payment-amount">$25,000.00</span>
+                                <span class="payment-id">PAY-<?php echo htmlspecialchars($approval['payment_id']); ?></span>
+                                <span class="payment-amount">$<?php echo number_format($approval['amount_paid']); ?></span>
                             </div>
                             <div class="payment-details">
-                                <p><strong>Vendor:</strong> Global Services Inc</p>
-                                <p><strong>Description:</strong> Q1 Consulting Services</p>
-                                <p><strong>Due Date:</strong> 2024-01-20</p>
-                                <p><strong>Requested by:</strong> John Smith</p>
+                                <p><strong>Property Owner:</strong> <?php echo htmlspecialchars($approval['property_owner'] ?? 'Unknown Owner'); ?></p>
+                                <p><strong>Property Address:</strong> <?php echo htmlspecialchars($approval['property_address'] ?? 'Address not available'); ?></p>
+                                <p><strong>Invoice Due Date:</strong> <?php echo $approval['due_date'] ? date('Y-m-d', strtotime($approval['due_date'])) : 'Not set'; ?></p>
+                                <p><strong>Requested by:</strong> <?php echo htmlspecialchars(($approval['first_name'] ?? '') . ' ' . ($approval['surname'] ?? '')); ?></p>
+                                <?php if ($approval['notes']): ?>
+                                <p><strong>Notes:</strong> <?php echo htmlspecialchars($approval['notes']); ?></p>
+                                <?php endif; ?>
                             </div>
                             <div class="payment-actions">
-                                <button class="btn-approve">
+                                <button class="btn-approve" onclick="approvePayment(<?php echo $approval['payment_id']; ?>)">
                                     <i class="fas fa-check"></i>
                                     Approve
                                 </button>
-                                <button class="btn-reject">
+                                <button class="btn-reject" onclick="rejectPayment(<?php echo $approval['payment_id']; ?>)">
                                     <i class="fas fa-times"></i>
                                     Reject
                                 </button>
-                                <button class="btn-review">
+                                <button class="btn-review" onclick="reviewPayment(<?php echo $approval['payment_id']; ?>)">
                                     <i class="fas fa-eye"></i>
                                     Review
                                 </button>
                             </div>
                         </div>
-
+                        <?php endforeach; ?>
+                        
+                        <?php if (empty($payment_approvals)): ?>
                         <div class="payment-card">
-                            <div class="payment-header">
-                                <span class="payment-id">PAY-2024-046</span>
-                                <span class="payment-amount">$1,200.00</span>
-                            </div>
                             <div class="payment-details">
-                                <p><strong>Vendor:</strong> Employee Reimbursement</p>
-                                <p><strong>Description:</strong> Travel Expenses</p>
-                                <p><strong>Due Date:</strong> 2024-01-18</p>
-                                <p><strong>Requested by:</strong> Sarah Johnson</p>
-                            </div>
-                            <div class="payment-actions">
-                                <button class="btn-approve">
-                                    <i class="fas fa-check"></i>
-                                    Approve
-                                </button>
-                                <button class="btn-reject">
-                                    <i class="fas fa-times"></i>
-                                    Reject
-                                </button>
-                                <button class="btn-review">
-                                    <i class="fas fa-eye"></i>
-                                    Review
-                                </button>
+                                <p>No pending payment approvals at this time.</p>
                             </div>
                         </div>
+                        <?php endif; ?>
                     </div>
                 </div>
             </section>
@@ -413,7 +480,6 @@ $monthly_budget = 500000;
                         <button class="btn-secondary">Schedule Report</button>
                     </div>
                 </div>
-
                 <div class="reports-container">
                     <div class="report-cards">
                         <div class="report-card">
@@ -426,7 +492,6 @@ $monthly_budget = 500000;
                                 <button class="btn-generate">Generate</button>
                             </div>
                         </div>
-
                         <div class="report-card">
                             <div class="report-icon">
                                 <i class="fas fa-file-invoice-dollar"></i>
@@ -437,7 +502,6 @@ $monthly_budget = 500000;
                                 <button class="btn-generate">Generate</button>
                             </div>
                         </div>
-
                         <div class="report-card">
                             <div class="report-icon">
                                 <i class="fas fa-chart-pie"></i>
@@ -460,7 +524,6 @@ $monthly_budget = 500000;
                         <button class="btn-secondary">Export Audit Log</button>
                     </div>
                 </div>
-
                 <div class="audit-container">
                     <div class="audit-filters">
                         <input type="date" class="filter-input" placeholder="From Date">
@@ -473,91 +536,39 @@ $monthly_budget = 500000;
                         </select>
                         <button class="btn-filter">Apply Filters</button>
                     </div>
-
                     <div class="audit-timeline">
+                        <?php 
+                        // Display recent payment activities
+                        try {
+                            $audit_query = "
+                                SELECT p.payment_id, p.payment_status, p.payment_date, u.first_name, u.surname
+                                FROM payments p
+                                LEFT JOIN users u ON p.user_id = u.user_id
+                                WHERE p.payment_status IN ('approved', 'rejected')
+                                ORDER BY p.payment_date DESC
+                                LIMIT 5
+                            ";
+                            $audit_stmt = $pdo->prepare($audit_query);
+                            $audit_stmt->execute();
+                            $audit_items = $audit_stmt->fetchAll(PDO::FETCH_ASSOC);
+                            
+                            foreach ($audit_items as $audit): 
+                                $action_class = $audit['payment_status'] === 'approved' ? 'approved' : 'rejected';
+                                $action_text = $audit['payment_status'] === 'approved' ? 'approved' : 'rejected';
+                        ?>
                         <div class="audit-item">
-                            <div class="audit-time">2024-01-15 14:30</div>
-                            <div class="audit-action approved">Invoice INV-2024-001 approved</div>
+                            <div class="audit-time"><?php echo date('Y-m-d H:i', strtotime($audit['payment_date'])); ?></div>
+                            <div class="audit-action <?php echo $action_class; ?>">Payment PAY-<?php echo $audit['payment_id']; ?> <?php echo $action_text; ?></div>
                             <div class="audit-user">by Finance Director</div>
                         </div>
-                        
-                        <div class="audit-item">
-                            <div class="audit-time">2024-01-15 13:45</div>
-                            <div class="audit-action rejected">Payment PAY-2024-044 rejected</div>
-                            <div class="audit-user">by Finance Director</div>
-                        </div>
-                        
-                        <div class="audit-item">
-                            <div class="audit-time">2024-01-15 11:20</div>
-                            <div class="audit-action approved">Payment PAY-2024-043 approved</div>
-                            <div class="audit-user">by Finance Director</div>
-                        </div>
+                        <?php endforeach; 
+                        } catch (PDOException $e) {
+                            echo '<div class="audit-item"><div class="audit-action">No audit trail available</div></div>';
+                        }
+                        ?>
                     </div>
                 </div>
             </section>
-
-            <!-- Budget Management Section -->
-            <section id="budget" class="content-section">
-                <div class="section-header">
-                    <h2>Budget Management</h2>
-                    <div class="section-actions">
-                        <button class="btn-primary">Update Budget</button>
-                        <button class="btn-secondary">Budget Forecast</button>
-                    </div>
-                </div>
-
-                <div class="budget-container">
-                    <div class="budget-overview">
-                        <div class="budget-card">
-                            <h3>Monthly Budget</h3>
-                            <div class="budget-amount">$<?php echo number_format($monthly_budget); ?></div>
-                            <div class="budget-progress">
-                                <div class="progress-bar">
-                                    <div class="progress-fill" style="width: <?php echo ($total_amount_pending / $monthly_budget) * 100; ?>%"></div>
-                                </div>
-                                <span><?php echo round(($total_amount_pending / $monthly_budget) * 100); ?>% utilized</span>
-                            </div>
-                        </div>
-
-                        <div class="budget-card">
-                            <h3>Remaining Budget</h3>
-                            <div class="budget-amount">$<?php echo number_format($monthly_budget - $total_amount_pending); ?></div>
-                            <div class="budget-status positive">Within limits</div>
-                        </div>
-                    </div>
-
-                    <div class="budget-breakdown">
-                        <h3>Budget Breakdown by Category</h3>
-                        <div class="category-list">
-                            <div class="category-item">
-                                <span class="category-name">Operations</span>
-                                <span class="category-amount">$150,000</span>
-                                <div class="category-bar">
-                                    <div class="category-fill" style="width: 60%"></div>
-                                </div>
-                            </div>
-                            
-                            <div class="category-item">
-                                <span class="category-name">Marketing</span>
-                                <span class="category-amount">$100,000</span>
-                                <div class="category-bar">
-                                    <div class="category-fill" style="width: 45%"></div>
-                                </div>
-                            </div>
-                            
-                            <div class="category-item">
-                                <span class="category-name">Technology</span>
-                                <span class="category-amount">$200,000</span>
-                                <div class="category-bar">
-                                    <div class="category-fill" style="width: 75%"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </main>
-    </div>
 
     <!-- Invoice Modal -->
     <div id="invoiceModal" class="modal">
@@ -574,8 +585,8 @@ $monthly_budget = 500000;
                             <span id="modalInvoiceNumber">INV-2024-001</span>
                         </div>
                         <div class="info-item">
-                            <label>Vendor:</label>
-                            <span id="modalVendor">Acme Corporation</span>
+                            <label>Property Owner:</label>
+                            <span id="modalPropertyOwner">Acme Corporation</span>
                         </div>
                         <div class="info-item">
                             <label>Amount:</label>
@@ -596,16 +607,13 @@ $monthly_budget = 500000;
                             </label>
                             <label class="verification-item">
                                 <input type="checkbox" checked>
-                                <span>Vendor information is correct</span>
+                                <span>Property Owner information is correct</span>
                             </label>
                             <label class="verification-item">
                                 <input type="checkbox">
                                 <span>Goods/services have been received</span>
                             </label>
-                            <label class="verification-item">
-                                <input type="checkbox">
-                                <span>Invoice is within budget allocation</span>
-                            </label>
+                            
                         </div>
                     </div>
                     
@@ -634,6 +642,96 @@ $monthly_budget = 500000;
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script>
+        // JavaScript functions for payment actions
+        function approvePayment(paymentId) {
+            if (confirm('Are you sure you want to approve this payment?')) {
+                // AJAX call to approve payment
+                fetch('approve_payment.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        payment_id: paymentId,
+                        action: 'approve'
+                    })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        alert('Payment approved successfully');
+                        location.reload();
+                    } else {
+                        alert('Error approving payment: ' + data.message);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Error approving payment');
+                });
+            }
+        }
+
+        function rejectPayment(paymentId) {
+            if (confirm('Are you sure you want to reject this payment?')) {
+                // AJAX call to reject payment
+                fetch('approve_payment.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        payment_id: paymentId,
+                        action: 'reject'
+                    })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        alert('Payment rejected successfully');
+                        location.reload();
+                    } else {
+                        alert('Error rejecting payment: ' + data.message);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Error rejecting payment');
+                });
+            }
+        }
+
+        function reviewPayment(paymentId) {
+            // Open payment review modal or redirect to review page
+            alert('Opening payment review for PAY-' + paymentId);
+        }
+
+        function openInvoiceModal(invoiceNumber) {
+            document.getElementById('invoiceModal').style.display = 'block';
+            document.getElementById('modalInvoiceNumber').textContent = invoiceNumber;
+        }
+
+        // Close modal functionality
+        document.querySelector('.modal-close').addEventListener('click', function() {
+            document.getElementById('invoiceModal').style.display = 'none';
+        });
+
+        // Navigation functionality
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Remove active class from all nav items and sections
+                document.querySelectorAll('.nav-item').forEach(item => item.classList.remove('active'));
+                document.querySelectorAll('.content-section').forEach(section => section.classList.remove('active'));
+                
+                // Add active class to clicked nav item and corresponding section
+                this.parentElement.classList.add('active');
+                const sectionId = this.getAttribute('data-section');
+                document.getElementById(sectionId).classList.add('active');
+            });
+        });
+    </script>
 </body>
 </html>

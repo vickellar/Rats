@@ -58,9 +58,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['signin']) && $_SESSION
                 session_destroy(); // Destroy the current session
 
                 session_start(); // Start a new session
-                $_SESSION['user_id'] = $user['id']; // Assuming 'id' is the primary key
+                $_SESSION['user_id'] = $user['user_id']; // Assuming 'id' is the primary key
                 $_SESSION['username'] = $username;
                 $_SESSION['role'] = $role;
+                $_SESSION['employee_id'] = $user['employee_id']; // <-- Add this!
                 $_SESSION['login_attempts'] = 0;
 
 
@@ -105,9 +106,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['signin']) && $_SESSION
                     session_destroy(); // Destroy the current session
 
                     session_start(); // Start a new session
-                    $_SESSION['user_id'] = $user['id'] ?? $user['user_id'];
+                    $_SESSION['user_id'] = $user['user_id'];
                     $_SESSION['username'] = $username;
                     $_SESSION['role'] = $role;
+                    $_SESSION['employee_id'] = $user['employee_id'];
                     $_SESSION['login_attempts'] = 0;
 
                     $dashboards = [

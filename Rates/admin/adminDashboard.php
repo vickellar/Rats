@@ -1,13 +1,28 @@
 <?php
 session_start();
 
-// Check if user is logged in and is an admin
 if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
     header("Location: ../index.php");
     exit();
 }
 
 require_once '../Database/db.php';
+
+$employeeId = $_SESSION['employee_id'] ?? null;
+
+if (!$employeeId) {
+    echo "<p style='color:red;'>Employee ID not found in session. Please log in again.</p>";
+    exit();
+}
+
+$stmt = $pdo->prepare("SELECT * FROM employees WHERE employee_id = ?");
+$stmt->execute([$employeeId]);
+$employee = $stmt->fetch();
+
+if (!$employee) {
+    echo "<p style='color:red;'>Employee not found in database.</p>";
+    exit();
+}
 ?>
 
 <!DOCTYPE html>
@@ -545,6 +560,7 @@ require_once '../Database/db.php';
     </style>
 </head>
 <body>
+    <p>Logged in as Employee ID: <?php echo htmlspecialchars($employeeId); ?></p>
 <header>
     <img src="../assets/images/mslogo.png" alt="Logo"> 
     <h1>WELCOME TO ADMIN DASHBOARD</h1>

@@ -107,3 +107,4 @@ Integrity constraint violation: 1048 Column 'month4_name' cannot be null2025-06-
 2025-06-14 15:57:57 - Database connection failed: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it
 2025-06-14 15:59:05 - Database connection failed: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it
 2025-06-14 15:59:19 - Database connection failed: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it
+2025-07-03 09:04:46 - Database connection failed: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it

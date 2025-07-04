@@ -5,6 +5,16 @@ require_once '../Database/db.php';
 // Start session to handle user data
 session_start();
 
+$calculatedBy = $_SESSION['employee_id'];
+echo "employee_id = " . $calculatedBy;
+
+// Check if employee_id is set in session
+if (!$calculatedBy) {
+    error_log("Error: employee_id is not set in session");
+    echo "<div style='color:red'>Error: You must be logged in to access this page.</div>";
+    exit;
+}
+
 // Debug log to track execution
 error_log("Script started - " . date('Y-m-d H:i:s'));
 
@@ -212,17 +222,27 @@ function insertCalculatedBill($pdo, $userId, $propertyId, $accountId, $applicati
 
         // Insert into calculated_bills
         $stmt = $pdo->prepare("INSERT INTO calculated_bills 
-            (user_id, property_id, account_id, application_id, total_balance, processing_fee, overall_total) 
-            VALUES (:user_id, :property_id, :account_id, :application_id, :total_balance, :processing_fee, :overall_total)");
+            (user_id, property_id, account_id, application_id, comments, total_balance, processing_fee, overall_total, invoice_number, calculated_at, due_date, update_on, calculated_by) 
+            VALUES 
+            (:user_id, :property_id, :account_id, :application_id, :comments, :total_balance, :processing_fee, :overall_total, :invoice_number, NOW(), :due_date, NOW(), :calculated_by)");
         
+        $comments = $_POST['comments'] ?? '';
+        $dueDate = $_POST['dueDate'] ?? null;
+        $invoiceNumber = "INV-$userId$propertyId$applicationId-" . date('Ymd');
+        $calculatedBy = $_SESSION['employee_id'] ?? 0;
+
         $billParams = [
             ':user_id' => $userId,
             ':property_id' => $propertyId,
             ':account_id' => $accountId,
             ':application_id' => $applicationId,
+            ':comments' => $comments,
             ':total_balance' => $totalBalance,
             ':processing_fee' => $processingFee,
-            ':overall_total' => $overallTotal
+            ':overall_total' => $overallTotal,
+            ':invoice_number' => $invoiceNumber,
+            ':due_date' => $dueDate,
+            ':calculated_by' => $calculatedBy
         ];
         
         error_log("Executing calculated_bills insert with params: " . print_r($billParams, true));
@@ -1102,6 +1122,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <label><i class="fas fa-chart-line"></i> Total Balance (USD):</label>
                 <input type="text" id="OveralTotalBalance" placeholder="Overall Total balance" readonly>
             </div>
+            
             <div class="button-group">
                 <button type="button" class="calculate-btn" onclick="calculateTotal()">
                     <i class="fas fa-calculator"></i> Calculate
@@ -1119,19 +1140,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
 
         <div class="input-group">
-            <label><i class="fas fa-credit-card"></i> Account Number:</label>
-            <select name="accountNumber" required>
-                <?php
-                    if (!empty($accountIds)) {
-                        foreach ($accountIds as $index => $accId) {
-                            $accNum = $accountNumbers[$index] ?? '';
-                            echo "<option value=\"" . htmlspecialchars($accId) . "\">" . htmlspecialchars($accNum) . "</option>";
-                        }
-                    } else {
-                        echo "<option value=\"\">No accounts available</option>";
-                    }
-                ?>
-            </select>
+            <label><i class="fas fa-calendar-alt"></i> Due Date:</label>
+            <input type="date" class="due-date" name="dueDate" placeholder="Select due date" required>
+        </div>
+        <div class="input-group">
+            <label><i class="fas fa-info-circle"></i> Comments:</label>
+            <input type="text" name="comments" rows="1" placeholder="Enter any additional notes here..." style="radius: 10px;">
         </div>
 
         <!-- Hidden inputs to submit processing fee and total balance -->
@@ -1442,6 +1456,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <label><i class="fas fa-hashtag"></i> Account number:</label>
                         <input type="text" id="accountNumber${i}" placeholder="Enter account number" value="${accountNumberValue}" readonly>
                         <input type="hidden" name="account_id_${i}" value="${accountIdValue}">
+                    </div>
+
+                    <div class="input-group">
+                        <label><i class="fas fa-credit-card"></i> Account Number:</label>
+                        <select name="accountNumber" required>
+                            <?php
+                                if (!empty($accountIds)) {
+                                    foreach ($accountIds as $index => $accId) {
+                                        $accNum = $accountNumbers[$index] ?? '';
+                                        echo "<option value=\"" . htmlspecialchars($accId) . "\">" . htmlspecialchars($accNum) . "</option>";
+                                    }
+                                } else {
+                                    echo "<option value=\"\">No accounts available</option>";
+                                }
+                            ?>
+                        </select>
                     </div>
 
                     <div class="input-group">

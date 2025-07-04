@@ -107,13 +107,13 @@ if (isset($_POST['confirm_logout']) && isset($_SESSION['user_id'])) {
         document.getElementById('logoutForm').addEventListener('submit', function() {
             formSubmitted = true;
         });
-
+        /*
         window.addEventListener('beforeunload', function(e) {
             if (!formSubmitted) {
                 e.preventDefault();
                 e.returnValue = '';
             }
-        });
+        });*/
     </script>
 </body>
 </html>
