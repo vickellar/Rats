@@ -1,0 +1,399 @@
+
+.large-modal .modal-content {
+    max-width: 900px;
+    width: 90%;
+}
+
+.review-section {
+    margin-bottom: 30px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 20px;
+    border-left: 4px solid #007bff;
+}
+
+.review-section h3 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.review-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.review-item {
+    background: white;
+    padding: 12px;
+    border-radius: 6px;
+    border: 1px solid #dee2e6;
+}
+
+.review-item label {
+    font-weight: 600;
+    color: #495057;
+    display: block;
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+}
+
+.review-item span {
+    color: #212529;
+    font-size: 1rem;
+}
+
+.monthly-breakdown {
+    background: white;
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid #dee2e6;
+}
+
+.monthly-breakdown table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.monthly-breakdown th,
+.monthly-breakdown td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.monthly-breakdown th {
+    background: #e9ecef;
+    font-weight: 600;
+    color: #495057;
+}
+
+.receipt-preview {
+    background: white;
+    border-radius: 6px;
+    padding: 15px;
+    border: 1px solid #dee2e6;
+    text-align: center;
+}
+
+.receipt-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.receipt-link:hover {
+    background: #0056b3;
+    color: white;
+}
+
+.loading-spinner {
+    text-align: center;
+    padding: 40px;
+    color: #6c757d;
+}
+
+.loading-spinner i {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.amount-highlight {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #28a745;
+}
+
+.status-pending {
+    background: #fff3cd;
+    color: #856404;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.status-approved {
+    background: #d4edda;
+    color: #155724;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.status-rejected {
+    background: #f8d7da;
+    color: #721c24;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+/* New Styles for Invoice Layout */
+.invoice-header {
+    background-color: #f0f0f0;
+    padding: 15px;
+    border-bottom: 2px solid #ddd;
+}
+
+.invoice-section {
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.section-header-blue {
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    text-align: left;
+    font-weight: bold;
+    border-bottom: 1px solid #ddd;
+}
+
+.invoice-details-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+    padding: 15px;
+    background: white;
+}
+
+.detail-row {
+    display: flex;
+    flex-direction: column;
+}
+
+.detail-label {
+    font-weight: bold;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+.detail-value {
+    color: #333;
+}
+
+.rate-breakdown {
+    padding: 15px;
+    background: white;
+}
+
+.account-info {
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: #e9ecef;
+    border-left: 5px solid #007bff;
+    font-style: italic;
+}
+
+.breakdown-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px dashed #ccc;
+}
+
+.breakdown-label {
+    font-weight: 500;
+    color: #444;
+}
+
+.breakdown-value {
+    font-weight: bold;
+    color: #333;
+}
+
+.monthly-rates {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #f8f9fa;
+    border-radius: 6px;
+}
+
+.month-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 0;
+}
+
+.month-label {
+    color: #666;
+}
+
+.month-value {
+    font-weight: bold;
+}
+
+.financial-summary {
+    padding: 15px;
+    background: white;
+}
+
+.summary-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+}
+
+.summary-label {
+    font-weight: bold;
+    color: #555;
+}
+
+.summary-value {
+    color: #333;
+}
+
+.total-section {
+    text-align: right;
+    padding-top: 10px;
+}
+
+.total-value {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #28a745;
+}
+
+/* Invoice Layout Styles */
+.invoice-header {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.invoice-section {
+    margin-bottom: 20px;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #dee2e6;
+}
+
+.section-header-blue {
+    background: #6c7ae0;
+    color: white;
+    padding: 12px 15px;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.invoice-details-grid {
+    padding: 15px;
+}
+
+.detail-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.detail-row:last-child {
+    border-bottom: none;
+}
+
+.detail-label {
+    font-weight: 500;
+    color: #333;
+}
+
+.detail-value {
+    color: #666;
+}
+
+.rate-breakdown {
+    padding: 15px;
+}
+
+.account-info {
+    margin-bottom: 15px;
+    font-size: 1rem;
+}
+
+.breakdown-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.breakdown-label {
+    font-weight: 500;
+    color: #333;
+}
+
+.breakdown-value {
+    color: #666;
+    text-align: right;
+}
+
+.monthly-rates {
+    margin-top: 15px;
+}
+
+.month-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    padding-left: 20px;
+}
+
+.month-label {
+    color: #333;
+}
+
+.month-value {
+    color: #666;
+    text-align: right;
+}
+
+.financial-summary {
+    padding: 15px;
+}
+
+.summary-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+}
+
+.summary-label {
+    font-weight: 500;
+    color: #333;
+}
+
+.summary-value {
+    color: #666;
+    text-align: right;
+}
+
+.total-section {
+    background: #6c7ae0;
+    color: white;
+    padding: 12px 15px;
+    margin: 10px -15px -15px -15px;
+    text-align: right;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.total-value {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
