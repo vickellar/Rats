@@ -2718,3 +2718,9 @@ User ID: 6
 User ID: 6
 [2025-07-04 16:39:42] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
 User ID: 6
+[2025-07-05 16:57:26] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-07-05 16:58:17] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6
+[2025-07-05 16:58:31] Database Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'month_balance' in 'field list'
+User ID: 6

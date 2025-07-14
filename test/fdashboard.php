@@ -16,41 +16,37 @@ try {
     $stmt = $pdo->query("SELECT * FROM payments ORDER BY payment_date DESC");
     $payments = $stmt->fetchAll(PDO::FETCH_ASSOC);
     
-    // Fetch payment approvals with all related information - ONLY UNACTIONED PAYMENTS
+    // Fetch payment approvals with all related information
     $approval_query = "
         SELECT 
             p.payment_id,
-            p.property_id,
-            p.account_id,
-            p.user_id,
-            p.receipt_name,
-            p.receipt_fpath,
-            p.amount_paid,
-            p.payment_date,
-            p.payment_method,
-            p.payment_status,
-            p.invoice_number,
-            p.receipt_number,
-            p.bill_id,
-            p.notes,
-            p.actioned_by,
-            prop.address as property_address,
-            prop.owner as property_owner,
-            u.first_name,
-            u.surname,
-            cb.due_date,
-            cb.invoice_number as bill_invoice_number,
-            cb.total_balance,
-            cb.overall_total,
-            emp.first_name as actioned_by_fname,
-            emp.surname as actioned_by_surname
-        FROM payments p
-        LEFT JOIN properties prop ON p.property_id = prop.property_id
-        LEFT JOIN users u ON p.user_id = u.user_id
-        LEFT JOIN calculated_bills cb ON p.bill_id = cb.bill_id
-        LEFT JOIN employees emp ON p.actioned_by = emp.employee_id
-        WHERE p.payment_status IN ('Pending', 'Verification')
-        ORDER BY p.payment_date DESC";
+        p.property_id,
+        p.account_id,
+        p.user_id,
+        p.amount_paid,
+        p.payment_date,
+        p.payment_method,
+        COALESCE(p.payment_status, p.payment_status) as payment_status,
+        p.invoice_number,
+        p.receipt_number,
+        p.bill_id,
+        p.notes,
+        prop.address as property_address,
+        prop.owner as property_owner,
+        u.first_name,
+        u.surname,
+        cb.due_date,
+        cb.invoice_number as bill_invoice_number,
+        cb.total_balance,
+        cb.overall_total
+    FROM payments p
+    LEFT JOIN properties prop ON p.property_id = prop.property_id
+    LEFT JOIN users u ON p.user_id = u.user_id
+    LEFT JOIN calculated_bills cb ON p.bill_id = cb.bill_id
+    WHERE (p.payment_status = 'pending' OR p.payment_status IS NULL OR 
+           p.payment_status = 'pending' OR p.payment_status IS NULL)
+    ORDER BY p.payment_date DESC
+";
     
     $approval_stmt = $pdo->prepare($approval_query);
     $approval_stmt->execute();
@@ -69,17 +65,20 @@ try {
     
     // Count approved payments
     $approved_stmt = $pdo->query("
-        SELECT COUNT(*) as count 
-        FROM payments 
-        WHERE payment_status = 'Approved'");
+    SELECT COUNT(*) as count 
+    FROM payments 
+    WHERE payment_status = 'approved' OR payment_status = 'approved'
+");
     $approved_result = $approved_stmt->fetch(PDO::FETCH_ASSOC);
     $approved_payments = $approved_result['count'];
     
     // Calculate total pending amount
     $pending_amount_stmt = $pdo->query("
-        SELECT SUM(amount_paid) as total 
-        FROM payments 
-        WHERE payment_status IN ('Pending', 'Verification')");
+    SELECT SUM(amount_paid) as total 
+    FROM payments 
+    WHERE payment_status = 'pending' OR payment_status IS NULL OR
+          payment_status = 'pending' OR payment_status IS NULL
+");
     $pending_amount_result = $pending_amount_stmt->fetch(PDO::FETCH_ASSOC);
     $total_amount_pending = $pending_amount_result['total'] ?? 0;
     
@@ -121,10 +120,8 @@ foreach ($payments as $payment) {
     <link rel="stylesheet" href="styles.css">
     <style>
 .large-modal .modal-content {
-    max-width: 1200px;
-    width: 95%;
-    max-height: 90vh;
-    overflow-y: auto;
+    max-width: 900px;
+    width: 90%;
 }
 
 .review-section {
@@ -246,15 +243,6 @@ foreach ($payments as $payment) {
     font-weight: 500;
 }
 
-.status-verification {
-    background: #e1f5fe;
-    color: #0277bd;
-    padding: 4px 8px;
-    border-radius: 4px;
-    font-size: 0.85rem;
-    font-weight: 500;
-}
-
 .status-approved {
     background: #d4edda;
     color: #155724;
@@ -273,20 +261,140 @@ foreach ($payments as $payment) {
     font-weight: 500;
 }
 
+/* New Styles for Invoice Layout */
+.invoice-header {
+    background-color: #f0f0f0;
+    padding: 15px;
+    border-bottom: 2px solid #ddd;
+}
+
+.invoice-section {
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.section-header-blue {
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    text-align: left;
+    font-weight: bold;
+    border-bottom: 1px solid #ddd;
+}
+
+.invoice-details-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+    padding: 15px;
+    background: white;
+}
+
+.detail-row {
+    display: flex;
+    flex-direction: column;
+}
+
+.detail-label {
+    font-weight: bold;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+.detail-value {
+    color: #333;
+}
+
+.rate-breakdown {
+    padding: 15px;
+    background: white;
+}
+
+.account-info {
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: #e9ecef;
+    border-left: 5px solid #007bff;
+    font-style: italic;
+}
+
+.breakdown-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px dashed #ccc;
+}
+
+.breakdown-label {
+    font-weight: 500;
+    color: #444;
+}
+
+.breakdown-value {
+    font-weight: bold;
+    color: #333;
+}
+
+.monthly-rates {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #f8f9fa;
+    border-radius: 6px;
+}
+
+.month-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 0;
+}
+
+.month-label {
+    color: #666;
+}
+
+.month-value {
+    font-weight: bold;
+}
+
+.financial-summary {
+    padding: 15px;
+    background: white;
+}
+
+.summary-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+}
+
+.summary-label {
+    font-weight: bold;
+    color: #555;
+}
+
+.summary-value {
+    color: #333;
+}
+
+.total-section {
+    text-align: right;
+    padding-top: 10px;
+}
+
+.total-value {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #28a745;
+}
+
 /* Invoice Layout Styles */
 .invoice-header {
-    background: #f8f9fa;
+    background: white;
     padding: 20px;
     border-radius: 8px;
     margin-bottom: 20px;
-    text-align: center;
-    border: 2px solid #dee2e6;
-}
-
-.invoice-header h2 {
-    color: #2c3e50;
-    margin-bottom: 10px;
-    font-size: 1.8rem;
 }
 
 .invoice-section {
@@ -336,10 +444,6 @@ foreach ($payments as $payment) {
 .account-info {
     margin-bottom: 15px;
     font-size: 1rem;
-    background: #e9ecef;
-    padding: 10px;
-    border-left: 4px solid #6c7ae0;
-    font-weight: 600;
 }
 
 .breakdown-item {
@@ -413,82 +517,6 @@ foreach ($payments as $payment) {
     font-size: 1.2rem;
     font-weight: bold;
 }
-
-/* New styles for enhanced functionality */
-.rejection-modal {
-    display: none;
-    position: fixed;
-    z-index: 1001;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.5);
-}
-
-.rejection-modal-content {
-    background-color: #fefefe;
-    margin: 15% auto;
-    padding: 20px;
-    border: none;
-    border-radius: 8px;
-    width: 80%;
-    max-width: 500px;
-}
-
-.rejection-form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.rejection-form textarea {
-    width: 100%;
-    min-height: 100px;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    resize: vertical;
-}
-
-.rejection-form-buttons {
-    display: flex;
-    gap: 10px;
-    justify-content: flex-end;
-}
-
-.clearance-actions {
-    margin-top: 15px;
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-}
-
-.btn-clearance {
-    background: #17a2b8;
-    color: white;
-    border: none;
-    padding: 8px 16px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 0.9rem;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-}
-
-.btn-clearance:hover {
-    background: #138496;
-}
-
-.payment-review-actions {
-    display: flex;
-    gap: 10px;
-    margin-top: 20px;
-    padding-top: 20px;
-    border-top: 1px solid #dee2e6;
-    justify-content: flex-end;
-}
 </style>
 </head>
 <body>
@@ -521,7 +549,6 @@ foreach ($payments as $payment) {
                         <a href="#payments" class="nav-link" data-section="payments">
                             <i class="fas fa-credit-card"></i>
                             <span>Payment Approvals</span>
-                            <span class="badge"><?php echo count($payment_approvals); ?></span>
                         </a>
                     </li>
                     <li class="nav-item">
@@ -579,7 +606,7 @@ foreach ($payments as $payment) {
                     <div class="notifications">
                         <button class="notification-btn">
                             <i class="fas fa-bell"></i>
-                            <span class="notification-badge"><?php echo count($payment_approvals); ?></span>
+                            <span class="notification-badge"><?php echo $pending_invoices; ?></span>
                         </button>
                     </div>
                 </div>
@@ -701,12 +728,8 @@ foreach ($payments as $payment) {
                                         <span class="amount">$<?php echo number_format($approval['amount_paid']); ?></span>
                                     </div>
                                     <div class="queue-actions">
-                                        <?php if ($approval['payment_status'] === 'Verification'): ?>
-                                            <button class="btn-approve" onclick="approvePaymentWithConfirmation(<?php echo $approval['payment_id']; ?>)">Approve</button>
-                                            <button class="btn-reject" onclick="showRejectionModal(<?php echo $approval['payment_id']; ?>)">Reject</button>
-                                        <?php else: ?>
-                                            <button class="btn-review" onclick="reviewPayment(<?php echo $approval['payment_id']; ?>)">Review</button>
-                                        <?php endif; ?>
+                                        <button class="btn-approve" onclick="approvePaymentWithConfirmation(<?php echo $approval['payment_id']; ?>)">Approve</button>
+                                        <button class="btn-review" onclick="reviewPayment(<?php echo $approval['payment_id']; ?>)">Review</button>
                                     </div>
                                 </div>
                                 <?php endforeach; ?>
@@ -804,7 +827,8 @@ foreach ($payments as $payment) {
                         <select class="filter-select">
                             <option>All Payments</option>
                             <option>Pending Approval</option>
-                            <option>Under Verification</option>
+                            <option>Approved</option>
+                            <option>Rejected</option>
                         </select>
                         <select class="filter-select">
                             <option>All Amounts</option>
@@ -827,46 +851,23 @@ foreach ($payments as $payment) {
                                     <?php echo $approval['due_date'] ? date('d-m-Y', strtotime($approval['due_date'])) : 'Not set'; ?>
                                 </p>
                                 <p><strong>Requested by:</strong> <?php echo htmlspecialchars(($approval['first_name'] ?? '') . ' ' . ($approval['surname'] ?? '')); ?></p>
-                                <p><strong>Status:</strong> 
-                                    <span class="status-<?php echo strtolower($approval['payment_status']); ?>">
-                                        <?php echo ucfirst($approval['payment_status']); ?>
-                                    </span>
-                                </p>
-                                <p><strong>Payment Method:</strong> <?php echo htmlspecialchars($approval['payment_method']); ?></p>
-                                <p><strong>Receipt Number:</strong> <?php echo htmlspecialchars($approval['receipt_number']); ?></p>
                                 <?php if ($approval['notes']): ?>
                                 <p><strong>Notes:</strong> <?php echo htmlspecialchars($approval['notes']); ?></p>
                                 <?php endif; ?>
-                                <?php if ($approval['actioned_by']): ?>
-                                <p><strong>Actioned by:</strong> <?php echo htmlspecialchars(($approval['actioned_by_fname'] ?? '') . ' ' . ($approval['actioned_by_surname'] ?? '')); ?></p>
-                                <?php endif; ?>
                             </div>
                             <div class="payment-actions">
-                                <?php if ($approval['payment_status'] === 'Verification'): ?>
-                                    <button class="btn-approve" onclick="approvePaymentWithConfirmation(<?php echo $approval['payment_id']; ?>)">
-                                        <i class="fas fa-check"></i>
-                                        Approve
-                                    </button>
-                                    <button class="btn-reject" onclick="showRejectionModal(<?php echo $approval['payment_id']; ?>)">
-                                        <i class="fas fa-times"></i>
-                                        Reject
-                                    </button>
-                                    <div class="clearance-actions">
-                                        <button class="btn-clearance" onclick="issueClearanceCertificate(<?php echo $approval['payment_id']; ?>, 'rates')">
-                                            <i class="fas fa-certificate"></i>
-                                            Rates Clearance
-                                        </button>
-                                        <button class="btn-clearance" onclick="issueClearanceCertificate(<?php echo $approval['payment_id']; ?>, 'tax')">
-                                            <i class="fas fa-file-alt"></i>
-                                            Tax Clearance
-                                        </button>
-                                    </div>
-                                <?php else: ?>
-                                    <button class="btn-review" onclick="openPaymentReviewModal(<?php echo $approval['payment_id']; ?>)">
-                                        <i class="fas fa-eye"></i>
-                                        Review
-                                    </button>
-                                <?php endif; ?>
+                                <button class="btn-approve" onclick="approvePaymentWithConfirmation(<?php echo $approval['payment_id']; ?>)">
+                                    <i class="fas fa-check"></i>
+                                    Approve
+                                </button>
+                                <button class="btn-reject" onclick="rejectPayment(<?php echo $approval['payment_id']; ?>)">
+                                    <i class="fas fa-times"></i>
+                                    Reject
+                                </button>
+                                <button class="btn-review" onclick="reviewPayment(<?php echo $approval['payment_id']; ?>)">
+                                    <i class="fas fa-eye"></i>
+                                    Review
+                                </button>
                             </div>
                         </div>
                         <?php endforeach; ?>
@@ -874,8 +875,6 @@ foreach ($payments as $payment) {
                         <?php if (empty($payment_approvals)): ?>
                         <div class="payment-card">
                             <div class="payment-details">
-                                <p><i class="fas fa-check-circle" style="color: #28a745; font-size: 2rem;"></i></p>
-                                <p><strong>All caught up!</strong></p>
                                 <p>No pending payment approvals at this time.</p>
                             </div>
                         </div>
@@ -957,7 +956,7 @@ foreach ($payments as $payment) {
                                 SELECT p.payment_id, p.payment_status, p.payment_date, u.first_name, u.surname
                                 FROM payments p
                                 LEFT JOIN users u ON p.user_id = u.user_id
-                                WHERE p.payment_status IN ('Approved', 'Rejected')
+                                WHERE p.payment_status IN ('approved', 'rejected')
                                 ORDER BY p.payment_date DESC
                                 LIMIT 5
                             ";
@@ -966,8 +965,8 @@ foreach ($payments as $payment) {
                             $audit_items = $audit_stmt->fetchAll(PDO::FETCH_ASSOC);
                             
                             foreach ($audit_items as $audit): 
-                                $action_class = $audit['payment_status'] === 'Approved' ? 'approved' : 'rejected';
-                                $action_text = $audit['payment_status'] === 'Approved' ? 'approved' : 'rejected';
+                                $action_class = $audit['payment_status'] === 'approved' ? 'approved' : 'rejected';
+                                $action_text = $audit['payment_status'] === 'approved' ? 'approved' : 'rejected';
                         ?>
                         <div class="audit-item">
                             <div class="audit-time"><?php echo date('Y-m-d H:i', strtotime($audit['payment_date'])); ?></div>
@@ -1118,7 +1117,10 @@ foreach ($payments as $payment) {
         </div>
     </div>
 
-    <!-- Payment Review Modal -->
+    
+
+
+        <!-- Payment Review Modal -->
     <div id="paymentReviewModal" class="modal" style="display:none;">
         <div class="modal-content large-modal">
             <div class="modal-header">
@@ -1132,6 +1134,14 @@ foreach ($payments as $payment) {
                 </div>
             </div>
             <div class="modal-footer">
+                <button class="btn-approve" id="approvePaymentBtn">
+                    <i class="fas fa-check"></i>
+                    Approve Payment
+                </button>
+                <button class="btn-reject" id="rejectPaymentBtn">
+                    <i class="fas fa-times"></i>
+                    Reject Payment
+                </button>
                 <button class="btn-secondary" onclick="closePaymentReviewModal()">
                     <i class="fas fa-times-circle"></i>
                     Close
@@ -1140,7 +1150,7 @@ foreach ($payments as $payment) {
         </div>
     </div>
 
-    <!-- Rejection Modal -->
+ <!-- Rejection Modal -->
     <div id="rejectionModal" class="rejection-modal">
         <div class="rejection-modal-content">
             <h3>Reject Payment</h3>
@@ -1155,243 +1165,12 @@ foreach ($payments as $payment) {
         </div>
     </div>
 
+
+
     <script>
-        let currentPaymentId = null;
-
-        // Function to open payment review modal
-        function openPaymentReviewModal(paymentId) {
-            document.getElementById('paymentReviewModal').style.display = 'block';
-            loadPaymentDetails(paymentId);
-        }
-
-        // Function to load payment details via AJAX
-        function loadPaymentDetails(paymentId) {
-            fetch('get_payment_details.php?payment_id=' + paymentId)
-                .then(response => response.json())
-                .then(data => {
-                    if (data.success) {
-                        displayPaymentDetails(data);
-                    } else {
-                        document.getElementById('paymentReviewBody').innerHTML = 
-                            '<div class="error-message">Error loading payment details: ' + data.message + '</div>';
-                    }
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                    document.getElementById('paymentReviewBody').innerHTML = 
-                        '<div class="error-message">Error loading payment details</div>';
-                });
-        }
-
-        // Function to display payment details in modal
-        function displayPaymentDetails(data) {
-            const payment = data.payment;
-            const property = data.property;
-            const invoice = data.invoice;
-            const account = data.account;
-            const monthlyBreakdown = data.monthly_breakdown;
-
-            const modalBody = document.getElementById('paymentReviewBody');
-            
-            modalBody.innerHTML = `
-                <!-- Invoice Header -->
-                <div class="invoice-header">
-                    <h2>RATES CLEARANCE INVOICE</h2>
-                    <p>Generated on: ${new Date().toLocaleDateString()} ${new Date().toLocaleTimeString()}</p>
-                    <hr>
-                </div>
-
-                <!-- Invoice Details Section -->
-                <div class="invoice-section">
-                    <div class="section-header-blue">Invoice Details</div>
-                    <div class="invoice-details-grid">
-                        <div class="detail-row">
-                            <span class="detail-label">Invoice Number:</span>
-                            <span class="detail-value">${payment.invoice_number || 'N/A'}</span>
-                        </div>
-                        <div class="detail-row">
-                            <span class="detail-label">Invoice Date:</span>
-                            <span class="detail-value">${new Date(payment.payment_date).toLocaleDateString()}</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Rate Breakdown Section -->
-                <div class="invoice-section">
-                    <div class="section-header-blue">Rate Breakdown</div>
-                    <div class="rate-breakdown">
-                        <div class="account-info">Account: ACC-${payment.account_id}</div>
-                        
-                        <div class="breakdown-item">
-                            <span class="breakdown-label">Account Balance:</span>
-                            <span class="breakdown-value">$${parseFloat(payment.amount_paid).toLocaleString()}</span>
-                        </div>
-
-                        <div class="monthly-rates">
-                            <div class="breakdown-label">Monthly Rates:</div>
-                            <div class="month-item">
-                                <span class="month-label">January:</span>
-                                <span class="month-value">$${(parseFloat(payment.amount_paid) / 3).toFixed(2)}</span>
-                            </div>
-                            <div class="month-item">
-                                <span class="month-label">February:</span>
-                                <span class="month-value">$${(parseFloat(payment.amount_paid) / 3).toFixed(2)}</span>
-                            </div>
-                            <div class="month-item">
-                                <span class="month-label">March:</span>
-                                <span class="month-value">$${(parseFloat(payment.amount_paid) / 3).toFixed(2)}</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Financial Summary Section -->
-                <div class="invoice-section">
-                    <div class="section-header-blue">Financial Summary</div>
-                    <div class="financial-summary">
-                        <div class="summary-item">
-                            <span class="summary-label">Subtotal (All Rates):</span>
-                            <span class="summary-value">$${(parseFloat(payment.amount_paid) * 0.9).toFixed(2)}</span>
-                        </div>
-                        <div class="summary-item">
-                            <span class="summary-label">Processing Fee:</span>
-                            <span class="summary-value">$${(parseFloat(payment.amount_paid) * 0.1).toFixed(2)}</span>
-                        </div>
-                        <div class="total-section">
-                            <span class="total-value">$${parseFloat(payment.amount_paid).toLocaleString()}</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Payment Information -->
-                <div class="review-section">
-                    <h3><i class="fas fa-dollar-sign"></i> Payment Information</h3>
-                    <div class="review-grid">
-                        <div class="review-item">
-                            <label>Payment ID:</label>
-                            <span>PAY-${payment.payment_id}</span>
-                        </div>
-                        <div class="review-item">
-                            <label>Amount Paid:</label>
-                            <span class="amount-highlight">$${parseFloat(payment.amount_paid).toLocaleString()}</span>
-                        </div>
-                        <div class="review-item">
-                            <label>Payment Method:</label>
-                            <span>${payment.payment_method}</span>
-                        </div>
-                        <div class="review-item">
-                            <label>Payment Date:</label>
-                            <span>${new Date(payment.payment_date).toLocaleDateString()}</span>
-                        </div>
-                        <div class="review-item">
-                            <label>Receipt Number:</label>
-                            <span>${payment.receipt_number}</span>
-                        </div>
-                        <div class="review-item">
-                            <label>Status:</label>
-                            <span class="status-${payment.payment_status.toLowerCase()}">${payment.payment_status}</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Property Information -->
-                <div class="review-section">
-                    <h3><i class="fas fa-home"></i> Property Information</h3>
-                    <div class="review-grid">
-                        <div class="review-item">
-                            <label>Property Owner:</label>
-                            <span>${property.owner || 'Not available'}</span>
-                        </div>
-                        <div class="review-item">
-                            <label>Property Address:</label>
-                            <span>${property.address || 'Not available'}</span>
-                        </div>
-                        <div class="review-item">
-                            <label>Due Date:</label>
-                            <span>${invoice.due_date ? new Date(invoice.due_date).toLocaleDateString() : 'Not set'}</span>
-                        </div>
-                        <div class="review-item">
-                            <label>Requested by:</label>
-                            <span>${payment.first_name} ${payment.surname}</span>
-                        </div>
-                    </div>
-                </div>
-
-                ${payment.notes ? `
-                <div class="review-section">
-                    <h3><i class="fas fa-sticky-note"></i> Notes</h3>
-                    <div class="review-item">
-                        <span>${payment.notes}</span>
-                    </div>
-                </div>
-                ` : ''}
-
-                ${payment.receipt_fpath ? `
-                <div class="review-section">
-                    <h3><i class="fas fa-receipt"></i> Receipt</h3>
-                    <div class="receipt-preview">
-                        <a href="${payment.receipt_fpath}" target="_blank" class="receipt-link">
-                            <i class="fas fa-download"></i>
-                            View Receipt
-                        </a>
-                    </div>
-                </div>
-                ` : ''}
-
-                <!-- Action Buttons -->
-                <div class="payment-review-actions">
-                    ${payment.payment_status === 'Pending' ? `
-                        <button class="btn-review" onclick="reviewPayment(${payment.payment_id})">
-                            <i class="fas fa-eye"></i> Move to Verification
-                        </button>
-                    ` : ''}
-                    
-                    ${payment.payment_status === 'Verification' ? `
-                        <button class="btn-clearance" onclick="issueClearanceCertificate(${payment.payment_id}, 'rates')">
-                            <i class="fas fa-certificate"></i> Issue Rates Clearance
-                        </button>
-                        <button class="btn-clearance" onclick="issueClearanceCertificate(${payment.payment_id}, 'tax')">
-                            <i class="fas fa-file-alt"></i> Issue Tax Clearance
-                        </button>
-                        <button class="btn-reject" onclick="showRejectionModal(${payment.payment_id})">
-                            <i class="fas fa-times"></i> Reject
-                        </button>
-                        <button class="btn-approve" onclick="approvePaymentWithConfirmation(${payment.payment_id})">
-                            <i class="fas fa-check"></i> Approve
-                        </button>
-                    ` : ''}
-                </div>
-            `;
-        }
-
-        // Enhanced JavaScript functions for payment actions
-        function reviewPayment(paymentId) {
-            if (confirm('Move this payment to verification status?')) {
-                fetch('review_payment.php', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ payment_id: paymentId })
-                })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.success) {
-                        alert('Payment moved to verification status');
-                        closePaymentReviewModal();
-                        location.reload();
-                    } else {
-                        alert('Error: ' + data.message);
-                    }
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                    alert('Error updating payment status');
-                });
-            }
-        }
-
-        // JavaScript functions approve payment with confirmation
+        // JavaScript functions aprove payment with confirnamtion
         function approvePaymentWithConfirmation(paymentId) {
-            if (confirm('Are you sure you want to APPROVE this payment? This action cannot be undone.')) {
+            if (confirm('Are you sure you want to approve this payment?')) {
                 // AJAX call to approve payment
                 fetch('approve_payment.php', {
                     method: 'POST',
@@ -1405,7 +1184,6 @@ foreach ($payments as $payment) {
                 .then(data => {
                     if (data.success) {
                         alert('Payment approved successfully');
-                        closePaymentReviewModal();
                         location.reload();
                     } else {
                         alert('Error approving payment: ' + data.message);
@@ -1418,43 +1196,22 @@ foreach ($payments as $payment) {
             }
         }
 
-        // Function to show rejection modal
-        function showRejectionModal(paymentId) {
-            currentPaymentId = paymentId;
-            document.getElementById('rejectionModal').style.display = 'block';
-            document.getElementById('rejectionReason').value = '';
-        }
-
-        // Function to close rejection modal
-        function closeRejectionModal() {
-            document.getElementById('rejectionModal').style.display = 'none';
-            currentPaymentId = null;
-        }
-
-        // Function to confirm rejection
-        function confirmRejection() {
-            const reason = document.getElementById('rejectionReason').value.trim();
-            
-            if (!reason) {
-                alert('Please provide a reason for rejection');
-                return;
-            }
-
-            if (confirm('Are you sure you want to REJECT this payment? This action cannot be undone.')) {
-                fetch('reject_payment.php', {
+        function rejectPayment(paymentId) {
+            if (confirm('Are you sure you want to reject this payment?')) {
+                // AJAX call to reject payment
+                fetch('approve_payment.php', {
                     method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ 
-                        payment_id: currentPaymentId,
-                        rejection_reason: reason
+                    headers: {
+                        'Content-Type': 'application/json'},
+                    body: JSON.stringify({
+                        payment_id: paymentId,
+                        action: 'reject'
                     })
                 })
                 .then(response => response.json())
                 .then(data => {
                     if (data.success) {
                         alert('Payment rejected successfully');
-                        closeRejectionModal();
-                        closePaymentReviewModal();
                         location.reload();
                     } else {
                         alert('Error rejecting payment: ' + data.message);
@@ -1467,35 +1224,258 @@ foreach ($payments as $payment) {
             }
         }
 
-        // Function to issue clearance certificate
-        function issueClearanceCertificate(paymentId, certificateType) {
-            if (confirm(`Are you sure you want to issue a ${certificateType} clearance certificate for this payment?`)) {
-                fetch('issue_clearance.php', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ 
-                        payment_id: paymentId,
-                        certificate_type: certificateType
-                    })
-                })
+        function reviewPayment(paymentId) {
+            // Show modal with loading state
+            document.getElementById('paymentReviewModal').style.display = 'block';
+            document.getElementById('paymentReviewBody').innerHTML = `
+                <div class="loading-spinner">
+                    <i class="fas fa-spinner fa-spin"></i>
+                    <p>Loading payment details...</p>
+                </div>
+            `;
+            
+            // Fetch payment and invoice details via AJAX
+            fetch('get_payment_details.php?payment_id=' + paymentId)
                 .then(response => response.json())
                 .then(data => {
                     if (data.success) {
-                        alert(`${certificateType.charAt(0).toUpperCase() + certificateType.slice(1)} clearance certificate issued successfully`);
-                        // Optionally download or view the certificate
-                        if (data.certificate_url) {
-                            window.open(data.certificate_url, '_blank');
-                        }
-                    } else {
-                        alert('Error issuing certificate: ' + data.message);
+                        let html = '';
+                        
+                        // Invoice Details Section - New Invoice Layout
+                        if (data.invoice) {
+                            html += `
+                                <div class="review-section">
+                                    <div class="invoice-header">
+                                        <h2 style="text-align: center; margin: 0; font-size: 1.5rem; font-weight: bold;">RATES CLEARANCE INVOICE</h2>
+                                        <p style="text-align: right; margin: 10px 0; font-size: 0.9rem; color: #666;">
+                                            Generated on: ${new Date().toLocaleDateString()} ${new Date().toLocaleTimeString()}
+                                        </p>
+                                        <hr style="border: 1px solid #333; margin: 10px 0;">
+                                    </div>
+                                    
+                                    <!-- Invoice Details -->
+                                    <div class="invoice-section">
+                                        <div class="section-header-blue">Invoice Details</div>
+                                        <div class="invoice-details-grid">
+                                            <div class="detail-row">
+                                                <span class="detail-label">Invoice Number:</span>
+                                                <span class="detail-value">${data.invoice.invoice_number}</span>
+                                            </div>
+                                            <div class="detail-row">
+                                                <span class="detail-label">Invoice Date:</span>
+                                                <span class="detail-value">${new Date(data.invoice.calculated_at).toLocaleDateString()}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Rate Breakdown -->
+                                    <div class="invoice-section">
+                                        <div class="section-header-blue">Rate Breakdown</div>
+                                        <div class="rate-breakdown">
+                                            <div class="account-info">
+                                                <strong>Account: ${data.account ? data.account.account_number : 'N/A'}</strong>
+                                            </div>
+                                            <div class="breakdown-item">
+                                                <span class="breakdown-label">Account Balance:</span>
+                                                <span class="breakdown-value">$${Number(data.account ? data.account.account_balance : 0).toFixed(2)}</span>
+                                            </div>
+                                            <div class="monthly-rates">
+                                                <div class="breakdown-label" style="margin-bottom: 10px;"><strong>Monthly Rates:</strong></div>
+            `;
+            
+            // Add monthly breakdown if available
+            if (data.monthly_breakdown && data.monthly_breakdown.length > 0) {
+                data.monthly_breakdown.forEach(month => {
+                    if (month.month1_name) {
+                        html += `<div class="month-item">
+                            <span class="month-label">${month.month1_name}:</span>
+                            <span class="month-value">$${Number(month.monthly_balance / 3).toFixed(2)}</span>
+                        </div>`;
                     }
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                    alert('Error issuing certificate');
+                    if (month.month2_name) {
+                        html += `<div class="month-item">
+                            <span class="month-label">${month.month2_name}:</span>
+                            <span class="month-value">$${Number(month.monthly_balance / 3).toFixed(2)}</span>
+                        </div>`;
+                    }
+                    if (month.month3_name) {
+                        html += `<div class="month-item">
+                            <span class="month-label">${month.month3_name}:</span>
+                            <span class="month-value">$${Number(month.monthly_balance / 3).toFixed(2)}</span>
+                        </div>`;
+                    }
+                    if (month.month4_name) {
+                        html += `<div class="month-item">
+                            <span class="month-label">${month.month4_name}:</span>
+                            <span class="month-value">$${Number(month.monthly_balance / 4).toFixed(2)}</span>
+                        </div>`;
+                    }
                 });
+            } else {
+                // Default monthly breakdown if no data
+                html += `
+                    <div class="month-item">
+                        <span class="month-label">February:</span>
+                        <span class="month-value">$${Number(data.invoice.total_balance / 3).toFixed(2)}</span>
+                    </div>
+                    <div class="month-item">
+                        <span class="month-label">March:</span>
+                        <span class="month-value">$${Number(data.invoice.total_balance / 3).toFixed(2)}</span>
+                    </div>
+                    <div class="month-item">
+                        <span class="month-label">April:</span>
+                        <span class="month-value">$${Number(data.invoice.total_balance / 3).toFixed(2)}</span>
+                    </div>
+                `;
             }
+            
+            html += `
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Financial Summary -->
+                    <div class="invoice-section">
+                        <div class="section-header-blue">Financial Summary</div>
+                        <div class="financial-summary">
+                            <div class="summary-item">
+                                <span class="summary-label">Subtotal (All Rates):</span>
+                                <span class="summary-value">$${Number(data.invoice.total_balance).toFixed(2)}</span>
+                            </div>
+                            <div class="summary-item">
+                                <span class="summary-label">Processing Fee:</span>
+                                <span class="summary-value">$${Number(data.invoice.processing_fee).toFixed(2)}</span>
+                            </div>
+                            <hr style="border: 1px solid #333; margin: 10px 0;">
+                            <div class="total-section">
+                                <span class="total-value">$${Number(data.invoice.overall_total).toFixed(2)}</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    ${data.invoice.comments ? `
+                        <div class="invoice-section">
+                            <div class="section-header-blue">Comments</div>
+                            <div style="padding: 10px; background: white;">
+                                ${data.invoice.comments}
+                            </div>
+                        </div>
+                    ` : ''}
+                </div>
+            `;
         }
+                        
+                        // Payment Details Section
+                        if (data.payment) {
+                            const statusClass = data.payment.payment_status ? 
+                                `status-${data.payment.payment_status.toLowerCase()}` : 'status-pending';
+                            
+                            html += `
+                                <div class="review-section">
+                                    <h3><i class="fas fa-credit-card"></i> Payment Details</h3>
+                                    <div class="review-grid">
+                                        <div class="review-item">
+                                            <label>Payment ID:</label>
+                                            <span>PAY-${data.payment.payment_id}</span>
+                                        </div>
+                                        <div class="review-item">
+                                            <label>Amount Paid:</label>
+                                            <span class="amount-highlight">$${Number(data.payment.amount_paid).toLocaleString()}</span>
+                                        </div>
+                                        <div class="review-item">
+                                            <label>Payment Date:</label>
+                                            <span>${new Date(data.payment.payment_date).toLocaleDateString()}</span>
+                                        </div>
+                                        <div class="review-item">
+                                            <label>Payment Method:</label>
+                                            <span>${data.payment.payment_method}</span>
+                                        </div>
+                                        <div class="review-item">
+                                            <label>Transaction Status:</label>
+                                            <span class="${statusClass}">${data.payment.payment_status || 'Pending'}</span>
+                                        </div>
+                                        <div class="review-item">
+                                            <label>Receipt Number:</label>
+                                            <span>${data.payment.receipt_number}</span>
+                                        </div>
+                                    </div>
+                                    
+                                    ${data.payment.notes ? `
+                                        <div class="review-item" style="margin-top: 15px;">
+                                            <label>Notes:</label>
+                                            <span>${data.payment.notes}</span>
+                                        </div>
+                                    ` : ''}
+                                    
+                                    ${data.payment.receipt_fpath ? `
+                                        <div style="margin-top: 20px;">
+                                            <h4>Receipt File</h4>
+                                            <div class="receipt-preview">
+                                                <p><strong>File:</strong> ${data.payment.receipt_name}</p>
+                                                <a href="${data.payment.receipt_fpath}" target="_blank" class="receipt-link">
+                                                    <i class="fas fa-external-link-alt"></i>
+                                                    View Receipt
+                                                </a>
+                                            </div>
+                                        </div>
+                                    ` : ''}
+                                </div>
+                            `;
+                        }
+                        
+                        // Property Details Section
+                        if (data.property) {
+                            html += `
+                                <div class="review-section">
+                                    <h3><i class="fas fa-building"></i> Property Details</h3>
+                                    <div class="review-grid">
+                                        <div class="review-item">
+                                            <label>Property Address:</label>
+                                            <span>${data.property.address}</span>
+                                        </div>
+                                        <div class="review-item">
+                                            <label>Property Owner:</label>
+                                            <span>${data.property.owner}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            `;
+                        }
+                        
+                        document.getElementById('paymentReviewBody').innerHTML = html;
+                        
+                        // Set approve/reject button actions
+                        document.getElementById('approvePaymentBtn').onclick = function() {
+                            approvePaymentWithConfirmation(paymentId);
+                            closePaymentReviewModal();
+                        };
+                        document.getElementById('rejectPaymentBtn').onclick = function() {
+                            rejectPayment(paymentId);
+                            closePaymentReviewModal();
+                        };
+            } else {
+                document.getElementById('paymentReviewBody').innerHTML = `
+                    <div class="review-section">
+                        <p style="color: #dc3545; text-align: center;">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            Error loading payment details: ${data.message || 'Unknown error'}
+                        </p>
+                    </div>
+                `;
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            document.getElementById('paymentReviewBody').innerHTML = `
+                <div class="review-section">
+                    <p style="color: #dc3545; text-align: center;">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        Error loading payment details. Please try again.
+                    </p>
+                </div>
+            `;
+        });
+}
 
         function openInvoiceModal(invoiceNumber) {
             document.getElementById('invoiceModal').style.display = 'block';
@@ -1526,7 +1506,7 @@ foreach ($payments as $payment) {
         //close rejection modal when clicking outside
         window.onclick = function(event){
             const modal = document.getElementById('rejectionModal');
-            if(event.target == modal){
+            if(event.target = modal){
                 closeRejectionModal();
             }
         }
